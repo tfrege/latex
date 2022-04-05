@@ -1,0 +1,186 @@
+\chapter{DISEÑO}
+
+Al finalizar esta etapa del desarrollo se cuenta con los diagramas completos de casos de uso, secuencia, estados, clases y otros complementarios, que den paso finalmente a la fase de implementación.
+
+\section{Diagramas de secuencia}
+ 
+Como continuación a los diagramas de colaboración y estado obtenidos del análisis es necesario crear los diagramas de secuencia. Éstos muestran las interacciones entre los distintos objetos organizadas en una secuencia temporal, lo que los hace ser en este aspecto diagramas más elaborados que los de Colaboración \cite{RUM2000}. Las interacciones son denominadas mensajes.\\
+
+Los diagramas de secuencia constituyen un puente entre los diagramas de colaboración (donde se presentan los clasificadores o potenciales clases) y el diagrama de clases que será mostrado en la sección \ref{disenio}.\\
+
+El diagrama mostrado en la figura \ref{figdiagramasecuencia1} corresponde a la función ``Ingresar al sistema''.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=13cm]{./imagenes/secuenciaingresarsistema.jpg}
+  \caption[\small Diagrama de secuencia para la función Ingresar al Sistema]
+  {\small Diagrama de secuencia para la función Ingresar al Sistema.}
+  \label{figdiagramasecuencia1}
+\end{figure}
+
+En el diagrama se presentan los clasificadores mencionados en la sección \ref{diagramacolaboracion} (Diagrama de colaboración).\\
+
+La figura también describe la manera en que trabajan las capas del modelo MVC: Toda solicitud llega primero al Controlador mediante la Vista. Según el tipo de requerimiento, éste (Controller) solicita datos del Modelo. Los resultados de este último definen el tipo de respuesta que el Controlador ordenará a la Vista desplegar.\\
+
+En el Anexo \ref{anexodiagramasyfunciones} se encuentran los diagramas de casos de uso, colaboración, estado y secuencia de las funciones del sistema según el tipo de usuario.
+
+\section{Clases} \label{disenio}
+
+El diagrama presenta las clases involucradas en el sistema en términos de estructura y de herencia. Como es de esperarse, la definición de toda clase trae consigo la definición de sus atributos y métodos, lo que aporta mucha información a los diseñadores para proceder a la elaboración de modelos como el presentado en el siguiente apartado (\ref{secentidadrelacion} Diagrama entidad-relación) y de algoritmos \cite{RUM2000}.\\
+
+La figura \ref{figdiagramaclases} muestra las distintas clases involucradas en el sistema y las relaciones entre ellas. Las clases carecen de atributos y métodos en el gráfico con el objetivo de facilitar su visualización; el detalle de cada clase se encuentra en el Anexo \ref{anexodiccionarioclases} (Diccionario de Clases).\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=13cm]{./imagenes/diagramaclases.jpg}
+  \caption[\small Diagrama de clases]
+  {\small Diagrama de clases.}
+  \label{figdiagramaclases}
+\end{figure}
+
+En base a éste diagrama y al de estados mostrado en la sección \ref{diagramaestados} se obtuvo el algoritmo mostrado en el apartado \ref{seccionalgoritmos}.
+
+\section{Diagrama entidad-relación}
+\label{secentidadrelacion}
+
+Este modelo fue obtenido en base al Modelo de Clases con el objetivo de obtener un modelo relacional para la creación de la Base de Datos.\\
+
+{\bfseries{Del diagrama de clases al diagrama E-R}}\\
+
+Para hacer la conversión se utilizaron los siguientes criterios (sugeridos por \cite{RUM1996}):
+\begin{itemize}
+\item	Cada clase se convierte en una o más tablas.
+\item	Cada atributo de una clase se convierte en una columna de la tabla que corresponderá a la entidad. A esto se añaden uno o más campos (o se identifican de los ya existentes) que conformen la clave principal.
+\item	De relaciones múltiples (n:n) surgen tablas intermedias como resultado de la normalización.
+\end{itemize}
+
+La figura \ref{figdiagramaer} muestra el diagrama E-R de la aplicación. A pesar de que se obtuvo el modelo de Base de Datos relacional con este diagrama, las clases no desaparecen del Diseño de la aplicación puesto que serán utilizadas posteriormente durante la implementación de la Capa M del modelo MVC (véase el capítulo \ref{capimplementacion}: Implementación).\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/modeloer2.jpg}
+  \caption[\small Diagrama entidad-relación]
+  {\small Diagrama entidad-relación.}
+  \label{figdiagramaer}
+\end{figure}
+ 
+El Diccionario de Datos que acompaña al diagrama presentado se encuentra detallado en el Anexo \ref{anexodiccionariodatos}.
+
+\clearpage
+\section{Algoritmo} \label{seccionalgoritmos}
+
+El algoritmo presentados a continuación es una contribución personal al diseño del sistema.\\
+
+{\bfseries Controlar la calidad de un proyecto}\\
+
+El siguiente algoritmo muestra la manera en que los usuarios pueden efectuar el control de la calidad de un proyecto (en general). El algoritmo muestra toda la lógica de la aplicación en torno a un objeto de la clase Proyecto. En esta lógica intervienen los usuarios y el sistema.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/algoritmo_1.jpg}  
+  \label{figalgoritmo1}
+\end{figure}
+
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/algoritmo_2.jpg}  
+  \label{figalgoritmo2}
+\end{figure}
+
+
+\section{Arquitectura}
+
+La arquitectura del sistema define la organización física y lógica que tendrá la aplicación.
+
+\subsection{Organización física}
+
+Esta organización se divide en dos: la organización general de la aplicación y la organización específica que ésta tendrá en el servidor.\\
+
+\clearpage
+{\bfseries a. Enfoque general}\\
+
+La figura que se muestra a continuación muestra un esquema de las tres capas que tendrá la aplicación (Cliente, Servidor y Base(s) de Datos).\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/arquitecturageneral.jpg}
+  \caption[\small Arquitectura general de la aplicación (three-tier)]
+  {\small Arquitectura general de la aplicación (three-tier).}
+  \label{figarquitecturageneral}
+\end{figure}  
+
+Como se ve en la figura, un cliente podrá acceder al servidor mediante una LAN  (o cualquiera de las variantes conocidas de redes como MAN  y WAN ), directamente por Internet ó ambos (LAN y luego Internet). A su vez, del lado del servidor, se tendrá un esquema similar: el acceso al mismo podrá ser directo desde Internet o pasando por éste y luego por una subred.\\
+
+De una manera análoga, la Base de Datos podrá residir en el mismo servidor o bien, en otra máquina, siendo accedida mediante una red (LAN, MAN, WAN o Internet). De todas formas, la arquitectura continuará siendo de tres capas.\\
+
+{\bfseries b. Componentes}\\
+
+Un diagrama de componentes es utilizado para modelar la estructura del software incluyendo las dependencias entre los distintos componentes.\\
+
+El diagrama de la figura \ref{figcomponentes} muestra los componentes de la aplicación y la relación de dependencia (flecha con trazo discontinuo) que existe entre ellos.\\
+
+Básicamente, un componente se define como una parte física del sistema que contiene parte de la implementación del mismo. Puede o no depender de otros componentes y ser reemplazado si es necesario por uno o más nuevos. Contiene código fuente y su estructura interna y contenido puede responder a las convenciones del lenguaje de programación utilizado \cite{RUM2000}.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/componentes2.jpg}
+  \caption[\small Diagrama general de componentes]
+  {\small Diagrama general de componentes.}
+  \label{figcomponentes}
+\end{figure}
+
+\begin{itemize}
+\item	Config.- contiene archivos de configuración del sistema
+\item	Util.- contiene librerías y archivos complementarios que serán comunes a más de un objeto del sistema. 
+\item	Src.- Depende de los dos anteriores y contiene todo el código fuente de la aplicación, organizado por entidades.
+\end{itemize}
+
+Como complemento al diagrama de la figura \ref{figcomponentes}, se presenta la figura \ref{figarquitecturaservidor} que detalla la organización de la aplicación a nivel físico dentro del servidor.
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/arquitecturaservidor.jpg}
+  \caption[\small Organización física de la aplicación dentro del servidor]
+  {\small Organización física de la aplicación dentro del servidor.}
+  \label{figarquitecturaservidor}
+\end{figure}
+
+\clearpage
+
+\subsection{Organización lógica}
+
+Muestra la manera en que los archivos se organizan para garantizar el correcto funcionamiento de la aplicación y una estructura lógica coherente y ordenada.\\
+
+Esta organización está basada en la propuesta por la arquitectura MVC, que como se explicó en el capítulo 4, será utilizada para la implementación de la herramienta.\\
+
+{\bfseries a. Paquetes}\\
+
+Un paquete es una parte un modelo. Cada paquete contiene un conjunto de partes más pequeñas del modelo, asignadas bajo un mismo principio (como la funcionalidad) \cite{RUM2000}.\\
+
+En la figura \ref{figpaquetes} se muestra el diagrama de paquetes de la aplicación y las clases más importantes que cada paquete contendrá.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/paquetes.jpg}
+  \caption[\small Diagrama de paquetes]
+  {\small Diagrama de paquetes.}
+  \label{figpaquetes}
+\end{figure} 
+
+\clearpage
+{\bfseries b. Capas MVC}\\
+
+La figura \ref{figorganizacionlogica} ilustra la disposición de las capas del modelo MVC en la organización lógica de la aplicación. Como ejemplo, se muestra el caso de la entidad Proyecto que:
+\begin{itemize}
+\item En la capa de la Vista podrá tener archivos para listar los proyectos, crear nuevos, editar los existentes, eliminar, etc.
+\item En la capa del Controlador tendrá dos archivos: uno ``maestro'' que se ocupará de invocar a todos los archivos del Modelo que necesite (es por eso que en el ejemplo aparecen en la capa del Modelo las entidades proyecto, cliente, usuario y ciclo) y otro que servirá de soporte al primero durante la validación de la información.
+\end{itemize}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/arquitecturalogica.jpg}
+  \caption[\small Organización lógica de la aplicación]
+  {\small Organización lógica de la aplicación. En la figura se muestra como ejemplo la organización de archivos para la entidad Proyecto.}
+  \label{figorganizacionlogica}
+\end{figure}  

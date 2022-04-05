@@ -1,0 +1,1072 @@
+\chapter{DICCIONARIO DE CLASES}
+\label{anexodiccionarioclases}
+
+En este Diccionario se detallan los atributos y métodos de las principales clases del sistema (mostrados en orden alfabético).\\
+
+{\bfseries \large Clases}
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries CasoTesteo}
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+\footnotesize nombre &	
+\footnotesize String(100)	& 
+\footnotesize Nombre del Caso de Testeo\\
+
+\footnotesize propósito	& 
+\footnotesize String(250)	& 
+\footnotesize Objetivo del caso\\
+
+\footnotesize descripción	& 
+\footnotesize String(250)	& 
+\footnotesize Breve descripción\\
+
+\footnotesize pasos\_configuracion	& 
+\footnotesize String(250)	& 
+\footnotesize Pasos previos a la ejecución del caso\\
+
+\footnotesize pasos\_ejecucion	& 
+\footnotesize String(250)	& 
+\footnotesize Pasos para la ejecución del caso de testeo\\
+
+\footnotesize resultado\_esperado	& 
+\footnotesize String(250)	& 
+\footnotesize Resultado que se espera obtener\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize crearCaso	 &
+\footnotesize nombre, propósito, descripción, pasos\_config, pasos\_ejec, result\_esperado &
+\footnotesize &
+\footnotesize Crea un nuevo caso de Prueba (constructor de la clase) \\
+
+\footnotesize obtenerCaso	&
+\footnotesize &
+\footnotesize Atributos del Caso de testeo &
+\footnotesize Obtiene los datos de un caso en particular. \\
+
+\footnotesize modificarCcaso &
+\footnotesize nuevo\_nombre, nuevo\_propósito, nueva\_descripción, nuevos\_pasos\_config, nuevos\_pasos\_ejec, nuevo\_result\_esperado	&	
+\footnotesize &
+\footnotesize Modifica los datos del caso de testeo \\
+
+\footnotesize eliminarCaso	&
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el caso de testeo (destructor de la clase)\\
+\hline
+\end{longtable} 
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Checklist}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+\footnotesize nombre	& 
+\footnotesize String(100) &
+\footnotesize Nombre de la lista \\
+
+\footnotesize propósito	& 
+\footnotesize String(250) &
+\footnotesize Objetivo de la lista \\
+
+\footnotesize descripción &	
+\footnotesize String(250) &
+\footnotesize Breve descripción \\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearChecklist &
+\footnotesize nombre, propósito, descripción &
+\footnotesize &
+\footnotesize Crea una nueva lista (constructor de la clase) \\
+
+\footnotesize obtenerLista &
+\footnotesize &
+\footnotesize Atributos del Checklist &
+\footnotesize Obtiene los atributos de una lista en particular.\\
+
+\footnotesize modificarChecklist &
+\footnotesize nuevo\_nombre, nuevo\_propósito, nueva\_descripción &
+\footnotesize &
+\footnotesize Modifica los datos del checklist \\
+
+\footnotesize eliminarCaso &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el checklist (destructor de la clase)\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Ciclo}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize nombre &
+\footnotesize String(50) &
+\footnotesize Nombre del ciclo\\
+
+\footnotesize descripción &
+\footnotesize String(250) &
+\footnotesize Breve descripción \\
+
+\hline
+\end{longtable} 
+
+\clearpage
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearCiclo &
+\footnotesize nombre, descripción &
+\footnotesize &
+\footnotesize Crea un nuevo ciclo (constructor de la clase)\\
+
+\footnotesize obtenerCiclo &
+\footnotesize &
+\footnotesize Nombre, descripción	& 
+\footnotesize Obtiene los atributos del ciclo\\
+
+\footnotesize modificarCiclo &
+\footnotesize nuevo\_nombre, nueva\_descripción	&
+\footnotesize &
+\footnotesize Modifica los datos del ciclo\\
+
+\footnotesize eliminarCiclo &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el ciclo (destructor de la clase)\\
+		
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Cliente}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize nombre &
+\footnotesize String(100) &
+\footnotesize Nombre del cliente\\
+
+\footnotesize descripción &
+\footnotesize String(250) &
+\footnotesize Breve descripción\\
+
+\footnotesize empresa &
+\footnotesize String(100) &
+\footnotesize Empresa a la que pertenece el cliente\\
+
+\footnotesize ciudad &
+\footnotesize String(50) &
+\footnotesize Ciudad donde reside el cliente\\
+
+\footnotesize país &
+\footnotesize String(50) &
+\footnotesize País donde reside el cliente\\
+
+\footnotesize teléfono &
+\footnotesize String(100) &
+\footnotesize Teléfono(s) del cliente\\
+
+\footnotesize dirección	& 
+\footnotesize String(250) &
+\footnotesize Dirección física del cliente\\
+
+\footnotesize email &	
+\footnotesize String(50) &
+\footnotesize Correo electrónico\\
+
+\footnotesize WWW &
+\footnotesize String(250) &
+\footnotesize Página Web del cliente\\
+
+\footnotesize sector &
+\footnotesize String(50) &
+\footnotesize Sector de trabajo (Rubro)\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearCliente &
+\footnotesize nombre, descripcion, empresa, ciudad, pais, telefono, direccion, email, www, sector &
+\footnotesize &
+\footnotesize Crea un nuevo cliente (constructor de la clase)\\
+
+\footnotesize obtenerCliente &
+\footnotesize &
+\footnotesize Nombre, descripción, empresa, ciudad, país, teléfono, dirección, email, www, sector &	
+\footnotesize Obtiene los atributos del cliente\\
+
+\footnotesize modificarCliente &
+\footnotesize nuevo\_nombre, nueva\_descripción, nueva\_empresa, nueva\_ciudad, nuevo\_país, nuevo\_teléfono, nueva\_dirección, nuevo\_email, nuevo\_www, nuevo\_sector	&
+\footnotesize &
+\footnotesize Modifica los datos del  cliente\\
+
+\footnotesize eliminarCliente &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el cliente (destructor de la clase)\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries ElementoCL}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize descripción &
+\footnotesize String(250) &
+\footnotesize Sentencia\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearElemento &
+\footnotesize descripción &
+\footnotesize &
+\footnotesize Crea un nuevo elemento (constructor de la clase)\\
+
+\footnotesize obtenerElemento &
+\footnotesize &
+\footnotesize Descripción &
+\footnotesize Obtiene los atributos del elemento\\
+
+\footnotesize modificarCiclo &
+\footnotesize nueva\_descripción &
+\footnotesize &
+\footnotesize Modifica el elemento\\
+
+\footnotesize eliminarElemento &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el elemento (destructor de la clase)\\
+		
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+\item {\bfseries Entorno}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize nombre &
+\footnotesize String(50) &
+\footnotesize Nombre del entorno \\
+
+\footnotesize descripción\_hardware &
+\footnotesize String(250) &
+\footnotesize Descripción del entorno de hardware\\
+
+\footnotesize descripción\_software	&
+\footnotesize String(250) &
+\footnotesize Descripción del entorno de software\\
+
+\footnotesize otros &
+\footnotesize String(250) &
+\footnotesize Descripciones adicionales\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearEntorno &
+\footnotesize nombre, descr\_hw, descr\_sw, otros &
+\footnotesize &
+\footnotesize Crea un nuevo entorno (constructor de la clase)\\
+
+\footnotesize obtenerEntorno &
+\footnotesize &
+\footnotesize nombre, descr\_hw, descr\_sw, otros &
+\footnotesize Obtiene los atriburos del entorno\\
+
+\footnotesize modificarEntorno &
+\footnotesize nuevo\_nombre, nueva\_descripción\_hw, nueva\_descripción\_sw, nuevo\_otros &
+\footnotesize &
+\footnotesize Modifica los datos del entorno\\
+
+\footnotesize eliminarEntorno &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el entorno (destructor de la clase)\\
+		
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Fase}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize nombre &
+\footnotesize String(50) &
+\footnotesize Nombre de la fase\\
+
+\footnotesize descripcion &
+\footnotesize String(250) &
+\footnotesize Breve descripción\\
+
+\hline
+\end{longtable} 
+
+\clearpage
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearFase &
+\footnotesize nombre, descripcion &
+\footnotesize &
+\footnotesize Crea una nueva fase (constructor de la clase)\\
+
+\footnotesize obtenerFase &
+\footnotesize &
+\footnotesize Nombre, descripcion &
+\footnotesize Obtiene los atributos de la fase\\
+
+\footnotesize modificarFase	&
+\footnotesize nuevo\_nombre, nueva\_descripción	&
+\footnotesize &
+\footnotesize Modifica los datos de la fase\\
+
+\footnotesize eliminarFase &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina la fase (destructor de la clase)\\
+		
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Iteración}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize nombre &
+\footnotesize String(50) &
+\footnotesize Nombre de la iteración\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearIteración &
+\footnotesize nombre &
+\footnotesize &
+\footnotesize Crea una nueva iteración (constructor de la clase)\\
+
+\footnotesize obtenerIteración &
+\footnotesize &
+\footnotesize Nombre &
+\footnotesize Obtiene los atributos de la iteración\\
+
+\footnotesize modificarIteración &
+\footnotesize nuevo\_nombre &
+\footnotesize &
+\footnotesize Modifica los datos de la iteración\\
+
+\footnotesize eliminarIteración &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina la iteración (destructor de la clase)\\
+		
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Proyecto}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize nombre &
+\footnotesize String(50) &
+\footnotesize Nombre de la fase\\
+
+\footnotesize objetivo &
+\footnotesize String(250) &
+\footnotesize Objetivo del proyecto\\
+
+\footnotesize descripción &
+\footnotesize String(250) &
+\footnotesize Breve descripción\\
+
+\footnotesize fecha\_inicial &
+\footnotesize Date &
+\footnotesize Fecha de apertura del proyecto\\
+
+\footnotesize fecha\_final &
+\footnotesize Date &
+\footnotesize Fecha de cierre del proyecto\\
+
+\footnotesize estado &
+\footnotesize String(15) &
+\footnotesize Estado en el que se encuentra del proyecto\\
+
+\footnotesize avance &
+\footnotesize Int(3) &	
+\footnotesize Porcentaje de avance del proyecto\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearProyecto &
+\footnotesize nombre, objetivo, descripcion, fecha\_i, fecha\_f, estado, avance &
+\footnotesize &
+\footnotesize Crea un nuevo proyecto (constructor de la clase) \\
+
+\footnotesize obtenerProyecto &
+\footnotesize &
+\footnotesize Nombre, objetivo, descripcion, fecha\_i, fecha\_f, estado, avance &
+\footnotesize Obtiene los atributos del proyecto \\
+
+\footnotesize modificarProyecto &
+\footnotesize nuevo\_nombre, nueva\_descripción	&
+\footnotesize &
+\footnotesize Modifica los datos del proyecto \\
+
+\footnotesize cerrarProyecto &
+\footnotesize &
+\footnotesize &
+\footnotesize Cierra el proyecto (cambio de estado) \\
+
+\footnotesize eliminarProyecto &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el proyecto (destructor de la clase)\\
+		
+\hline
+\end{longtable} 
+
+	\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries ResponsableCL}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize descripcion\_tarea &
+\footnotesize String(50) &
+\footnotesize Descripción de la tarea (de un checklist)\\
+
+\footnotesize fecha\_registro &
+\footnotesize Date &
+\footnotesize Fecha de registro de la tarea\\
+
+\footnotesize estado &
+\footnotesize String(250) & 
+\footnotesize Estado de la tarea\\
+
+\footnotesize comentarios &
+\footnotesize String(250) &
+\footnotesize Comentarios del responsable\\
+
+\hline
+\end{longtable} 
+
+\clearpage
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearTarea &
+\footnotesize descripcion\_tarea, fecha\_registro, estado, comentarios	&
+\footnotesize &
+\footnotesize Crea una nueva tarea (constructor de la clase) \\
+
+\footnotesize obtenerTarea &
+\footnotesize &
+\footnotesize descripción\_tarea, fecha\_registro, estado, comentarios &
+\footnotesize Obtiene los atributos de la tarea \\
+
+\footnotesize modificarTarea &
+\footnotesize nueva\_descripción\_tarea, nueva\_fecha\_registro, nuevo\_estado, nuevos\_comentarios &
+\footnotesize &
+\footnotesize Modifica los datos de la tarea \\
+
+\footnotesize eliminarTarea &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina la tarea (destructor de la clase)\\
+
+\hline
+\end{longtable} 
+		
+	\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries ResponsableCT}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize descripcion\_tarea &
+\footnotesize String(50) &
+\footnotesize Descripción de la tarea (de un caso de testeo)\\
+
+\footnotesize fecha\_registro &
+\footnotesize Date &
+\footnotesize Fecha de registro de la tarea\\
+
+\footnotesize estado &
+\footnotesize String(250) &
+\footnotesize Estado de la tarea\\
+
+\footnotesize comentarios &
+\footnotesize String(250) &
+\footnotesize Comentarios del responsable\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearTarea &
+\footnotesize descripcion\_tarea, fecha\_registro, estado, comentarios	&
+\footnotesize &
+\footnotesize Crea una nueva tarea (constructor de la clase) \\
+
+\footnotesize obtenerTarea	&
+\footnotesize &
+\footnotesize descripcion\_tarea, fecha\_registro, estado, comentarios &
+\footnotesize Obtiene los atributos de la tarea \\
+
+\footnotesize modificarTarea &
+\footnotesize nueva\_descripcion\_tarea, nueva\_fecha\_registro, nuevo\_estado, nuevos\_comentarios &
+\footnotesize &
+\footnotesize Modifica los datos de la tarea \\
+
+\footnotesize eliminarTarea	&	
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina la tarea (destructor de la clase)\\
+
+\hline
+\end{longtable} 
+		
+	\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries ResultadoCL}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize resultado	&
+\footnotesize Int(1) &
+\footnotesize Resultado de la ejecución del checklist \\
+
+\footnotesize comentario	&
+\footnotesize String &
+\footnotesize Comentario del ejecutor \\
+
+\footnotesize fecha\_ejecucion &
+\footnotesize Date &
+\footnotesize Fecha de registro del resultado\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearResultado &
+\footnotesize resultado, fecha\_ejecucion	&
+\footnotesize &
+\footnotesize Crea un nuevo resultado (constructor de la clase) \\
+
+\footnotesize obtenerResultado &
+\footnotesize &
+\footnotesize resultado, fecha\_ejecucion	&
+\footnotesize Obtiene los atributos del resultado\\
+
+\footnotesize modificarResultado &
+\footnotesize nuevo\_resultado, nueva\_fecha\_ejecucion &
+\footnotesize &
+\footnotesize Modifica el resultado\\
+
+\footnotesize eliminarResultado &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el resultado\\
+		
+\hline
+\end{longtable} 
+
+	\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries ResultadoCT}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize resultado &
+\footnotesize Int(1) &
+\footnotesize Resultado de la ejecución del caso de testeo\\
+
+\footnotesize resultado\_obtenido &
+\footnotesize String(250) &
+\footnotesize Descripción del resultado obtenido\\
+
+\footnotesize fecha\_ejecucion &
+\footnotesize Date &
+\footnotesize Fecha de registro del resultado\\
+
+\hline
+\end{longtable} 
+
+\clearpage
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearResultado &
+\footnotesize resultado, resultado\_obtenido, fecha\_ejecucion &
+\footnotesize &
+\footnotesize Crea un nuevo resultado (constructor de la clase) \\
+
+\footnotesize obtenerResultado	&
+\footnotesize &
+\footnotesize resultado, resultado\_obtenido,  fecha\_ejecucion &
+\footnotesize Obtiene los atributos del resultado\\
+
+\footnotesize modificarResultado &
+\footnotesize nuevo\_resultado, nuevo\_resultado\_obtenido, nueva\_fecha\_ejecución	&
+\footnotesize &
+\footnotesize Modifica el resultado\\
+
+\footnotesize eliminarResultado &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el resultado (destructor de la clase)\\
+
+\hline
+\end{longtable} 
+
+	\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Subproyecto}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize nombre &
+\footnotesize	String(100) &
+\footnotesize Nombre del subproyecto\\
+
+\footnotesize descripcion	&
+\footnotesize String(250)	&
+\footnotesize Descripción del subproyecto\\
+
+\footnotesize fecha\_inicio &
+\footnotesize Date &
+\footnotesize Fecha de inicio del subproyecto\\
+
+\footnotesize fecha\_cierre &
+\footnotesize Date &
+\footnotesize Fecha de cierre del subproyecto\\
+
+\footnotesize avance &
+\footnotesize Int(3) &
+\footnotesize Porcentaje de avance del subproyecto\\
+
+\footnotesize estado &
+\footnotesize String(15) &
+\footnotesize Estado del subproyecto\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearSubproyecto &
+\footnotesize nombre, descripcion, fecha\_inicio, fecha\_cierre, avance	&
+\footnotesize &
+\footnotesize Crea un nuevo subproyecto (constructor de la clase)\\
+
+\footnotesize obtenerSubproyecto	&
+\footnotesize &
+\footnotesize nombre, descripcion, fecha\_inicio, fecha\_cierre, avance &
+\footnotesize Obtiene los atributos del subproyecto\\
+
+\footnotesize modificarSubproyecto &
+\footnotesize nuevo\_nombre, nueva\_descripcion, nueva\_fecha\_inicio, nueva\_fecha\_cierre, nuevo\_avance &
+\footnotesize &
+\footnotesize Modifica los datos del subproyecto\\
+
+\footnotesize cerrarSubproyecto	&
+\footnotesize &
+\footnotesize &
+\footnotesize Cierra el subproyecto (cambio de estado)\\
+
+\footnotesize eliminarSubproyecto	&
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el subproyecto (destructor de la clase)\\
+
+\hline
+\end{longtable} 
+		
+	\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Usuario}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize login &
+\footnotesize String(20) &
+\footnotesize Nombre de la cuenta del usuario\\
+
+\footnotesize contrasena & 
+\footnotesize String(35) &	
+\footnotesize Contraseña del usuario (encriptada)\\
+
+\footnotesize nombre &
+\footnotesize String(30) &
+\footnotesize Nombre del usuario\\
+
+\footnotesize apellido &
+\footnotesize String(30) &
+\footnotesize Apellido(s) del usuario\\
+
+\footnotesize tipo &	
+\footnotesize String(1) &
+\footnotesize Tipo de usuario (administrador, tester, desarrollador, etc).\\
+
+\footnotesize email &
+\footnotesize String(50) &
+\footnotesize Correo electrónico\\
+
+\footnotesize telefono &
+\footnotesize String(30) &
+\footnotesize Teléfono(s) del usuario\\
+
+\footnotesize estado &
+\footnotesize Int(1) &
+\footnotesize Estado del usuario (activo=1, bloqueado=0)\\
+
+\footnotesize idioma &
+\footnotesize String(15) &
+\footnotesize Idioma por defecto del usuario\\
+
+\footnotesize alerta\_email &
+\footnotesize Int(1) &
+\footnotesize Define si el usuario recibirá las alertas por email o no\\
+
+\footnotesize alerta\_sms &
+\footnotesize Int(1) &
+\footnotesize Define si el usuario recibirá las alertas por SMS o no\\
+
+\hline
+\end{longtable} 
+
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearUsuario	&
+\footnotesize login, contrasena, nombre, apellido, tipo, email, telefono, idioma, alerta\_email alerta\_sms	 &
+\footnotesize &
+\footnotesize Crea un nuevo usuario con el estado=1 por defecto (constructor de la clase)\\
+
+\footnotesize obtenerUsuario	&
+\footnotesize &
+\footnotesize login, contrasena, nombre, apellido, tipo, email, telefono, idioma, alerta\_email alerta\_sms, estado &
+\footnotesize Obtiene los atributos del usuario \\
+
+\footnotesize modificarUsuario &
+\footnotesize nuevo\_login, nueva\_contrasena, nuevo\_nombre, nuevo\_apellido, nuevo\_tipo, nuevo\_email, nuevo\_telefono, nuevo\_idioma, nueva\_alerta\_email nueva\_alerta\_sms	&
+\footnotesize &
+\footnotesize Modifica los datos del usuario\\
+
+\footnotesize bloquearUsuario	&
+\footnotesize &
+\footnotesize &
+\footnotesize Cambia el estado del usuario a 0 (bloqueado)\\
+
+\footnotesize desbloquarUsuario	&
+\footnotesize &
+\footnotesize &
+\footnotesize Cambia el estado del usuario a 1 (activo)\\
+
+\footnotesize eliminarUsuario &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina el usuario (destructor de la clase)\\
+
+\hline
+\end{longtable} 
+		
+	\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Versión}
+
+	\begin{enumerate}
+	\item	Atributos\\
+
+\begin{longtable}{|p{1.5in}|p{1in}|p{2.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize nombre &
+\footnotesize Int(1) &
+\footnotesize Nombre de la versión\\
+
+\footnotesize fecha\_liberacion &
+\footnotesize String(250) &
+\footnotesize Fecha de liberación de la versión\\
+
+\footnotesize diferencias\_anterior &
+\footnotesize String(250) &
+\footnotesize Diferencias de la versión anterior con la actual\\
+
+\footnotesize pendiente\_proxima &
+\footnotesize String(250) &
+\footnotesize Diferencias de la versión actual con la próxima\\
+
+\footnotesize comentarios &
+\footnotesize String(250) &
+\footnotesize Comentarios\\
+
+\hline
+\end{longtable} 
+
+\clearpage
+	\item Métodos\\
+
+\begin{longtable}{|p{1.5in}|p{1.3in}|p{1.3in}|p{1.5in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Parámetros} & {\footnotesize Retorno} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize crearVersion &
+\footnotesize nombre, fecha, diferencias, pendiente, comentarios	&
+\footnotesize &
+\footnotesize Crea una nueva versión (constructor de la clase)\\
+
+\footnotesize obtenerVersion &
+\footnotesize &
+\footnotesize nombre, fecha, diferencias, pendiente, comentarios	&
+\footnotesize Obtiene los atributos de la versión\\
+
+\footnotesize modificarVersion &
+\footnotesize nuevo\_nombre, nueva\_fecha, nuevas\_diferencias, nuevos\_pendientes, nuevos\_comentarios &
+\footnotesize &
+\footnotesize Modifica la versión\\
+
+\footnotesize eliminarVersion &
+\footnotesize &
+\footnotesize &
+\footnotesize Elimina la versión (destructor de la clase)\\
+		
+\hline
+\end{longtable} 
+
+	\end{enumerate}
+ 
+\end{enumerate}

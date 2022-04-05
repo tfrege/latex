@@ -1,0 +1,904 @@
+\chapter{DIAGRAMAS Y FUNCIONES}
+\label{anexodiagramasyfunciones}
+
+En este anexo se detallan los diagramas (casos de uso, colaboración, estado y secuencia) y funciones que el sistema desempeñará organizados según el tipo de usuario.\\
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% G	E	N	È	R	I	C	O %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\bfseries Usuario Genérico}
+
+	\begin{enumerate}
+	
+	\item Diagrama de casos de uso
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/casesusuario.jpg}
+  \caption[\small Diagrama de casos de uso detallado para un usuario genérico del sistema]
+  {\small Diagrama de casos de uso detallado para un usuario genérico del sistema.}
+\end{figure}
+ 
+	 \item Funciones y diagramas de colaboración, estado y secuencia
+
+% USUARIO GENÉRICO
+% FUNCIÓN INGRESO
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Ingreso de un usuario al sistema}\\
+\footnotesize Descripción: &	\footnotesize Esta función permite al usuario ingresar al sistema luego de registrar sus datos.\\
+\footnotesize Entrada: &	\footnotesize Nombre de usuario y contraseña pertenecientes al usuario.\\
+\footnotesize Fuente:	& \footnotesize Usuario\\
+\footnotesize Salida:	& \footnotesize Pantalla principal de la herramienta si los datos son correctos. Ventana de aviso de error en caso contrario.\\
+\footnotesize Destino:	& \footnotesize El mismo usuario.\\
+\footnotesize Precondición: &	\footnotesize Que el usuario tenga una cuenta creada en el sistema.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracionusuario1.jpg}
+  \caption[\small Diagrama de colaboración para la función ``ingresar al sistema'']
+  {\small Diagrama de colaboración para la función ``ingresar al sistema''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadosusuario1.jpg}
+  \caption[\small Diagrama de estados para la función ``ingresar al sistema'']
+  {\small Diagrama de estados para la función ``ingresar al sistema''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciausuario1.jpg}
+  \caption[\small Diagrama de secuencia para la función ``ingresar al sistema'']
+  {\small Diagrama de secuencia para la función ``ingresar al sistema''.}
+\end{figure}
+
+
+% USUARIO GENÉRICO
+% FUNCIÓN ELECCIÓN DEL IDIOMA
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Elección del idioma}\\
+\footnotesize Descripción: &	\footnotesize Esta función permite al usuario la elección del idioma con el que desea trabajar en la sesión que iniciará.\\
+\footnotesize Entrada: &	\footnotesize Identificador del idioma a utilizar.\\
+\footnotesize Fuente:	& \footnotesize Usuario (sin importar el tipo).\\
+\footnotesize Salida:	& \footnotesize La aplicación en el idioma elegido.\\
+\footnotesize Destino:	& \footnotesize El mismo usuario.\\
+\footnotesize Precondición: &	\footnotesize .\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracionelegiridioma.jpg}
+  \caption[\small Diagrama de colaboración para la función de ``elegir idioma'']
+  {\small Diagrama de colaboración para la función de ``elegir idioma''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadosidioma.jpg}
+  \caption[\small Diagrama de estados para la función ``elegir idioma'']
+  {\small Diagrama de estados para la función ``elegir idioma''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciausuario1.jpg}
+  \caption[\small Diagrama de secuencia para la función ``elegir idioma'']
+  {\small Diagrama de secuencia para la función ``elegir idioma''.}
+\end{figure} 
+
+% USUARIO GENÉRICO
+% FUNCIONES GENERACION DE LISTADOS Y REPORTES
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Generación de listados}\\
+\footnotesize Descripción: &	\footnotesize Esta función permite la generación de listados en los que desplegará la información contenida en la Base de Datos hasta el momento con respecto a la opción seleccionada.\\
+\footnotesize Entrada: &	\footnotesize La entidad elegida para generar el listado (ej.: usuarios, proyectos, casos de testeo, etc.).\\
+\footnotesize Fuente:	& \footnotesize Líder de Proyectos, Tester, Administrador, Desarrollador.\\
+\footnotesize Salida:	& \footnotesize Listado.\\
+\footnotesize Destino:	& \footnotesize Gerencia, Equipo de testers, Equipo de desarrolladores, Líder del proyecto.\\
+\footnotesize Precondición: &	\footnotesize Que el criterio dado cuente con información en la Base de Datos.\\
+\hline
+\end{longtable} 
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Generación de reportes}\\
+\footnotesize Descripción: &	\footnotesize Esta función permite la generación de reportes en los que desplegará la información contenida en la Base de Datos hasta el momento con respecto a la entidad seleccionada.\\
+\footnotesize Entrada: &	\footnotesize La entidad elegida y los criterios que intervendrán en la generación del reporte.\\
+\footnotesize Fuente:	& \footnotesize Líder de Proyectos, Administrador, Tester o Desarrollador.\\
+\footnotesize Salida:	& \footnotesize Reporte.\\
+\footnotesize Destino:	& \footnotesize Gerencia, Equipo de testers, Equipo de desarrolladores, Líder del proyecto.\\
+\footnotesize Precondición: &	\footnotesize Que los criterios dados sean coherentes y se cuente con información en la Base de Datos.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracionusuario2.jpg}
+  \caption[\small Diagrama de colaboración para las funciones ``generación de listados'' y ``generación de reportes'']
+  {\small Diagrama de colaboración para las funciones ``generación de listados'' y ``generación de reportes''.}
+\end{figure}
+		
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadosusuario2.jpg}
+  \caption[\small Diagrama de estados para las funciones ``generación de listados'' y ``generación de reportes'']
+  {\small Diagrama de estados para las funciones ``generación de listados'' y ``generación de reportes''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciausuario1.jpg}
+  \caption[\small Diagrama de secuencia para las funciones ``generación de listados'' y ``generación de reportes'']
+  {\small Diagrama de secuencia para las funciones ``generación de listados'' y ``generación de reportes''.}
+\end{figure} 
+
+% USUARIO GENÉRICO
+% FUNCIONES GENERACION DE LISTADOS Y REPORTES
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Cambio de datos personales}\\
+\footnotesize Descripción: &	\footnotesize Esta función permite al usuario modificar algunos de sus datos personales.\\
+\footnotesize Entrada: &	\footnotesize Nuevos datos.\\
+\footnotesize Fuente:	& \footnotesize Usuario (sin importar el tipo).\\
+\footnotesize Salida:	& \footnotesize Modificación de datos en la Base de Datos.\\
+\footnotesize Destino:	& \footnotesize Base de Datos, usuario que generó la acción.\\
+\footnotesize Precondición: &	\footnotesize Que los nuevos datos sean válidos.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/colaboracioncambiardatos.jpg}
+  \caption[\small Diagrama de colaboración para la función ``cambio de datos personales'']
+  {\small Diagrama de colaboración para la función ``cambio de datos personales''.}
+\end{figure}
+		
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadoscambiardatos.jpg}
+  \caption[\small Diagrama de estados para la función ``cambio de datos personales'']
+  {\small Diagrama de estados para la función ``cambio de datos personales''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciacambiardatos.jpg}
+  \caption[\small Diagrama de secuencia para la función ``cambio de datos personales'']
+  {\small Diagrama de secuencia para la función ``cambio de datos personales''.}
+\end{figure} 
+
+% USUARIO GENÉRICO
+% FUNCIONES GENERACION DE LISTADOS Y REPORTES
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Cierre de la sesión}\\
+\footnotesize Descripción: &	\footnotesize Función que permite al usuario cerrar su sesión y salir de la aplicación.\\
+\footnotesize Entrada: &	\footnotesize Acción del usuario.\\
+\footnotesize Fuente:	& \footnotesize Usuario (sin importar el tipo).\\
+\footnotesize Salida:	& \footnotesize Eliminación de las variables de sesión y cierre de la aplicación.\\
+\footnotesize Destino:	& \footnotesize Usuario que originó la acción.\\
+\footnotesize Precondición: &	\footnotesize Ninguna.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracioncerrarsesion.jpg}
+  \caption[\small Diagrama de colaboración para la función ``cierre de sesión'']
+  {\small Diagrama de colaboración para la función ``cierre de sesión''.}
+\end{figure}
+		
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadoscierresesion.jpg}
+  \caption[\small Diagrama de estados para la función ``cierre de sesión'']
+  {\small Diagrama de estados para la función ``cierre de sesión''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/secuenciacierresesion.jpg}
+  \caption[\small Diagrama de secuencia para la función ``cierre de sesión'']
+  {\small Diagrama de secuencia para la función ``cierre de sesión''.}
+\end{figure} 
+
+				\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% A	D	M	I	N	I	S	T	R	A	D	O	R %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\item {\bfseries Usuario Administrador}
+		
+			\begin{enumerate}
+			
+			\item	Diagrama de casos de uso
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/casesadministrador.jpg}
+  \caption[\small Diagrama de casos de uso detallado para un usuario de tipo Administrador]
+  {\small Diagrama de casos de uso detallado para un usuario de tipo Administrador.}
+\end{figure} 
+ 
+			\item Funciones y diagramas de colaboración, estado y secuencia
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Gestión de entidades complementarias}\\
+\footnotesize Descripción: & \footnotesize 	Esta función hace referencia a las acciones de inserción, modificación y eliminación de todas las entidades complementarias del sistema (ej: prioridades, entornos, estados, etc.).\\
+\footnotesize Entrada: & \footnotesize Nombre de la entidad, acción requerida.\\
+\footnotesize Fuente:	& \footnotesize Usuario.\\
+\footnotesize Salida: &	\footnotesize Listado de los registros de la entidad, formulario de edición o mensaje de confirmación de eliminación (depende de la acción elegida).\\
+\footnotesize Destino: & \footnotesize Base de Datos, Ventana del usuario.\\
+\footnotesize Precondición: &	\footnotesize Que el usuario sea de tipo Administrador o Tester.\\
+\hline
+\end{longtable} 
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Gestión de usuarios}\\
+\footnotesize Descripción: &	\footnotesize Esta función hace referencia a las acciones de inserción, modificación, eliminación bloqueo y desploqueo de los usuarios del sistema.\\
+\footnotesize Entrada: &	\footnotesize Datos del usuario\\
+\footnotesize Fuente:	& \footnotesize Usuario.\\
+\footnotesize Salida: &	\footnotesize Registro en la Base de Datos del nuevo usuario. Ventana de detalle para el usuario que lo creó.\\
+\footnotesize Destino: & \footnotesize Base de Datos, Ventana del usuario.\\
+\footnotesize Precondición: &	\footnotesize Que el usuario sea de tipo Administrador.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracionadmi1.jpg}
+  \caption[\small Diagrama de colaboración para las funciones ``gestionar entidades complementarias'' y ``gestionar usuarios'']
+  {\small Diagrama de colaboración para las funciones ``gestionar entidades complementarias'' y ``gestionar usuarios''. Caso: inserción de nuevo objeto.}
+\end{figure} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/estadosadmi1.jpg}
+  \caption[\small Diagrama de estado para las funciones ``gestionar entidades complementarias'' y ``gestionar usuarios'']
+  {\small Diagrama de estado para las funciones ``gestionar entidades complementarias'' y ``gestionar usuarios''. Caso: inserción de nuevo objeto.}
+\end{figure} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciaadmi1.jpg}
+  \caption[\small Diagrama de secuencia para las funciones ``gestionar entidades complementarias'' y ``gestionar usuarios'']
+  {\small Diagrama de secuencia para las funciones ``gestionar entidades complementarias'' y ``Gestionar usuarios''. Caso: inserción de nuevo objeto.}
+\end{figure} 
+
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Gestión de clientes}\\
+\footnotesize Descripción: &	\footnotesize Esta función hace referencia a las acciones de inserción, modificación y eliminación de clientes en el sistema.\\
+\footnotesize Entrada: &	\footnotesize Datos del cliente.\\
+\footnotesize Fuente:	& \footnotesize Usuario.\\
+\footnotesize Salida: &	\footnotesize Modificación del Cliente (inserción, edición ó eliminación) en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Base de Datos, Ventana del usuario.\\
+\footnotesize Precondición: &	\footnotesize Que el usuario sea de tipo Administrador.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboraciongestionclientes.jpg}
+  \caption[\small Diagrama de colaboración para las funciones de gestión de clientes]
+  {\small Diagrama de colaboración para las funciones de gestión de clientes.}
+\end{figure}
+		
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/estadosgestionclientes.jpg}
+  \caption[\small Diagrama de estados para las funciones de gestión de clientes]
+  {\small Diagrama de estados para las funciones de gestión de clientes. Caso: crear cliente.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/secuenciacrearclientes.jpg}
+  \caption[\small Diagrama de secuencia para las funciones de gestión de clientes]
+  {\small Diagrama de secuencia para las funciones de gestión de clientes. Caso: crear cliente.}
+\end{figure} 
+
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Creación de proyectos}\\
+\footnotesize Descripción: &	\footnotesize Función que permite al usuario la creación de nuevos proyectos.\\
+\footnotesize Entrada: &	\footnotesize Datos del proyecto.\\
+\footnotesize Fuente:	& \footnotesize Usuario.\\
+\footnotesize Salida: &	\footnotesize Inserción en la Base de Datos del nuevo proyecto.\\
+\footnotesize Destino: & \footnotesize Base de Datos, Ventana del usuario.\\
+\footnotesize Precondición: &	\footnotesize Que el usuario sea de tipo Administrador.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracioncrearproyecto.jpg}
+  \caption[\small Diagrama de colaboración para la función ``crear proyecto'']
+  {\small Diagrama de colaboración para la función ``crear proyecto''.}
+\end{figure}
+		
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/estadoscrearproyecto.jpg}
+  \caption[\small Diagrama de estados para la función ``crear proyecto'']
+  {\small Diagrama de estados para la función ``crear proyecto''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/secuencianuevoproyecto.jpg}
+  \caption[\small Diagrama de secuencia para la función ``crear proyecto'']
+  {\small Diagrama de secuencia para la función ``crear proyecto''.}
+\end{figure} 
+
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Cambio de estado de un proyecto}\\
+\footnotesize Descripción: &	\footnotesize Esta función permite al usuario cambiar el estado de un proyecto en el sistema.\\
+\footnotesize Entrada: &	\footnotesize Nuevo estado del proyecto.\\
+\footnotesize Fuente:	& \footnotesize Usuario.\\
+\footnotesize Salida: &	\footnotesize Modificación del estado del proyecto en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Base de Datos, Ventana del usuario.\\
+\footnotesize Precondición: &	\footnotesize Que el usuario sea de tipo Administrador.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracioncambiarestadoproyecto.jpg}
+  \caption[\small Diagrama de colaboración para la función ``crear proyecto'']
+  {\small Diagrama de colaboración para la función ``crear proyecto''.}
+\end{figure}
+		
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/estadoscambiarestadoproyecto.jpg}
+  \caption[\small Diagrama de estados para la función ``crear proyecto'']
+  {\small Diagrama de estados para la función ``crear proyecto''.}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/secuenciacambiarestadoproyecto.jpg}
+  \caption[\small Diagrama de secuencia para la función ``crear proyecto'']
+  {\small Diagrama de secuencia para la función ``crear proyecto''.}
+\end{figure} 
+
+			\end{enumerate}
+		
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% L	Í	D	E	R		D	E		P	R	O	Y	E	C	T	O	S	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+			
+\item {\bfseries Usuario Líder de Proyectos}
+
+			\begin{enumerate}
+			
+			\item	Diagrama de casos de uso
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/caseslider.jpg}
+  \caption[\small Diagrama de casos de uso detallado para un usuario de tipo Líder de Proyectos]
+  {\small Diagrama de casos de uso detallado para un usuario de tipo Líder de Proyectos.}
+\end{figure} 
+
+	 		\item Funciones y diagramas de colaboración, estado y secuencia
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Gestión de proyectos asignados}\\
+\footnotesize Descripción: & \footnotesize Función que permite al usuario elegir, modificar y eliminar proyectos. Durante su uso, el usuario puede hacer uso de cualquiera de las particularidades del proyecto.\\
+\footnotesize Entrada: & Nombre del proyecto.\\
+\footnotesize Fuente: &	\footnotesize Usuario.\\
+\footnotesize Salida: & \footnotesize Ventana de la aplicación donde se desplieguen todas las propiedades del proyecto.\\
+\footnotesize Destino: & \footnotesize Usuario.\\
+\footnotesize Precondición:	& \footnotesize Que el usuario sea de tipo ``Líder de Proyectos''.\\
+\hline
+\end{longtable} 
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Gestión de subproyectos}\\
+\footnotesize Descripción: & \footnotesize 	Función que permite al usuario elegir, crear, modificar y eliminar subproyectos.\\
+\footnotesize Entrada: & \footnotesize Nombre del proyecto y datos del subproyecto.\\
+\footnotesize Fuente:	& \footnotesize Usuario.\\
+\footnotesize Salida:	& \footnotesize Ventana de la aplicación donde se desplieguen todas las propiedades del subproyecto.\\
+\footnotesize Destino: & \footnotesize Usuario\\
+\footnotesize Precondición:	& \footnotesize Que el tipo del usuario sea: ``Líder del proyecto''.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracionlider1.jpg}
+  \caption[\small Diagrama de colaboración para las funciones ``gestionar proyectos'' y ``gestionar subproyectos'']
+  {\small Diagrama de colaboración para las funciones ``gestionar proyectos'' y ``gestionar subproyectos''. Caso: Inserción de nuevo (sub)proyecto.}
+\end{figure} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/estadoslider1.jpg}
+  \caption[\small Diagrama de estados para las funciones ``gestionar proyectos'' y ``gestionar subproyectos'']
+  {\small Diagrama de estados para las funciones ``gestionar proyectos'' y ``gestionar subproyectos''. Caso: Inserción de nuevo (sub)proyecto.}
+\end{figure} 
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuencialider1.jpg}
+  \caption[\small Diagrama de secuencia para las funciones ``gestionar proyectos'' y ``gestionar subproyectos'']
+  {\small Diagrama de secuencia para las funciones ``gestionar proyectos'' y ``gestionar subproyectos''. Caso: Inserción de nuevo (sub)proyecto.}
+\end{figure} 
+
+			\end{enumerate}
+
+			
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% T	E	S	T	E	R	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+			
+\item	{\bfseries Usuario Tester}
+
+			\begin{enumerate}
+
+			\item	Diagrama de casos de uso
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/casestester.jpg}
+  \caption[\small Diagrama de casos de uso detallado para un usuario de tipo Tester]
+  {\small Diagrama de casos de uso detallado para un usuario de tipo Tester.}
+\end{figure} 
+
+
+	 		\item Funciones y diagramas de colaboración, estado y secuencia
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Gestión de Casos de Prueba}\\
+\footnotesize Descripción: & \footnotesize 	Funciones para la administración de Casos de Prueba (creación, modificación, eliminación)).\\
+\footnotesize Entrada: & \footnotesize Datos del Caso de Prueba. Para la creación de uno nuevo: nombre, objetivo, descripción, pasos de configuración y ejecución, resultado esperado y fases a las que aplica.\\
+\footnotesize Fuente:	& \footnotesize Tester.\\
+\footnotesize Salida: &	\footnotesize Actualizaciones en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Base de Datos, Testers.\\
+\footnotesize Precondición: & \footnotesize Ninguna.\\
+\hline
+\end{longtable} 
+
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboraciongestioncaso.jpg}
+  \caption[\small Diagrama de colaboración para las funciones de gestión de casos de prueba]
+  {\small Diagrama de colaboración para las funciones de gestión de casos de prueba. Caso: modificación de un testcase existente.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadosgestioncasos.jpg}
+  \caption[\small Diagrama de Estados para las funciones de gestión de casos de prueba]
+  {\small Diagrama de Estados para las funciones de gestión de casos de prueba. Caso: modificación de un testcase existente.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciagestioncaso.jpg}
+  \caption[\small Diagrama de secuencia para las funciones de gestión de casos de prueba]
+  {\small Diagrama de secuencia para las funciones de gestión de casos de prueba. Caso: modificación de un testcase existente.}
+\end{figure}    
+
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Gestión de Listas de Control}\\
+\footnotesize Descripción: & \footnotesize 	Funciones para la administración de Listas de Control (creación, modificación, eliminación)).\\
+\footnotesize Entrada: & \footnotesize Datos de la lista. Para la creación de una nueva: nombre, objetivo, descripción, elementoso y fases a las que aplica.\\
+\footnotesize Fuente:	& \footnotesize Tester.\\
+\footnotesize Salida: &	\footnotesize Actualizaciones en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Base de Datos, Testers.\\
+\footnotesize Precondición: & \footnotesize Ninguna.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracioneliminarlista.jpg}
+  \caption[\small Diagrama de colaboración para la función de gestión de iteraciones]
+  {\small Diagrama de colaboración para la función de gestión de iteraciones. Caso: eliminación de checklists.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/estadoseliminarlista.jpg}
+  \caption[\small Diagrama de estados para la función de gestión de iteraciones]
+  {\small Diagrama de estados para la función de gestión de iteraciones. Caso: eliminación de checklists.}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciaeliminarlista.jpg}
+  \caption[\small Diagrama de secuencia para la función de gestión de iteraciones]
+  {\small Diagrama de secuencia para la función de gestión de iteraciones. Caso: eliminación de checklists.}
+\end{figure}
+
+\clearpage    
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Gestión de iteraciones}\\
+\footnotesize Descripción: & \footnotesize 	Funciones para la administración de iteraciones  (creación, modificación, eliminación, cierre)).\\
+\footnotesize Entrada: & \footnotesize Datos de la iteración. Para la creación de una nueva: nombre, fase, subproyecto, Casos de Prueba y Listas de Control que utilizará.\\
+\footnotesize Fuente:	& \footnotesize Tester.\\
+\footnotesize Salida: &	\footnotesize Actualizaciones en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Base de Datos, Testers.\\
+\footnotesize Precondición: & \footnotesize Que si la tupla (fase, subproyecto) dados tiene iteraciones previas, todas estén cerradas.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboraciongestioniteraciones.jpg}
+  \caption[\small Diagrama de colaboración para las funciones de gestión de iteraciones]
+  {\small Diagrama de colaboración para la función de gestión de iteraciones. Caso: creación de iteración.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadosgestioniteraciones.jpg}
+  \caption[\small Diagrama de estados para las funciones de gestión de iteraciones]
+  {\small Diagrama de estados para la función de gestión de iteraciones. Caso: creación de iteración.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciaiteraciones.jpg}
+  \caption[\small Diagrama de secuencia para las funciones de gestión de iteraciones]
+  {\small Diagrama de secuencia para la función de gestión de iteraciones. Caso: creación de iteración.}
+\end{figure}    
+
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Ejecución del caso de testeo/listas de control}\\
+\footnotesize Descripción: & \footnotesize 	Ejecución de un caso de testeo tantas veces como sea necesario (hasta que éste y todos los casos pertenecientes a su conjunto pasen).\\
+\footnotesize Entrada: & \footnotesize Resultado de la ejecución (pasó/falló).\\
+\footnotesize Fuente:	& \footnotesize Tester.\\
+\footnotesize Salida: &	\footnotesize Almacenamiento en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Equipo de Testers, Desarrolladores y Managers.\\
+\footnotesize Precondición: & \footnotesize Que el caso haya sido elegido para el proyecto en curso.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboraciontester1.jpg}
+  \caption[\small Diagrama de colaboración para las funciones ``ejecutar CT'' y ``ejecutar CL'']
+  {\small Diagrama de colaboración para las funciones ``ejecutar CT'' y ``ejecutar CL''.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadostester1.jpg}
+  \caption[\small Diagrama de estados para las funciones ``ejecutar CT'' y ``ejecutar CL'']
+  {\small Diagrama de Estados para las funciones ``ejecutar CT'' y ``ejecutar CL''.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciatester1.jpg}
+  \caption[\small Diagrama de secuencia para las funciones ``ejecutar CT'' y ``ejecutar CL'']
+  {\small Diagrama de secuencia para las funciones ``ejecutar CT'' y ``ejecutar CL''.}
+\end{figure}    
+
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Asignación de tareas a desarrolladores}\\
+\footnotesize Descripción: & \footnotesize 	Función para la asignación de tareas a los distintos desarrolladores cuando la ejecución de un Caso de Prueba o Lista de Control arroja resultados negativos.\\
+\footnotesize Entrada: & \footnotesize nombre del desarrollador, descripción de la tarea, iteración a la que pertenece la tarea.\\
+\footnotesize Fuente:	& \footnotesize Tester.\\
+\footnotesize Salida: &	\footnotesize Actualizaciones en la Base de Datos (creación de una nueva tarea).\\
+\footnotesize Destino: & \footnotesize Base de Datos, Desarrolladores.\\
+\footnotesize Precondición: & \footnotesize Que la iteración a la que pertenece la tarea no esté cerrada y que el Caso de Prueba o Lista de Control haya arrojado resultados negativos.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/colaboraciontareas.jpg}
+  \caption[\small Diagrama de colaboración para la función de asignación de tareas a desarrolladores]
+  {\small Diagrama de colaboración para la función de asignación de tareas a desarrolladores.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/anexos/estadosgestiontareas.jpg}
+  \caption[\small Diagrama de estados para la función de asignación de tareas a desarrolladores]
+  {\small Diagrama de estados para la función de asignación de tareas a desarrolladores.}
+\end{figure}  
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciatareas.jpg}
+  \caption[\small Diagrama de secuencia para la función de asignación de tareas a desarrolladores]
+  {\small Diagrama de secuencia para la función de asignación de tareas a desarrolladores.}
+\end{figure}    
+		
+			\end{enumerate}
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% D	E	S	A	R	R	O	L	L	A	D	O	R	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+\item {\bfseries Usuario Desarrollador}
+
+			\begin{enumerate}
+			
+			\item	Diagrama de casos de uso
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/casesdesarrollador.jpg}
+  \caption[\small Diagrama de casos de uso detallado para un usuario de tipo Desarrollador]
+  {\small Diagrama de casos de uso detallado para un usuario de tipo Desarrollador.}
+\end{figure}    
+
+			 \item Funciones y diagramas de colaboración, estado y secuencia
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Listado de tareas}\\
+\footnotesize Descripción: & \footnotesize Permite al usuario listar todas sus tareas pendientes.\\
+\footnotesize Entrada: &	\footnotesize Nombre del usuario.\\
+\footnotesize Fuente:	& \footnotesize Usuario.\\
+\footnotesize Salida:	& \footnotesize Lista de tareas.\\
+\footnotesize Destino: & \footnotesize Usuario.\\
+\footnotesize Precondición: & \footnotesize Ninguna.\\
+\hline
+\end{longtable} 
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Actualización de estados de las tareas}\\
+\footnotesize Descripción: & \footnotesize 	Esta acción permitirá al usuario cambiar el estado de sus tareas pendientes y añadir comentarios.\\
+\footnotesize Entrada: & \footnotesize Nombre del usuario, tarea elegida.\\
+\footnotesize Fuente:	& \footnotesize Usuario.\\
+\footnotesize Salida:	& \footnotesize Tarea con el estado cambiado.\\
+\footnotesize Destino: & \footnotesize Base de Datos.\\
+\footnotesize Precondición: & \footnotesize Que la tarea pertenezca a una iteración que tiene el estado ``abierto''.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboraciondesarrollador1.jpg}
+  \caption[\small Diagrama de colaboración para las funciones ``listar tareas'' y ``cambiar estado tarea'']
+  {\small Diagrama de colaboración para las funciones ``listar tareas'' y ``cambiar estado tarea''.}
+\end{figure}    
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadosdesarrollador1.jpg}
+  \caption[\small Diagrama de estados para las funciones ``listar tareas'' y ``cambiar estado tarea'']
+  {\small Diagrama de estados para las funciones ``listar tareas'' y ``cambiar estado tarea''.}
+\end{figure}    
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciadesarrollador1.jpg}
+  \caption[\small Diagrama de secuencia para las funciones ``listar tareas'' y ``cambiar estado tarea'']
+  {\small Diagrama de secuencia para las funciones ``listar tareas'' y ``cambiar estado tarea''.}
+\end{figure}    
+
+			\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% C	L	I	E	N	T	E	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+\item {\bfseries Usuario Cliente}
+
+			\begin{enumerate}
+			
+			\item	Diagrama de casos de uso
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/casescliente.jpg}
+  \caption[\small Diagrama de casos de uso detallado para un usuario de tipo Cliente]
+  {\small Diagrama de casos de uso detallado para un usuario de tipo Cliente.}
+\end{figure}    
+
+			 \item Funciones y diagramas de colaboración, estado y secuencia
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Registro de comentarios}\\
+\footnotesize Descripción: & \footnotesize 	Permite al cliente (dueño de uno o más proyectos) registrar sus observaciones.\\
+\footnotesize Entrada: & \footnotesize Comentario.\\
+\footnotesize Fuente:	& \footnotesize Cliente.\\
+\footnotesize Salida:	& \footnotesize Registro en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize \sloppy{Tester responsable del control de calidad del subproyecto en el que se registró el comentario.}\\
+\footnotesize Precondición: & \footnotesize 	Elegir el proyecto, subproyecto y fase.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracioncliente1.jpg}
+  \caption[\small Diagrama de colaboración para las funciones ``listar comentarios'' y ``cambiar estado comentario'']
+  {\small Diagrama de colaboración para las funciones ``listar comentarios'' y ``cambiar estado comentario''.}
+\end{figure}    
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/estadoscliente1.jpg}
+  \caption[\small Diagrama de estados para las funciones ``listar comentarios'' y ``cambiar estado comentario'']
+  {\small Diagrama de estados para las funciones ``listar comentarios'' y ``cambiar estado comentario''.}
+\end{figure}    
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/anexos/secuenciacliente1.jpg}
+  \caption[\small Diagrama de secuencia para las funciones ``listar comentarios'' y ``cambiar estado comentario'']
+  {\small Diagrama de secuencia para las funciones ``listar comentarios'' y ``cambiar estado comentario''.}
+\end{figure}    
+
+\clearpage
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Eliminación de comentarios}\\
+\footnotesize Descripción: & \footnotesize 	Permite al cliente eliminar una observación que haya sido previamente puesta por él.\\
+\footnotesize Entrada: & \footnotesize Código del comentario a eliminar.\\
+\footnotesize Fuente:	& \footnotesize Cliente.\\
+\footnotesize Salida:	& \footnotesize Eliminación del registro en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Cliente.\\
+\footnotesize Precondición: & \footnotesize Que la fase a la que pertenece la observación no esté cerrada.\\
+\hline
+\end{longtable} 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/colaboracioneliminarcomentario.jpg}
+  \caption[\small Diagrama de colaboración para la función de eliminación de comentarios]
+  {\small Diagrama de colaboración para la función de eliminación de comentarios.}
+\end{figure}    
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/estadoseliminarcomentario.jpg}
+  \caption[\small Diagrama de estados la función de eliminación de comentarios]
+  {\small Diagrama de estados para la función de eliminación de comentarios.}
+\end{figure}    
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/secuenciaeliminarcomentario.jpg}
+  \caption[\small Diagrama de secuencia para la función de eliminación de comentarios]
+  {\small Diagrama de secuencia para la función de eliminación de comentarios.}
+\end{figure}    
+
+			\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% S	I	S	T	E	M	A	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+\item {\bfseries Sistema}
+
+			\begin{enumerate}
+						
+			\item	Funciones
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Almacenar información}\\
+\footnotesize Descripción: & \footnotesize Esta función almacena en la Base de Datos la información que reciba del usuario.\\
+\footnotesize Entrada: & \footnotesize Datos a ser almacenados.\\
+\footnotesize Fuente: & \footnotesize Tester, Manager.\\
+\footnotesize Salida:	& \footnotesize Nuevos registros en la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Base de Datos.\\
+\footnotesize Precondición: & \footnotesize Que la información a almacenar haya sido validada previamente por el sistema.\\
+\hline
+\end{longtable} 
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Recuperar información}\\
+\footnotesize Descripción: & \footnotesize Esta función permite recuperar información de la Base de Datos de acuerdo a las solicitudes hechas por el usuario al sistema.\\
+\footnotesize Entrada: & \footnotesize 	a) Solicitud del usuario o de otra función del sistema. b) Condiciones para el filtrado de la información a recuperar.\\
+\footnotesize Fuente: & \footnotesize Tester, Sistema.\\
+\footnotesize Salida: & \footnotesize Información de la Base de Datos.\\
+\footnotesize Destino: & \footnotesize Tester, Manager, Gerencia, Sistema.\\
+\footnotesize Precondición: & \footnotesize Ninguna.\\
+\hline
+\end{longtable} 
+
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Validar}\\
+\footnotesize Descripción: & \footnotesize Función que permite la validación de los datos entrantes al sistema para su posterior procesamiento y/o almacenamiento en la Base de Datos.\\
+\footnotesize Entrada: & \footnotesize Datos a validar.\\
+\footnotesize Fuente: & \footnotesize Tester, Manager.\\
+\footnotesize Salida: & \footnotesize Resultado de la validación mediante un mensaje.\\
+\footnotesize Destino: & \footnotesize Tester, Manager, Gerencia, Base de Datos.\\
+\footnotesize Precondición: & \footnotesize Ninguna.\\
+\hline
+\end{longtable} 
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Generación y envío de alarmas}\\
+\footnotesize Descripción: & \footnotesize Función que permite al sistema crear y enviar las alarmas a los usuarios.\\
+\footnotesize Entrada: & \footnotesize Señal del sistema.\\
+\footnotesize Fuente: & \footnotesize Sistema.\\
+\footnotesize Salida: & \footnotesize Mensajes de alerta.\\
+\footnotesize Destino: & \footnotesize Todos los usuarios.\\
+\footnotesize Precondición: & \footnotesize Ninguna.\\
+\hline
+\end{longtable} 
+
+\begin{longtable}{|p{1in}|p{4.5in}|}
+\hline 
+\footnotesize {\bfseries Función:}	& \footnotesize {\bfseries Generación de mensajes}\\
+\footnotesize Descripción: & \footnotesize Función que permite la emisión de mensajes del sistema a los usuarios cuando sea necesario (por ejemplo cuando ocurra un error).\\
+\footnotesize Entrada: & \footnotesize Acción del usuario.\\
+\footnotesize Fuente: & \footnotesize Cualquier usuario.\\
+\footnotesize Salida: & \footnotesize Mensaje de información (ejemplo: cuando el usuario modifica su contraseña), advertencia (cuando se desea eliminar un registro) o error (cuando el usuario comete algún error).\\
+\footnotesize Destino: & \footnotesize Usuario que originó la acción.\\
+\footnotesize Precondición: & \footnotesize Ninguna.\\
+\hline
+\end{longtable} 
+
+			\end{enumerate}
+			
+\end{enumerate}
+
+\clearpage

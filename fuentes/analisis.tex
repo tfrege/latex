@@ -1,0 +1,279 @@
+\chapter{ANÁLISIS}
+
+Como resultado de esta fase se pretende obtener los requerimientos tanto funcionales como no funcionales (recursos) con los que deberá contar la herramienta propuesta, para que a partir de éstos se pueda proceder al diseño e implementación.
+
+\section{Definición del problema}
+
+El control de la calidad del software no es una tarea fácil, se requiere de herramientas que ayuden a los expertos en su labor. Por eso, se plantea resolver una parte del problema desarrollando una herramienta de apoyo al control de la calidad del software.\\
+
+El sistema debe ser capaz de ayudar a una empresa en:
+\begin{itemize}
+\item La coordinación de grupos de trabajo.
+\item La distinción de usuarios según su grupo (rol).
+\item La delegación de responsabilidades a los distintos grupos.
+\item El manejo de pruebas (herramientas del SQA) y resultados.
+\item El control de asignación de tareas.
+\item El mecanismo de alertas.
+\item El control de pruebas iterativas sobre un mismo trozo de la aplicación (fases del proyecto, módulos del proyecto, fases de los módulos ó trozos de código).
+\item La definición del nivel de detalle en las pruebas.
+\item La atención de aportes/observaciones del cliente.
+\end{itemize}
+
+\section{Tabla de riesgos}
+
+Este apartado señala todos los posibles riesgos a los que el proyecto está sujeto, indicando el tipo de riesgo, la magnitud y el plan de contingencia. La magnitud puede tomar un valor de 1 a 10 dependiendo del grado del problema.
+
+\setlength{\arrayrulewidth}{1pt}
+\setlength{\doublerulesep}{0mm}
+
+\begin{longtable}{|c|p{2in}|p{2in}|}
+\hline\hline
+{Magnitud} & {Descripción} & {Estrategia de mitigación / Plan de contingencia}\\ 
+\hline		
+\footnotesize 9 &	\footnotesize Desarrollo no finalizado a tiempo.	&	\footnotesize Realizar cambios que reduzcan la cantidad de trabajo por realizar.\\
+\footnotesize 6	& \footnotesize Problemas con el uso de la tecnología. &	\footnotesize Recurrir a libros y/o  sitios de Internet.\\ 
+\footnotesize 5	& \footnotesize Falla a nivel de S.O. o DBMS al implantar la herramienta.	& \footnotesize Realizar pruebas durante la implementación en el S.O. y el DBMS.\\
+\hline\hline
+\caption{Tabla de riesgos} 
+\end{longtable} 
+
+\section{Usuarios del sistema}
+
+Se distinguen cinco tipos de usuarios:
+\begin{itemize}
+\item	Usuario Administrador: que tendrá la capacidad de gestionar las entidades más importantes del sistema como proyectos, usuarios y clientes.
+\item	Usuario Líder de proyectos: es el usuario que será responsable del control y supervisión del avance de los proyectos que tenga a su cargo.
+\item	Usuario Tester: es el usuario encargado del control de calidad como tal. Es quien podrá ejecutar los casos de prueba y listas de control y reportar los resultados.
+\item	Usuario Desarrollador: que recibirá del tester el reporte del resultado del control de calidad y será responsable de la corrección de los defectos que el tester le comunique mediante la herramienta.
+\item	Usuario Cliente: es el dueño del sistema, quien podrá -en las aquellas fases que el administrador y líder de proyectos le permitan- aportar sus observaciones a medida que el sistema es desarrollado.
+\end{itemize}
+
+\section{Requerimientos}
+
+\subsection{Requerimientos funcionales}
+
+Los requerimientos funcionales definen todas las tareas que el sistema debe ser capaz de hacer (pero no cómo las hará, para ello está el diseño). La definición de estos requerimientos es fundamental para el desarrollo del sistema ya que establecerá los límites de aquello que queda dentro y fuera del producto.\\
+
+La herramienta del UML que permite la identificación de los requerimientos funcionales de manera sencilla son los diagramas de casos de uso.\\
+
+De los diagramas presentados en las figuras \ref{figusuariogeneral}-\ref{figactorsistema} (y de su detalle expuesto en el Anexo \ref{anexodiagramasyfunciones}), se rescatan los siguientes requerimientos funcionales de acuerdo al tipo de usuario: \\
+
+{\bfseries Actor general}\\
+
+El siguiente diagrama se aplica a administradores, líderes de proyectos, testers y desarrolladores.\\
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/usuariogeneral.jpg}
+  \caption[\small Diagrama de casos de uso para un usuario genérico de la herramienta]
+  {\small Diagrama de casos de uso para un usuario genérico de la herramienta.}
+  \label{figusuariogeneral}
+\end{figure}
+
+\begin{itemize}
+\item	Ingreso al sistema, incluyendo la validación de los datos que el usuario ingrese. 
+\item	Elección del idioma con el que desea trabajar.
+\item	Modificación sus datos personales (como la contraseña). A manera de ejemplo, la figura \ref{figusuariogeneral2} muestra este caso de uso detallado.
+\item	Generación de listas de datos.
+\item Generación de reportes estadísticos que estarán disponibles según el rol del usuario.
+\item	Cerrar la sesión que inició al ingresar al sistema.
+\end{itemize}
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/usuariogeneral2.jpg}
+  \caption[\small Caso de Uso: Modificar datos personales]
+  {\small Caso de Uso: Modificar datos personales.}
+  \label{figusuariogeneral2}
+\end{figure}
+ 
+{\bfseries Actor administrador}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/actoradministrador.jpg}
+  \caption[\small Diagrama general de casos de uso para un usuario de tipo Administrador]
+  {\small Diagrama general de casos de uso para un usuario de tipo Administrador.}
+  \label{figactoradministrador}
+\end{figure}
+ 
+\begin{itemize}
+\item	Gestión de usuarios: creación, incluyendo la asignación de un tipo (administrador, líder de proyectos, tester, desarrollador o cliente), modificación de datos, habilitación, bloqueo y eliminación de cuentas.
+\item	Creación de proyectos lo que incluye la elección del ciclo de vida y asignación de: líder del proyecto, responsable del control de calidad y responsable del desarrollo.
+\item	Gestión de clientes.
+\item	Administración de ciclos de vida y fases.
+\item	Gestión de las entidades secundarias como estados, prioridades, niveles, entornos, etc.
+\end{itemize}
+
+{\bfseries Actor líder de proyectos}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/actorlider.jpg}
+  \caption[\small Diagrama general de casos de uso para un usuario de tipo Líder de Proyecto.]
+  {\small Diagrama general de casos de uso para un usuario de tipo Líder de Proyecto.}
+  \label{figactorlider}
+\end{figure}
+
+\begin{itemize}
+\item	Gestión de subproyectos, lo que incluye la asignación de responsable de control de calidad y desarrollo para cada uno.
+\item	Edición de datos de los proyectos que tiene asignados.
+\item	Cierre de los subproyectos y proyectos del que es responsable.
+\end{itemize}
+
+{\bfseries Actor tester}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/actortester.jpg}
+  \caption[\small Diagrama general de casos de uso para un usuario de tipo Tester]
+  {\small Diagrama general de casos de uso para un usuario de tipo Tester.}
+  \label{figactortester}
+\end{figure}
+ 
+\begin{itemize}
+	\item Gestión de Casos de Prueba (creación, modificación y eliminación).
+	\item Gestión de Listas de Control (creación, modificación y eliminación).
+	\item Gestión de Iteraciones, que incluye la asignación de Casos de Prueba y Listas de Control durante su creación, así como también la adición y retiro de éstas herramientas durante la ejecución de las iteraciones.	
+	\item	Ejecución de los Casos de Prueba (C.P.) y Listas de Control (L.C.) en las iteraciones.
+	\item	Elección de un estado resultante de la ejecución de cada C.P. y cada L.C. en las iteraciones.
+	\item Asignación de tareas a desarrolladores cuando la ejecución de C.P. y L.C. en las iteraciones terminen con resultados negativos.
+	\item	Elección del entorno de trabajo para la ejecución de iteraciones (entorno de hardware y software, versión del sistema, etc.).
+\end{itemize}
+
+{\bfseries Actor desarrollador}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/actordesarrollador.jpg}
+  \caption[\small Diagrama general de casos de uso para un usuario Desarrollador]
+  {\small Diagrama general de casos de uso para un usuario Desarrollador.}
+  \label{figactordesarrollador}
+\end{figure}
+ 
+\begin{itemize}
+\item	Generación de reportes en caso de que el usuario sea responsable del desarrollo de un subproyecto.
+\item	Listado de las tareas pendientes relacionadas a C.P. y L.C. que dieron resultados negativos al finalizar su ejecución en las iteraciones.
+\item	Consulta del detalle de cada uno de los casos de prueba asignados.
+\item	Cambio de estado de los casos de prueba y listas asignados.
+\end{itemize}
+
+{\bfseries Actor cliente}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/actorcliente.jpg}
+  \caption[\small Diagrama general de casos de uso para un usuario Cliente]
+  {\small Diagrama general de Casos de Uso para un usuario Cliente.}
+  \label{figactorcliente}
+\end{figure}
+ 
+\begin{itemize}
+\item	Acceso a los proyectos de los que es dueño.
+\item	Adición, modificación y eliminación de observaciones sobre una determinada fase de un subproyecto de un proyecto en particular.
+\item	Listado de las observaciones expuestas previamente.
+\end{itemize}
+
+{\bfseries Actor sistema}\\
+
+A los cinco tipos de usuarios señalados previamente, se añade un sexto que es el Sistema, al cual se le atribuyen funciones que deberá efectuar automáticamente.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/actorsistema.jpg}
+  \caption[\small Diagrama de casos de uso para la herramienta]
+  {\small Diagrama de casos de uso para la herramienta.}
+  \label{figactorsistema}
+\end{figure} 
+
+\begin{itemize}
+\item	Generación de alarmas para líderes de proyectos, testers y desarrolladores sobre las tareas pendientes que tiene cada uno.
+\item Generación de alarmas para líderes de proyectos y administradores cuando los subproyectos y proyectos pueden cerrarse.
+\item	Generación de listas sobre las tareas pendientes de cada usuario.
+\item	Envío de alertas mediante distintos medios como el correo electrónico.
+\item	Generación de mensajes al usuario en los casos en que una fase, un subproyecto o un proyecto estén en condiciones de ser cerrados.
+\item	Control de errores durante el registro de los datos (controlando la integridad de los datos y la coherencia entre ellos).
+\item	Recuperación de la información cuando se requiera (acceso a la Base de Datos y ejecución de las consultas necesarias según la solicitud del Controlador de cada entidad).
+\item	Almacenamiento de la información cuando se le solicite (actualizaciones a las tablas de la Base de Datos como respuesta a solicitudes del Controlador de cada entidad).
+\end{itemize}
+
+\subsection{Requerimientos no funcionales}
+
+Los requerimientos no funcionales definen básicamente las propiedades del sistema, sus restricciones y los factores externos al producto. Las propiedades del sistema pueden ser, por ejemplo, requerimientos implícitos que debe cumplir como la confiabilidad y la exactitud. Las restricciones son las capacidades de los recursos que el sistema utilizará, como la memoria, procesador, etc. \cite{SOM1996}.\\
+ 
+{\bfseries Requerimientos no funcionales del producto}
+\begin{itemize}
+\item La herramienta debe contar con una documentación apropiada.
+\item Requerimientos implícitos (seguridad, robustez, exactitud, etc.).
+\item La herramienta debe ser fácil de usar y contar con manuales (ver sección \ref{seccionmanuales}) para cada tipo de usuario.
+\end{itemize}
+
+{\bfseries Restricciones}
+\begin{itemize}
+\item El sistema deberá ejecutarse en un servidor que tenga los siguientes requerimientos:
+	\begin{itemize}
+	\item Sistema Operativo: Windows 98 o Linux 7.0
+	\item Servidor Web: Apache 1.3 con la distribución de PHP 3.0 incluida, porque existen funciones del lenguaje utilizadas en la aplicación que exigen estas versiones de Apache y PHP como mínimo.
+	\item Servidor de SMTP instalado para el envío de alertas.
+	\item Memoria RAM de 128 MB.
+	\item Procesador de 500 Mhz como mínimo. Se debe tomar en cuenta que el servidor atenderá a más de un usuario a la vez y mientras más lento sea el procesador, mayor será el tiempo de respuesta a cada solicitud. También hay que recordar que la aplicación está escrita en PHP y por lo tanto todo el procesamiento se hace del lado del servidor. 
+	\item Espacio libre mínimo en disco duro: 59 MB para:
+			\begin{itemize}
+			\item Almacenamiento del código fuente de la aplicación: 10 MB.
+			\item Almacenamiento de la Base de Datos en caso de que ésta resida en el servidor y se utilice MySQL como DBMS: 10 MB.
+			\item 200 KB de espacio por archivo que sea subido al servidor desde un cliente. Un promedio de 10 archivos por proyecto, y un número aproximado de 20 proyectos hacen un total de 39 MB para el almacenamiento de documentos de los proyectos.
+			\end{itemize}
+	\end{itemize}
+	
+\item Cada cliente que se conecte al servidor para hacer uso de la herramienta deberá contar con un mínimo de:
+	\begin{itemize}
+	\item	Sistema Operativo: Windows 98 o Linux 7.0.
+	\item	Navegador: Internet Explorer 5.0 (si el S.O. es Windows) o Netscape 6.0.
+	\item	Memoria RAM: 64 MB.
+	\item	Procesador: 333 Mhz.
+	\item	Espacio en Disco Duro: opcional según la cantidad de documentos que el usuario desee descargar de la aplicación.
+	\item	Tarjeta de Red 10/100 o bien, una conexión a Internet con una velocidad mínima de transferencia de 50 Kbps (dependiendo del tipo de acceso que el cliente tenga al servidor).
+	\item	Impresora en caso de desear tener los reportes impresos en papel.
+	\end{itemize}
+\end{itemize}
+
+\section{Diagramas de colaboración} \label{diagramacolaboracion}
+
+Estos diagramas muestran de manera gráfica las interacciones que existen alrededor de los roles. Permiten identificar mediante los denominados clasificadores las potenciales clases del sistema \cite{RUM2000}.\\
+
+A manera de ejemplo, se presenta el diagrama de la figura \ref{figcolaboracioncrearcaso}, que muestra las distintas interacciones (numeradas por orden de la secuencia que se sigue) que existirán entre el usuario, el sistema (en el esquema se presenta a éste desglosado en las tres capas del modelo MVC) y el repositorio de datos. Los clasificadores son:
+\begin{itemize}
+\item La Vista
+\item El controlador
+\item El validador
+\item El Caso de Testeo
+\item Base de Datos
+\end{itemize}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/colaboracioncrearcaso.jpg}
+  \caption[\small Diagrama de colaboración: crear un caso de testeo]
+  {\small Diagrama de colaboración: crear un caso de testeo.}
+  \label{figcolaboracioncrearcaso}
+\end{figure} 
+ 
+Estos clasificadores son comunes a casi todas las funciones de la aplicación, a excepción del cuarto que es reemplazado por las entidades que se vean involucradas en cada función.
+
+\section{Diagrama de estados} \label{diagramaestados}
+
+Muestra los distintos estados por los que pasa un objeto durante la ejecución de una función \cite{RUM2000}. El diagrama que se muestra en la figura \ref{figestados} muestra todo el proceso que se sigue desde que el usuario entra al sistema y elige el proyecto hasta que lo cierra y termina su sesión en la aplicación.\\
+
+La secuencia que es descrita en el diagrama está explicada ``en modo texto'' en el algoritmo de la sección \ref{seccionalgoritmos} (Algoritmos).\\
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/estados.jpg}
+  \caption[\small Diagrama de estados que ilustra el proceso de control de calidad de un proyecto]
+  {\small Diagrama de estados que ilustra el proceso de control de calidad de un proyecto.}
+  \label{figestados}
+\end{figure} 
+
+Hasta aquí se hizo el análisis de la herramienta, extrayendo los requerimientos y una visión global de la lógica que ésta debe seguir.
+
+

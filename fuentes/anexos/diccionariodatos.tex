@@ -1,0 +1,1488 @@
+\chapter{DICCIONARIO DE DATOS}
+\label{anexodiccionariodatos}
+
+\begin{enumerate}
+\item	{\bfseries \large Base de Datos}\\
+	\begin{itemize}
+	\item Nombre: castordb
+	\item	DBMS: MySQL.\\
+	\end{itemize}
+
+\item	{\bfseries \large Tablas}\\
+
+La clave principal de cada tabla está subrayada.\\
+
+	\begin{enumerate}	
+	\item {\bfseries Alerta}\\
+	Tabla que almacena todas las alertas emitidas por el sistema a los usuarios.\\
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize \underline{id\_alerta}	& 
+\footnotesize Int(15) Auto &
+\footnotesize Identificador de la alerta\\
+
+\footnotesize usuario &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que recibió el mensaje\\
+
+\footnotesize mensaje &
+\footnotesize Text &
+\footnotesize Mensaje enviado\\
+
+\footnotesize fecha &
+\footnotesize Int(11) &
+\footnotesize Fecha de envío\\
+
+\footnotesize tipo &
+\footnotesize Char(1) &
+\footnotesize Medio de envío de la alerta. H=Herramienta. M=Mail. S=SMS\\
+
+\footnotesize resultado &
+\footnotesize Int(1) &
+\footnotesize Resultado del envío de la alerta. 0=error. 1=correcto\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	\item {\bfseries AlertaTarea}\\
+	Tabla que almacena la relación alerta-tarea de las alertas enviadas.
+
+		\begin{enumerate}		
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline		
+
+\footnotesize \underline{id\_alerta\_tarea}	& 
+\footnotesize Int(15) Auto &
+\footnotesize Identificador de la alerta-tarea\\
+
+\footnotesize id\_alerta &
+\footnotesize Int(15) &
+\footnotesize Identificador de la alerta. Clave foránea de la tabla Alerta\\
+
+\footnotesize id\_tarea &
+\footnotesize Int(8) &
+\footnotesize Identificador de la tarea. Clave foránea de la tabla IteracionTCTarea ó IteracionCLTarea (dependiendo del tipo)\\
+
+\footnotesize tipo &
+\footnotesize Varchar(2) &
+\footnotesize Tipo de tarea (tc=Caso de Prueba; cl=Lista de Control)\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Checklist}\\
+	Tabla que almacena los datos de los checklists.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_checklist} &
+\footnotesize Int(5) Auto &
+\footnotesize Identificador del checklist\\
+
+\footnotesize nombre &
+\footnotesize Varchar(100) &
+\footnotesize Nombre de la lista\\
+
+\footnotesize objetivo &
+\footnotesize Text &
+\footnotesize Objetivo de la lista\\
+
+\footnotesize fecha\_creacion &
+\footnotesize Int(11) &
+\footnotesize Fecha de creación de la lista en segundos\\
+
+\footnotesize usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que creó la lista\\
+
+\footnotesize id\_proyecto &
+\footnotesize Int(11) &
+\footnotesize Proyecto para el que se creó el checklist (el valor de 0 en este campo indica que el checklist puede ser utilizado en más de un proyecto). Clave foránea de la tabla Proyecto\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Ciclo}\\
+	Tabla que almacena los datos de los ciclos de vida.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_ciclo} &
+\footnotesize Int(5) Auto &
+\footnotesize Identificador del ciclo\\
+
+\footnotesize nombre &
+\footnotesize Varchar(50) & 
+\footnotesize Nombre del ciclo\\
+
+\footnotesize descripcion &
+\footnotesize Text & 
+\footnotesize Descripción del ciclo\\
+
+\footnotesize fecha\_creacion	&
+\footnotesize Int(11) &
+\footnotesize Fecha de creación del ciclo en segundos\\
+
+\footnotesize usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que creó el ciclo\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	\item {\bfseries CicloFase}\\
+	Tabla que guarda la relación ciclo-fase (es decir, qué fases pertenecen a qué ciclo).
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_ci\_fa} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador de la tabla\\
+
+\footnotesize id\_ciclo &
+\footnotesize Int(5) &
+\footnotesize Identificador del ciclo. Clave foránea de la tabla Ciclo\\
+
+\footnotesize id\_fase &
+\footnotesize Int(5) &
+\footnotesize Identificador de la fase. Clave foránea de la tabla Fase\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Cliente}\\
+	Tabla que almacena los datos de los clientes.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_cliente} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador del cliente\\
+
+\footnotesize nombre &
+\footnotesize Varchar(100) &
+\footnotesize Nombre del cliente\\
+
+\footnotesize descripcion &
+\footnotesize Varchar(250) &
+\footnotesize Descripción del cliente\\
+
+\footnotesize empresa &
+\footnotesize Varchar(250) &
+\footnotesize Empresa del cliente\\
+
+\footnotesize ciudad &	
+\footnotesize Varchar(100) &
+\footnotesize Ciudad a la que pertenece el cliente\\
+
+\footnotesize id\_pais &
+\footnotesize Varchar(2) &
+\footnotesize Identificador del país al que pertenece el cliente. Clave foránea de la  tabla País\\
+
+\footnotesize telefono &
+\footnotesize Varchar(100) &
+\footnotesize Teléfono(s) de contacto del cliente\\
+
+\footnotesize direccion	& 
+\footnotesize Varchar(250) & 
+\footnotesize Dirección física del cliente\\
+
+\footnotesize email &
+\footnotesize Varchar(50) &
+\footnotesize Dirección de correo electrónico del cliente\\
+
+\footnotesize www	& 
+\footnotesize Varchar(250) & 
+\footnotesize Página web del cliente\\
+
+\footnotesize id\_sector &
+\footnotesize Int(3) &
+\footnotesize Identificador del rubro en el que trabaja el cliente. Clave foránea de la tabla Sector\\
+
+\footnotesize fecha\_creacion	&
+\footnotesize Int(11) &
+\footnotesize Fecha de creación del cliente en segundos\\
+
+\footnotesize usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que insertó los datos del cliente en la Base de Datos\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	\item {\bfseries CLElemento}\\
+	Tabla que guarda la relación checklist-elementoChecklist y los datos de los elementos.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_cle} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador del elemento\\
+
+\footnotesize id\_cl &
+\footnotesize Int(5) &
+\footnotesize Identificador de la lista a la que pertenece el elemento. Clave foránea de la tabla Checklist\\
+
+\footnotesize descripcion &
+\footnotesize Text &
+\footnotesize Descripción (sentencia)\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries CLFase}\\
+	Tabla que guarda la relación checklist-fase (es decir, para qué fases es aplicable la lista).
+
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_ch\_fa} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador del registro de la tabla\\
+
+\footnotesize id\_checklist &
+\footnotesize Int(5) &
+\footnotesize Identificador de la lista. Clave foránea de la tabla Checklist\\
+
+\footnotesize id\_fase &
+\footnotesize Int(4) &
+\footnotesize Identificador de la fase. Clave foránea de la tabla Fase\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Comentario}\\
+	Tabla que almacena las observaciones de los clientes.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_comentario} &
+\footnotesize Int(11) Auto &
+\footnotesize Identificador\\
+
+\footnotesize id\_sp &
+\footnotesize Int(11) &
+\footnotesize Identificador del subproyecto. Clave foránea de la tabla Subproyecto\\
+
+\footnotesize id\_fase &
+\footnotesize Int(3) &
+\footnotesize Identificador de la fase. Clave foránea de la tabla Fase\\
+
+\footnotesize comentario &
+\footnotesize Varchar(250) &
+\footnotesize Comentario del cliente\\
+
+\footnotesize fecha\_comentario &
+\footnotesize Int(11) &
+\footnotesize Fecha en la que el cliente dejó el comentario\\
+
+\footnotesize cliente &
+\footnotesize Varchar(20) &
+\footnotesize Cliente que dejó el comentario\\
+
+\footnotesize comentario\_revision &
+\footnotesize Varchar(250) &
+\footnotesize Comentario del usuario que atendió la solicitud del cliente\\
+
+\footnotesize fecha\_revision	& 
+\footnotesize Int(11) &
+\footnotesize Fecha en que se atendió el comentario\\
+
+\footnotesize usuario &
+\footnotesize Varchar(20) & 
+\footnotesize Usuario que atiende el comentario del cliente\\
+
+\footnotesize Estado &
+\footnotesize Int(1) &
+\footnotesize Estado del comentario. 0=Pendiente. 1=Atendido\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Config}\\
+	Tabla que almacena algunos de los valores de configuración del sistema.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_config} &
+\footnotesize Int(3) Auto &
+\footnotesize Identificador\\
+
+\footnotesize nombre &
+\footnotesize Varchar(20) &
+\footnotesize Nombre\\
+
+\footnotesize descripcion &
+\footnotesize Varchar(250) &
+\footnotesize Descripción\\
+
+\footnotesize valor &
+\footnotesize Int(3) &
+\footnotesize Valor\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Documento}\\
+	Tabla que almacena los datos de los documentos de los proyectos.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_documento} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador del documento\\
+
+\footnotesize id\_proyecto &
+\footnotesize Int(10) &
+\footnotesize Identificador del proyecto al que pertenece el documento. Clave foránea de la tabla Proyecto\\
+
+\footnotesize descripcion &
+\footnotesize Varchar(250) &
+\footnotesize Descripción del documento\\
+
+\footnotesize ubicación	& 
+\footnotesize Varchar(250) &
+\footnotesize Ubicación en el servidor del documento\\
+
+\footnotesize fecha &
+\footnotesize Int(11) &
+\footnotesize Fecha en que se copió el documento al servidor\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Entorno}\\
+	Tabla que almacena los datos de los entornos de ejecución.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_entorno} &
+\footnotesize Int(3) Auto &
+\footnotesize Identificador del entorno\\
+
+\footnotesize nombre &
+\footnotesize Varchar(50) &
+\footnotesize Nombre del entorno\\
+
+\footnotesize descripcion\_hw &
+\footnotesize Varchar(250) &
+\footnotesize Descripción del entorno de hardware\\
+
+\footnotesize descripcion\_sw &
+\footnotesize Varchar(250) &
+\footnotesize Descripción del entorno de software\\
+
+\footnotesize otros &
+\footnotesize Varchar(250) &
+\footnotesize Descripciones adicionales\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Estado}\\
+	Tabla que almacena los datos de los entornos de ejecución.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_estado} &
+\footnotesize Int(2) Auto &
+\footnotesize Identificador del estado\\
+
+\footnotesize nombre &
+\footnotesize Varchar(50) &
+\footnotesize Nombre del estado\\
+
+\footnotesize descripcion &
+\footnotesize Text &
+\footnotesize Descripción del estado\\
+
+\footnotesize color &
+\footnotesize Varchar(6) &
+\footnotesize Color que identifica al estado\\
+
+\footnotesize puede\_eliminarse &	
+\footnotesize Int(1) &
+\footnotesize Indica si el estado puede ser eliminado o no\\
+
+\footnotesize tester &
+\footnotesize Int(1) &
+\footnotesize Indica si el estado es accesible por un usuario de tipo tester\\
+
+\footnotesize desarrollador &
+\footnotesize Int(1) &
+\footnotesize Indica si el estado es accesible por un usuario de tipo administrador\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Fase}\\
+	Tabla que almacena los datos de las fases.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_fase} &
+\footnotesize Int(4) Auto &
+\footnotesize Identificador del entorno\\
+
+\footnotesize nombre &
+\footnotesize Varchar(50) &
+\footnotesize Nombre de la fase\\
+
+\footnotesize descripcion &
+\footnotesize Varchar(250) &
+\footnotesize Descripción de la fase\\
+
+\footnotesize fecha\_creacion	&
+\footnotesize Int(11) &
+\footnotesize Fecha de creación de la fase en segundos\\
+
+\footnotesize usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que creó la fase\\
+
+\footnotesize accesible\_cliente &
+\footnotesize Int(1) &
+\footnotesize Indica si la fase puede ser vista por el cliente. 0=No. 1=Si\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Idioma}\\
+	Tabla que almacena los datos de los idiomas disponibles en el sistema.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_idioma} &
+\footnotesize Int(2) Auto &
+\footnotesize Identificador del idioma\\
+
+\footnotesize Nombre &
+\footnotesize Varchar(100) &
+\footnotesize Nombre del idioma\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	\item {\bfseries Iteración}\\
+	Tabla que almacena los datos de los entornos de ejecución.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_iteracion} &
+\footnotesize Int(15) Auto &
+\footnotesize Identificador de la iteración\\
+
+\footnotesize id\_sp &
+\footnotesize Int(10) &
+\footnotesize Identificador del subproyecto al que pertenece la iteración. Clave foránea de la tabla Subproyecto\\
+
+\footnotesize id\_fase &
+\footnotesize Int(4) &
+\footnotesize Identificador de la fase a la que pertenece la iteración. Clave foránea de la tabla Fase\\
+
+\footnotesize nombre &
+\footnotesize Varchar(250) &
+\footnotesize Nombre de la iteración\\
+
+\footnotesize fecha\_creacion &
+\footnotesize Varchar(250) &
+\footnotesize Fecha de creación de la iteración\\
+
+\footnotesize usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que creó la iteración\\
+
+\footnotesize id\_estado &
+\footnotesize Int(3) &
+\footnotesize Estado de la iteración\\
+
+\footnotesize fecha\_cierre &
+\footnotesize Int(11) &
+\footnotesize Fecha de cierre de la iteración en segundos\\
+
+\footnotesize usuario\_cierre	& 
+\footnotesize Varchar(20) &
+\footnotesize Usuario que cerró la iteración\\
+
+\footnotesize avance &
+\footnotesize Int(3) & 
+\footnotesize Porcentaje de avance de la iteración\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries IteraciónCL}\\
+	Tabla que guarda la relación iteración-checklist.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_it\_cl} &
+\footnotesize Int(15) Auto &
+\footnotesize Identificador de la tabla\\
+
+\footnotesize id\_it &
+\footnotesize Int(10) &
+\footnotesize Identificador de la iteración. Clave foránea de la tabla Iteración\\
+
+\footnotesize id\_cl &
+\footnotesize Int(4) &
+\footnotesize Identificador del checklist. Clave foránea de la tabla Checklist\\
+
+\footnotesize id\_result &
+\footnotesize  Varchar(250) &
+\footnotesize Resultado de la lista\\
+
+\footnotesize id\_estado &
+\footnotesize Varchar(20) &
+\footnotesize Estado de la lista. Clave foránea de la tabla Estado\\
+
+\footnotesize id\_version &
+\footnotesize Int(3) &
+\footnotesize Versión en la que se ejecutó la lista. Clave foránea de la tabla Versión\\
+
+\footnotesize id\_entorno &
+\footnotesize Int(11) &
+\footnotesize Entorno de ejecución de la lista. Clave foránea de la tabla Entorno\\
+
+\footnotesize id\_nivel &
+\footnotesize Varchar(20) &
+\footnotesize Nivel asignado a la lista en la actual iteración. Clave foránea de la tabla Nivel\\
+
+\footnotesize id\_prioridad &
+\footnotesize Int(3) &
+\footnotesize Prioridad dada a la lista en la actual iteración. Clave foránea de la tabla Prioridad\\
+
+\footnotesize Avance &
+\footnotesize Int(3) &
+\footnotesize Porcentaje de avance de ejecución de la lista (depende de la cantidad de elementos ejecutados)\\
+
+\footnotesize Fecha\_ejecucion &
+\footnotesize Int(11) &
+\footnotesize Fecha de la última ejecución de la lista en la iteración actual en segundos\\
+
+\footnotesize Usuario\_ejecutor &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que ejecutó la lista\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries IteraciónCLTarea}\\
+	Tabla que guarda las tareas asignadas a los desarrolladores y testers para un checklist ejecutado en una determinada iteración.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_it\_cl\_ta} &
+\footnotesize Int(8) Auto &
+\footnotesize Identificador de la tabla\\
+
+\footnotesize id\_it\_cl &
+\footnotesize Int(10) &
+\footnotesize Identificador de la iteración-checklist. Clave foránea de la tabla IteraciónCL\\
+
+\footnotesize Usuario &
+\footnotesize Varchar(20) &
+\footnotesize Login del usuario que tiene la tarea\\
+
+\footnotesize descripcion\_tarea &
+\footnotesize Text &
+\footnotesize Descripción de la tarea del tarea\\
+
+\footnotesize id\_estado &
+\footnotesize Int(2) &
+\footnotesize Estado de la lista. Clave foránea de la tabla Estado\\
+
+\footnotesize fecha\_reporte	&
+\footnotesize Int(11) &
+\footnotesize Fecha de reporte de la tarea en segundos\\
+
+\footnotesize fecha\_revision	& 
+\footnotesize Int(11) &
+\footnotesize Fecha de revisión del desarrollador en segundos\\
+
+\footnotesize comentarios &
+\footnotesize Text &
+\footnotesize Comentarios puestos por el desarrollador luego de la revisión\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries IteraciónCLE}\\
+	Tabla que guarda la relación iteración-checklist-elemento y los resultados que los elementos tuvieron durante la ejecución del checklist en la iteración dada.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_it\_cle} &
+\footnotesize Int(8) Auto &
+\footnotesize Identificador de la tabla\\
+
+\footnotesize id\_it\_cl &
+\footnotesize Int(10) &
+\footnotesize Identificador de la iteración-checklist. Clave foránea de la tabla IteraciónCL\\
+
+\footnotesize id\_elemento &
+\footnotesize Int(11) &
+\footnotesize Identificador del elemento de la lista\\
+
+\footnotesize resultado &
+\footnotesize Int(1) &
+\footnotesize Resultado obtenido durante la ejecución (0=no ejecutado aún; 1=pasó; -1=falló; -2=fue omitido)\\
+
+\footnotesize comentario	&
+\footnotesize Varchar(250) &
+\footnotesize Comentario del ejecutor \\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	\item {\bfseries IteraciónTC}\\
+	Tabla que guarda la relación iteración-testcase.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_it\_tc} &
+\footnotesize Int(15) Auto &
+\footnotesize Identificador de la tabla\\
+
+\footnotesize id\_it &
+\footnotesize Int(10) &
+\footnotesize Identificador de la iteración. Clave foránea de la tabla Iteración\\
+
+\footnotesize id\_tc &
+\footnotesize Int(10) &
+\footnotesize Identificador del testcase. Clave foránea de la tabla Testcase\\
+
+\footnotesize resultado\_actual &
+\footnotesize Text &
+\footnotesize Resultado obtenido de la ejecución\\
+
+\footnotesize fecha\_ejecucion &
+\footnotesize Int(11) &
+\footnotesize Fecha de la última ejecución del caso en la iteración actual en segundos\\
+
+\footnotesize usuario\_ejecutor &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que ejecutó el caso\\
+
+\footnotesize id\_entorno &
+\footnotesize Int(11) &
+\footnotesize Entorno de ejecución del caso. Clave foránea de la tabla Entorno\\
+
+\footnotesize id\_nivel &
+\footnotesize Varchar(20) &
+\footnotesize Nivel asignado al caso en la actual iteración. Clave foránea de la tabla Nivel\\
+
+\footnotesize id\_prioridad &
+\footnotesize Int(3) &
+\footnotesize Prioridad dada al caso en la actual iteración. Clave foránea de la tabla Prioridad\\
+
+\footnotesize id\_resultado &
+\footnotesize Int(2) &
+\footnotesize Resultado general de la ejecución\\
+
+\footnotesize id\_estado &
+\footnotesize Int(2) &
+\footnotesize Estado del caso. Clave foránea de la tabla Estado\\
+
+\footnotesize Usuario\_ejecutor &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que ejecutó el caso\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries IteraciónTCTarea}\\
+	Tabla que guarda las tareas asignadas a los desarrolladores y testers para un caso de testeo ejecutado en una determinada iteración.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_it\_tc\_ta} &
+\footnotesize Int(8) Auto &
+\footnotesize Identificador de la tabla\\
+
+\footnotesize id\_it\_tc &
+\footnotesize Int(10) &
+\footnotesize Identificador de la iteración-casotesteo. Clave foránea de la tabla IteraciónTC\\
+
+\footnotesize Usuario &
+\footnotesize Varchar(20) &
+\footnotesize Login del usuario que tiene la tarea\\
+
+\footnotesize descripcion\_tarea &
+\footnotesize Text &
+\footnotesize Descripción de la tarea del desarrollador\\
+
+\footnotesize id\_estado &
+\footnotesize Int(2) &
+\footnotesize Estado de la lista. Clave foránea de la tabla Estado\\
+
+\footnotesize fecha\_reporte &
+\footnotesize Int(11) &
+\footnotesize Fecha de reporte de la tarea en segundos\\
+
+\footnotesize fecha\_revision &
+\footnotesize Int(11) &
+\footnotesize Fecha de revisión del desarrollador en segundos\\
+
+\footnotesize comentarios &
+\footnotesize Text &
+\footnotesize Comentarios puestos por el desarrollador luego de la revisión\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Nivel}\\
+	Tabla que almacena la información sobre los distintos tipos de niveles.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_nivel} &
+\footnotesize Int(2) Auto &
+\footnotesize Identificador del nivel\\
+
+\footnotesize nombre &
+\footnotesize Varchar(20) &
+\footnotesize Nombre del nivel\\
+
+\footnotesize descripcion &
+\footnotesize Text &
+\footnotesize Descripción del nivel\\
+
+\footnotesize valor &
+\footnotesize Int(2) &
+\footnotesize Valor que toma el nivel\\
+
+\footnotesize puede\_eliminarse &
+\footnotesize Int(1) &
+\footnotesize Indica si el nivel puede o no ser eliminado\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries País}\\
+	Tabla que guarda los datos de los países.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_pais} &
+\footnotesize Varchar(2) &
+\footnotesize Identificador del país\\
+
+\footnotesize nombre &
+\footnotesize Varchar(50) &
+\footnotesize Nombre del país\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Prioridad}\\
+	Tabla que guarda los datos de las distintas prioridades.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_prioridad} &
+\footnotesize Int(2) Auto &
+\footnotesize Identificador de la prioridad\\
+
+\footnotesize nombre &
+\footnotesize Varchar(20) &
+\footnotesize Nombre de la prioridad\\
+
+\footnotesize descripcion &
+\footnotesize Text &
+\footnotesize Descripción de la prioridad\\
+
+\footnotesize valor &
+\footnotesize Int(2) &
+\footnotesize Valor que toma la prioridad\\
+
+\footnotesize puede\_eliminarse &
+\footnotesize Int(1) &
+\footnotesize Indica si la prioridad puede o no ser eliminado\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	\item {\bfseries Proyecto}\\
+	Tabla que guarda los proyectos.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_proyecto} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador del proyecto\\
+
+\footnotesize nombre &
+\footnotesize Varchar(100) &
+\footnotesize Nombre del proyecto\\
+
+\footnotesize objetivo &
+\footnotesize Text &
+\footnotesize Objetivo del proyecto\\
+
+\footnotesize descripcion &
+\footnotesize Text &
+\footnotesize Descripción del proyecto\\
+
+\footnotesize id\_cliente &
+\footnotesize Int(5) &
+\footnotesize Identificador del cliente al que pertenece el proyecto. Clave foránea de la tabla Cliente\\
+
+\footnotesize lider &
+\footnotesize Varchar(20) &
+\footnotesize Usuario responsable del proyecto\\
+
+\footnotesize desarrollo &
+\footnotesize Varchar(20) &
+\footnotesize Usuario responsable del desarrollo del proyecto\\
+
+\footnotesize calidad &
+\footnotesize Varchar(20) &
+\footnotesize Usuario responsable del control de calidad del proyecto\\
+
+\footnotesize usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que registró el subproyecto\\
+
+\footnotesize fecha\_creacion &
+\footnotesize Int(11) &
+\footnotesize Fecha de registro del subproyecto\\
+
+\footnotesize fecha\_inicio &
+\footnotesize Int(11) &
+\footnotesize Fecha de inicio del proyecto (dada por el usuario)\\
+
+\footnotesize fecha\_cierre &
+\footnotesize Int(11) &
+\footnotesize Fecha de cierre del proyecto (dada por el usuario)\\
+
+\footnotesize fecha\_actualizacion &
+\footnotesize Int(11) &
+\footnotesize Fecha de última modificaicón del proyecto\\
+
+\footnotesize usuario\_actualizacion &
+\footnotesize Int(11) &
+\footnotesize Login del usuario responsable de la última modificación\\
+
+\footnotesize id\_estado &
+\footnotesize Int(3) &
+\footnotesize Identificador del estado en el que se encuentra el proyecto. Clave foránea de la tabla Estado\\
+
+\footnotesize id\_ciclo &
+\footnotesize Int(3) &
+\footnotesize Identificador del ciclo de vida asignado al proyecto. Clave foránea de la tabla Ciclo\\
+
+\footnotesize avance &
+\footnotesize Int(3) &
+\footnotesize Porcentaje de avance del proyecto\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Sector}\\
+	Tabla que guarda los datos de los distintos sectores (rubros).
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_sector} &
+\footnotesize Int(3) Auto &
+\footnotesize Identificador del sector\\
+
+\footnotesize nombre &
+\footnotesize Varchar(50) &
+\footnotesize Nombre del sector\\
+
+\footnotesize descripcion &
+\footnotesize Varchar(250) &
+\footnotesize Descripción del sector\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	\item {\bfseries Subproyecto}\\
+	Tabla que guarda los subproyectos.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_subproyecto} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador del subproyecto\\
+
+\footnotesize id\_proyecto &
+\footnotesize Int(10) &
+\footnotesize Identificador del proyecto al que pertenece el subproyecto. Clave foránea de la tabla Proyecto\\
+
+\footnotesize nombre &
+\footnotesize Varchar(100) &
+\footnotesize Nombre del subproyecto\\
+
+\footnotesize descripcion &
+\footnotesize Text &
+\footnotesize Descripción del subproyecto\\
+
+\footnotesize Id\_estado &
+\footnotesize Int(3) &
+\footnotesize Identificador del estado en el que se encuentra el subproyecto. Clave foránea de la tabla Estado\\
+
+\footnotesize fecha\_inicio &	
+\footnotesize Int(11) &
+\footnotesize Fecha de inicio del subproyecto\\
+
+\footnotesize fecha\_cierre &
+\footnotesize Int(11) &
+\footnotesize Fecha de cierre del subproyecto\\
+
+\footnotesize fecha\_creacion &
+\footnotesize Int(11) &
+\footnotesize Fecha de registro del subproyecto\\
+
+\footnotesize usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que registró el subproyecto\\
+
+\footnotesize fecha\_actualizacion &
+\footnotesize Int(11) &
+\footnotesize Fecha de última modificaicón del proyecto\\
+
+\footnotesize usuario\_actualizacion &
+\footnotesize Int(11) &
+\footnotesize Login del usuario responsable de la última modificación\\
+
+\footnotesize desarrollo &
+\footnotesize Varchar(20) &
+\footnotesize Usuario responsable del desarrollo del subproyecto\\
+
+\footnotesize calidad &
+\footnotesize Varchar(20) &
+\footnotesize Usuario responsable del control de calidad del subproyecto\\
+
+\footnotesize avance &
+\footnotesize Int(3) &
+\footnotesize Porcentaje de avance del subproyecto\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries SubproyectoFase}\\
+	Tabla que guarda la relación subproyecto-fase.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_sp\_fa} &
+\footnotesize Int(11) Auto &
+\footnotesize Identificador único\\
+
+\footnotesize Id\_sp &	
+\footnotesize Int(10) &
+\footnotesize Identificador del subproyecto. Clave foránea de la tabla Subproyecto\\
+
+\footnotesize Id\_fase &
+\footnotesize Int(3) &
+\footnotesize Identificador de la fase. Clave foránea de la tabla Fase\\
+
+\footnotesize Avance &
+\footnotesize Int(3) &
+\footnotesize Porcentaje de avance de la fase del subproyecto\\
+
+\footnotesize Id\_estado &
+\footnotesize Int(3) &
+Identificador del estado en el que se encuentra la fase. Clave foránea de la tabla Estado\\
+
+\footnotesize Fecha\_cierre &
+\footnotesize Int(11) &
+\footnotesize Fecha de cierre de la fase en segundos\\
+
+\footnotesize Usuario\_cierre	 &
+\footnotesize Varchar(20) &
+\footnotesize Usuario responsable del cierre de la fase\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries TCFase}\\
+	Tabla que guarda la relación fase-testcase, es decir, a qué fases es aplicable cada caso de testeo.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_tcfa} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador único\\
+
+\footnotesize Id\_tc &
+\footnotesize Varchar(100) &
+\footnotesize Identificador del caso de testeo. Clave foránea de la tabla Testcase\\
+
+\footnotesize Id\_fase &
+\footnotesize Int(3) &
+\footnotesize Identificador de la fase. Clave foránea de la tabla Fase\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Testcase}\\
+	Tabla que guarda los casos de testeo.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_testcase} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador del caso de testeo\\
+
+\footnotesize Nombre &	
+\footnotesize Varchar(100) &	
+\footnotesize Nombre del caso de testeo\\
+
+\footnotesize Objetivo &
+\footnotesize Text &
+\footnotesize Objetivo del caso\\
+
+\footnotesize Descripcion &
+\footnotesize Text &
+\footnotesize Descripción del caso\\
+
+\footnotesize Pasos\_configuracion &
+\footnotesize Text &
+\footnotesize Pasos de configuración\\
+
+\footnotesize Pasos\_ejecucion &
+\footnotesize Text &
+\footnotesize Pasos de ejecución\\
+
+\footnotesize Resultado\_esperado &
+\footnotesize Text &
+\footnotesize Resultado que se espera obtener\\
+
+\footnotesize Id\_proyecto &
+\footnotesize Int(10) &
+\footnotesize Identificador del proyecto para el que fue creado el caso. Si el valor es de 0, entonces el caso es aplicable a más de un proyecto\\
+
+\footnotesize Fecha\_creacion &
+\footnotesize Int(11) &
+\footnotesize Fecha de creación del caso\\
+
+\footnotesize Usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que creó el caso de testeo\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+	\item {\bfseries Usuario}\\
+	Tabla que guarda información sobre los usuarios.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{login} &
+\footnotesize Varchar(20) &
+\footnotesize Nombre de usuario\\
+
+\footnotesize contrasena &
+\footnotesize Varchar(35) &
+\footnotesize Contraseña del usuario encriptada\\
+
+\footnotesize nombre &
+\footnotesize Varchar(30) &
+\footnotesize Nombre(s) del usuario\\
+
+\footnotesize apellido &
+\footnotesize Varchar(30) &
+\footnotesize Apellido(s) del usuario\\
+
+\footnotesize tipo &
+\footnotesize Varchar(5) &
+\footnotesize Tipo de usuario (Administrador, Líder, Tester, Desarrollador o Cliente)\\
+
+\footnotesize email &
+\footnotesize Varchar(50) &
+\footnotesize Correo electrónico del usuario\\
+
+\footnotesize telefono &
+\footnotesize Varchar(30) &
+\footnotesize Teléfono móvil del usuario (para recibir las alertas por SMS)\\
+
+\footnotesize estado &
+\footnotesize Int(1) &
+\footnotesize Estado del usuario (0=bloqueado; 1=activo)\\
+
+\footnotesize alerta\_email &
+\footnotesize Int(1) &
+\footnotesize Define si el usuario recibirá o no las alertas por email\\
+
+\footnotesize alerta\_sms &
+\footnotesize Int(1) &
+\footnotesize Define si el usuario recibirá o no las alertas por SMS\\
+
+\footnotesize idioma\_por\_defecto &
+\footnotesize Varchar(2) &
+\footnotesize Idioma que el usuario utiliza por defecto\\
+
+\footnotesize fecha\_creacion &
+\footnotesize Int(11) &
+\footnotesize Fecha de creación del usuario\\
+
+\footnotesize usuario\_creador &
+\footnotesize Varchar(20) &
+\footnotesize Usuario que creó la cuenta\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\item {\bfseries Versión}\\
+	Tabla que guarda los datos de las versiones de los proyectos.
+
+		\begin{enumerate}
+		\item	Campos
+
+\begin{longtable}{|p{2in}|p{1in}|p{3in}|}
+\hline
+{\footnotesize Nombre} & {\footnotesize Tipo} & {\footnotesize Descripción}\\ 
+\hline
+
+\footnotesize \underline{id\_version} &
+\footnotesize Int(10) Auto &
+\footnotesize Identificador del sector\\
+
+\footnotesize id\_proyecto &
+\footnotesize Int(10) &
+\footnotesize Identificador del proyecto al que pertenece la versión. Clave foránea de la tabla Proyecto\\
+
+\footnotesize fecha\_liberacion &
+\footnotesize Int(11) &
+\footnotesize Fecha de lanzamiento de la versión en segundos\\
+
+\footnotesize nombre &
+\footnotesize Varchar(20) &
+\footnotesize Nombre de la versión\\
+
+\footnotesize diferencias\_version\_previa &
+\footnotesize Varchar(250) &
+\footnotesize Diferencias de la versión con la anterior (del mismo proyecto)\\
+
+\footnotesize diferencias\_proxima\_version &
+\footnotesize Varchar(250) &
+\footnotesize Puntos pendientes de la versión para una próxima\\
+
+\footnotesize comentarios &
+\footnotesize Varchar(250) &
+\footnotesize Comentarios\\
+
+\hline
+\end{longtable} 
+
+		\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\end{enumerate}
+	
+\end{enumerate}
+

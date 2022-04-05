@@ -1,0 +1,354 @@
+\chapter{IMPLEMENTACIÓN}
+\label{capimplementacion}
+
+En este capítulo se detallan los aspectos concernientes a la codificación de la herramienta y otros que tienen como objetivo alcanzar una versión operable del producto.
+
+\section{Elección de las herramientas de implementación}
+
+Para la implementación de la Herramienta Web de apoyo al control de la calidad del software, se decidió utilizar las siguientes herramientas:
+\begin{itemize}
+\item	Lenguaje de programación: Hipertext PreProcessor (PHP).
+\item	Servidor: Apache. 
+\item	Servidor de Base de Datos: MySQL.
+\end{itemize}
+
+{\bfseries PHP}\\
+
+PHP\footnote{www.php.net}  es el acrónimo de Hypertext Preprocessor. Es un lenguaje ``open source''\footnote{Open source: Código abierto, gratuito.} interpretado de alto nivel que es escrito en páginas HTML y ejecutado del lado del servidor.\\\\
+La figura \ref{figejecucionphp} muestra la manera en que se ejecutan las aplicaciones escritas en PHP.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/ejecucionphp.jpg}
+  \caption[\small Ejecución de un programa escrito en PHP]
+  {\small Ejecución de un programa escrito en PHP \cite{WEB2003}.}
+  \label{figejecucionphp}
+\end{figure} 
+
+{\bfseries Ventajas \cite{IGN2003}\cite{ASC2003}\cite{PHP2004}}\\
+\begin{enumerate}
+\item	Al heredar las características (sintaxis por ejemplo) de lenguajes tradicionales como C/C++, es sencillo de aprender para programadores que han tenido un mínimo de experiencia con tales lenguajes.
+\item	Ofrece un conjunto bastante amplio y completo de funciones que simplifican el trabajo del desarrollador. Estas funciones ofrecen la posibilidad de manejar clases, bases de datos, archivos, cadenas, etc.
+\item	Cuenta con bastante documentación, fruto del trabajo de sus creadores, profesionales y aficionados que han puesto a disposición de los interesados los resultados de sus investigaciones, experiencias y trabajos.
+\item	Es multiplataforma, lo que permite que las aplicaciones escritas en este lenguaje sean independientes del Sistema Operativo y del Servidor.
+\item	Al ser un lenguaje interpretado, reduce el tiempo de desarrollo al permitir la ejecución inmediata del código sin previas compilaciones. Además resulta más ligero para el servidor y su ejecución es mucho más rápida.
+\item	Es robusto. Su sistema de control de errores es bastante bueno y detallado al momento de detectar y reportar fallas en el código.
+\item	Soporta (de manera básica) el paradigma de programación Orientada a Objetos.
+\item	El análisis léxico para el reconocimiento de variables que se pasan en la dirección es automático.
+\item	Permite la incrustación de etiquetas HTML en su código.
+\item	Su soporte de acceso a Bases de Datos es muy bueno.
+\item	No maneja el concepto de punteros como lo hacen otros lenguajes como C/C++, lo que facilita el trabajo al desarrollador, evita problemas de depuración y otros asociados con accesos a memoria.
+\item	El código PHP es mucho más legible e interpretable que el código de otros lenguajes.
+\item	Como se dijo en el párrafo introductorio, es un lenguaje ``open source'', es decir, gratuito y de fácil acceso (esto incluye el acceso a un amplio conjunto de aplicaciones listas para reutilizarse que son ofrecidas por la comunidad que apoya PHP).
+\item	Su aceptación por parte de millones de desarrolladores lo han convertido en uno de los lenguajes para desarrollo Web más populares y ricos en documentación y recursos. La figura F.2 muestra el rápido de crecimiento de servidores que utilizan PHP.
+\item	Se ejecuta completamente del lado del servidor, con esto se garantiza que la aplicación no dependa de qué tecnología usa el cliente que acceda a la aplicación. Básicamente, éste sólo requiere de un navegador.
+\item	En comparación con otros lenguajes interpretados (como Perl), PHP garantiza una curva de aprendizaje mejor ya que es sencillo de aprender.\\
+\end{enumerate}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/usophp2.png}
+  \caption [\small Gráfica del número de dominios y direcciones IP que utilizan PHP]
+  {\small Gráfica del número de dominios y direcciones IP que utilizan PHP.
+Estadística de Netcraft \cite{NET2004}.}
+  \label{figusophp}
+\end{figure} 
+ 
+{\bfseries Desventajas \cite{ASC2003}}
+\begin{enumerate}
+\item	No deja ningún tipo de tarea al cliente. Exige que todo el trabajo sea hecho en el servidor lo que en algunos casos resulta inconveniente debido al retardo que ocasiona en la respuesta de tareas que pueden perfectamente ser hechas del lado del cliente.
+\item	El hecho de poder mezclar código PHP con HTML puede resultar perjudicial si no se establece un buen conjunto de convenciones de programación.
+\item	La manipulación de Clases y Objetos es muy precaria aun y puede resultar perjudicial para sistemas muy grandes.
+\end{enumerate}
+
+Para que estas desventajas no afecten el correcto y eficiente funcionamiento del sistema se establecieron las siguientes convenciones:
+\begin{enumerate}
+\item	Debido a que se desea que el sistema sea multiplataforma será necesario que todas las tareas sean hechas por el Servidor, así no se dependerá del Cliente en absoluto. El costo de esta decisión es la velocidad de la aplicación. Sin embargo, debido a que PHP es interpretado y ofrece un excelente manejo de la memoria, se espera que el tiempo de respuesta sea mínimo.
+\item Para no tener código PHP y HTML mezclado en toda la aplicación se decidió sólo utilizar éste último en la capa View de la arquitectura MVC.
+\item En cuanto a las Clases y Objetos, el soporte y manipulación ofrecidos por PHP son suficientes para la aplicación debido a que sólo se utilizarán Clases en la capa Model de la arquitectura MVC.
+\end{enumerate}
+
+\vspace*{0.3cm}
+{\bfseries PHP y otros lenguajes \cite{ORA2004}\cite{PHP2004}}
+\vspace*{0.3cm}
+
+\begin{itemize}
+
+\item PHP y ASP/ASP.NET.- Las ventajas que PHP presenta frente a ASP/ASP.NET son las siguientes: 
+	\begin{enumerate}
+	\item Es de libre distribución.
+	\item Es multiplataforma (ASP y ASP.NET requieren de Win32 y el IIS).
+	\item Es más eficiente en el uso de recursos.
+	\item Es más seguro.
+	\item Cuenta con código de libre distribución.	
+	\end{enumerate}
+
+\item PHP y ColdFusion.- Aunque ColdFusion tiene una mejor manipulación de errores y manejo de los datos, PHP corre en muchas más plataformas, es mucho más eficiente en tareas complejas, brinda una mayor estabilidad, flexibilidad y una mejor manipulación de estructuras anidadas. Además, PHP cuenta con mucha más documentación.
+
+\item PHP y Perl.- La gran ventaja de PHP frente a Perl es la curva de aprendizaje. Perl es mucho más complicado de aprender. Además, PHP es más rápido en tiempo de ejecución.
+
+\item PHP y Java.- Java fue considerado en un principio como el lenguaje de programación de la herramienta propuesta en el presente trabajo, sin embargo fue descartado porque presenta las siguientes desventajas frente a PHP:
+	\begin{itemize}
+	\item Para este caso, Java exigía la utilización de diversas tecnologías como Struts (MVC en Java), JavaBeans, JSP y Servlets. Esto ocasionaba que el código de la aplicación crezca y se complique más de lo necesario y con ello ésta fuera más lenta. Además, la curva de aprendizaje no tenía comparación frente a la de PHP. 
+	\item La combinación de distintas tecnologías de Java (Struts, JSP, Servlets, etc.) obliga el uso de otros lenguajes que hagan las veces de {\it engranaje} como XML, lo que complica aún más el código.
+	\item Java es compilado e interpretado, lo que duplica el tiempo de desarrollo y ejecución de una aplicación. Al ser PHP solo interpretado, permite un desarrollo más rápido y la ejecución inmediata sin previas compilaciones.
+	\item PHP maneja mejor los recursos que Java (memoria, procesador).		
+	\item El código PHP puede ser escrito en cualquier editor de textos (incluso los ofrecidos de manera gratuita con los Sistemas Operativos) y luego ser llevado a un navegador para su ejecución. Si bien Java también puede ser escrito en un editor de textos, la complejidad de su código, las compilaciones previas y la inminente necesidad de contar con un ambiente de trabajo que organice los archivos y oriente a los desarrolladores (por la gran cantidad de archivos fuente que se van creando y el manejo de métodos y atributos en cada uno de ellos), obliga a éstos a adquirir herramientas adicionales (como JBuilder), cuyas versiones completas no son de libre distribución.
+	\end{itemize}
+\end{itemize}
+
+{\bfseries Apache}\\
+
+El  NCSA (National Center for Super Computing Applications) desarrolló, en 1995, uno de los primeros servidores Web pero el proyecto fracasó.\\
+
+Sin embargo, los usuarios comenzaron a crear parches para el servidor y a intercambiarlos, creando un foro para la administración de estos remiendos. Fue así que nació el grupo Apache, que sigue funcionando actualmente y se dedica a perfeccionar el servidor.\\
+
+{\bfseries Ventajas}\\
+
+Las principales ventajas de Apache son \cite{AEI2002}:\\
+\begin{enumerate}
+\item	Fiabilidad: Alrededor del 90\% de los servidores con más alta disponibilidad funcionan con Apache.
+\item	Gratuito: Apache es completamente gratuito y se distribuye bajo la licencia Apache Software License\footnote{http://www.apache.org/LICENSE.txt}, que permite la modificación del código.
+\item Extensibilidad: se pueden añadir módulos para ampliar las ya de por sí amplias capacidades de Apache.
+\end{enumerate}
+
+La figura \ref{figusoapache} muestra las estadísticas que comparan la aceptación de Apache frente a otros servidores Web \cite{NET2004}.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/usoapache2.jpg}
+  \caption[\small Servidores Web activos desde agosto de 2000 a mayo de 2004]
+  {\small Servidores Web activos desde agosto de 2000 a mayo de 2004 \cite{NET2004}.}
+  \label{figusoapache}
+\end{figure} 
+
+\clearpage
+\section{Marco de trabajo}
+
+El marco de trabajo definido une la arquitectura de desarrollo elegida (MVC) con el lenguaje de programación (PHP).\\
+
+{\bfseries MVC en PHP}\\
+
+Para la implementación de MVC con PHP se determinó utilizar los siguientes recursos del lenguaje en cada capa del modelo:\\
+\begin{itemize}
+\item Vista: etiquetas HTML, hojas de estilo (css) y estructuras de control básicas de PHP (condicionales y ciclos).
+\item Controlador: estructuras condicionales para las acciones y redireccionamientos.
+\item Modelo: Clases y elementos de conexión a Bases de Datos de PHP.
+\end{itemize}
+
+Las tres capas están acompañadas de archivos PHP adicionales para la configuración de las variables de entorno, validaciones y otros recursos que deben ser compartidos por las tres capas.\\
+
+La figura \ref{figmvcphp} ilustra el marco de trabajo definido.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=15cm]{./imagenes/mvcphp.jpg}
+  \caption[\small Marco de trabajo MVC con PHP]
+  {\small Recursos del lenguaje y secuencia de acciones en un 
+marco de trabajo MVC con PHP.}
+  \label{figmvcphp}
+\end{figure} 
+
+Este marco de trabajo fue creado en base al documento de Jacobo Tarrío: ``MVC en PHP'' \cite{TAR2002}. A esta documentación se hicieron algunos cambios estructurales (como la adición de clases y objetos) dando como resultado un framework bastante completo, sencillo de manipular, flexible y robusto.
+
+\section{Hechos relevantes de la implementación}
+
+Como se estableció en la etapa de diseño y se explicó en el diagrama expuesto líneas arriba, la implementación utiliza las siguientes convenciones:
+\begin{itemize}
+\item	Cada entidad tiene cinco archivos PHP base:
+	\begin{itemize}
+	\item	Para la Vista: los archivos v\_entidad y v\_entidad\_editar. El primero para desplegar la lista de elementos que esa entidad tiene en la Base de Datos y el segundo para todas las acciones de edición (creación, modificación y eliminación).
+	\item	Para el Controlador: los archivos c\_entidad y c\_entidad\_validar. El primero que es el encargado de recibir todas las solicitudes de la Vista, instanciar objetos de la capa del Modelo y redireccionar los resultados a nuevos archivos de la Vista. El segundo sirve de soporte al primero en las tareas de validación de datos (las funciones comunes de validación son reutilizadas por todos los archivos c\_entidad\_validar al compartir el archivo general ``validador'' del directorio ``util'').
+	\item	Para el modelo: el archivo m\_entidad que contiene una clase con el nombre la entidad que maneja y es el encargado de todos los accesos a la Base de Datos que conciernan a esta.
+	\end{itemize}
+\item	Se posee además, un conjunto de archivos de configuración entre los que se destacan:
+	\begin{itemize}
+	\item	ConexionBD: archivo exclusivo para la conexión a la Base de Datos. Este script extrae los valores para la conexión (nombre de la Base de Datos y cuenta con la cual conectarse) del archivo ``vars''.
+	\item	Vars: para la declaración y asignación de valores de las variables de entorno (variables que son compartidas por la mayoría de los archivos de la aplicación).
+	\item	Mensaje: para la configuración de los mensajes de información, error y advertencia. Este archivo siempre recibe los datos a desplegar del archivo controlador que lo invoca cuando es necesario mostrar un mensaje al usuario.
+	\end{itemize}
+\end{itemize}
+
+\section{La aplicación}
+
+El nombre asignado a la herramienta es CASTOR.\\
+
+\subsection{Descripción general}
+
+La pantalla inicial de la herramienta es la de Login, como se muestra en la figura \ref{figlogin}. En ella se solicitan al usuario cuatro datos: el idioma que desea utilizar, su nombre de usuario, su contraseña y la apariencia que desea utilizar (colores de las ventanas). Además, el usuario puede elegir trabajar en modo simple o dos ventanas, haciendo clic en la última de las opciones que se despliegan en la pantalla.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/castor/login.jpg}
+  \caption[\small Pantalla de Inicio de sesión]
+  {\small Pantalla de Inicio de sesión.}
+  \label{figlogin}
+\end{figure} 
+
+Si el usuario ingresa el nombre de usuario o contraseña de manera incorrecta, el sistema despliega un mensaje como el que se muestra en la figura \ref{figerrorlogin}.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/castor/errorinicio.jpg}
+  \caption[\small Mensaje de error de inicio de sesión]
+  {\small Mensaje de error de inicio de sesión.}
+  \label{figerrorlogin}
+\end{figure}  
+
+Si los datos provistos por el usuario son correctos, entonces se muestra la pantalla principal de la aplicación, como se muestra en la figura \ref{figmain}. Esta pantalla está compuesta por tres partes: el menú en la parte izquierda, la barra de funciones adicionales en la parte superior y los mensajes de ayuda (relacionados al tema del SQA) en la parte central.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/castor/main2.jpg}
+  \caption[\small Pantalla principal de la aplicación]
+  {\small Pantalla principal de la aplicación.}
+  \label{figmain}
+\end{figure}  
+ 
+El menú principal conduce al usuario a las tareas más importantes que se pueden desempeñar utilizando la herramienta, como la gestión de proyectos, clientes, casos de prueba, etc., además de la gestión de entidades complementarias a las mencionadas, como estados, prioridades, entornos, ciclos y fases, etc.. La configuración de la aplicación es sólo accesible para Administradores.\\
+
+En la parte superior derecha se encuentran enlaces a funciones adicionales de la herramienta, como la administración de la cuenta actual, el buscador, el acceso al documento de ayuda y el cierre de la sesión actual.\\
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/castor/menu.jpg}
+  \caption[\small Menú principal]
+  {\small Menú principal.}
+  \label{figmenu}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/castor/upbar.jpg}
+  \caption[\small Barra de funciones adicionales]
+  {\small Barra de funciones adicionales.}
+  \label{figupbar}
+\end{figure}
+
+Cada ventana que es accedida desde los enlaces provistos en el menú posee en general las características descritas a continuación.\\
+
+	Una tabla que lista los registros de la entidad seleccionada. A manera de ejemplo, la figura \ref{figvtestcase} muestra la pantalla de administración de Casos de Prueba.\\
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/castor/vtestcase.jpg}
+  \caption[\small Pantalla de administración de casos de prueba]
+  {\small Pantalla de administración de casos de prueba.}
+  \label{figvtestcase}
+\end{figure}
+
+	Junto a cada registro, se despliega un conjunto de iconos que conducen a distintas acciones a efectuar con éste. Estas acciones se habilitan a cada usuario de acuerdo al rol que desempeñe (por ejemplo, un Desarrollador no puede ejecutar Casos de Prueba pero sí un Tester). La figura \ref{figiconos} muestra todos los iconos que aparecen en distintos lugares de la aplicación y una breve descripción de la función que cada uno tiene asociada.\\
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/castor/iconos.jpg}
+  \caption[\small Acciones disponibles para los registros]
+  {\small Acciones disponibles para los registros.}
+  \label{figiconos}
+\end{figure}
+
+	En el caso de que existan muchos registros para la entidad elegida, existen dos barras de navegación entre páginas: una según la página y otra según el orden alfabético (ver figura \ref{fignavigation}).\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/castor/navigation.jpg}
+  \caption[\small Barras de navegación entre registros de una misma entidad]
+  {\small Barras de navegación entre registros de una misma entidad.}
+  \label{fignavigation}
+\end{figure} 
+
+A su vez, en la parte superior de la pantalla (debajo de la barra de funciones adicionales) se habilita la barra de navegación entre partes de un proyecto (ver figura \ref{fignavigation2}) que cambia a medida que el usuario elige el proyecto, subproyecto, fase e iteración con los que desea trabajar, lo que facilita el cambiar de nivel de detalle en cualquier momento sin necesidad de ir saliendo de manera secuencial de la iteración, la fase, el subproyecto y el proyecto.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/castor/navigation2.jpg}
+  \caption[\small Barra de navegación entre partes de un proyecto]
+  {\small Barra de navegación entre partes de un proyecto.}
+  \label{fignavigation2}
+\end{figure} 
+
+Los formularios de inserción y edición de datos poseen un robusto control de errores que ayudan al usuario a efectuar un correcto registro de la información, evitando así posteriores problemas.\\
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/castor/error.jpg}
+  \caption[\small Ejemplo de mensaje de error durante el registro de un nuevo usuario]
+  {\small Ejemplo de mensaje de error durante el registro de un nuevo usuario.}
+  \label{figerror}
+\end{figure} 
+
+{\bfseries Tareas pendientes}\\
+
+Cuando el usuario inicia la sesión y tiene tareas sin atender, el sistema le despliega un mensaje como el que se muestra en la figura \ref{figtareas}.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/castor/tareas.jpg}
+  \caption[\small Mensaje de tareas pendientes]
+  {\small Mensaje de tareas pendientes.}
+  \label{figtareas}
+\end{figure} 
+
+El clic en el botón {\it Ver el detalle} conduce al usuario a una ventana con la lista de tareas pendientes, como se muestra en la figura \ref{figdetalletareas}.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/castor/detalletareas3.jpg}
+  \caption[\small Detalle de tareas pendientes]
+  {\small Detalle de tareas pendientes.}
+  \label{figdetalletareas}
+\end{figure} 
+
+\subsection{Envío de alertas}
+
+Para el envío de alertas se utilizan distintas tecnologías:
+\begin{itemize}
+\item Cron: programa residente en memoria que revisa cada minuto el archivo crontab. En este archivo se guardan las instrucciones que deben ser ejecutadas cada cierto periodo de tiempo (también indicado en el archivo).
+\item PHP: se utilizan funciones del lenguaje para el envío de alertas al correo electrónico y teléfono móvil de cada usuario.
+\item Servidor SMTP: se utiliza un servidor de correo electrónico para el envío de los correos (sin este servidor las instrucciones de PHP no funcionan.
+\end{itemize}
+El modo de trabajo entre estas tecnologías es el siguiente: el cron revisa cada minuto el archivo crontab en el que está incluida la instrucción de ejecutar el script {\it enviar\_alertas.php} una vez al día. Cuando la instrucción es ejecutada, el script utiliza la función {\it mail()} de PHP para enviar las alertas. Esta función utiliza el servidor SMTP para despachar las alarmas. Si el envío tuvo éxito, entonces el script almacena la fecha de envío en la Base de Datos. La figura \ref{figenvioalertas} ilustra este modo de trabajo.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/castor/cron.jpg}
+  \caption[\small Modo de envío de alertas]
+  {\small Modo de envío de alertas utilizando el Cron, PHP y un servidor SMTP.}
+  \label{figenvioalertas}
+\end{figure} 
+
+\subsection{Reportes}
+
+Una de las partes más importantes del sistema son los reportes. Éstos permiten la presentación de la información contenida en la Base de Datos de manera objetiva, lo que ayuda al usuario en la toma de decisiones. Entre los más importantes la herramienta ofrece los siguientes:
+\begin{itemize}
+\item Porcentaje de avance de los subproyectos de un proyecto dependiendo de los resultados de las últimas iteraciones de cada una de sus fases.
+\item Herramientas utilizadas por iteración.
+\item Tiempo que se demoró en cerrar una fase de un subproyecto, un subproyecto y un proyecto.
+\item Cantidad de personas involucradas en el proceso de control de calidad de un proyecto (testers y desarrolladores).
+\item Cantidad de errores encontrados por tester y cantidad de errores reportados a cada desarrollador.
+\item Fases de un proyecto (de todos sus subproyectos) que tuvieron más iteraciones (es decir, qué fases del proceso de desarrollo tuvieron más problemas durante el proceso de control de calidad).
+\item Reporte completo sobre un proyecto, usuario o cliente en particular.
+\item Desempeño de los usuarios del sistema con respecto a sus tareas asignadas (estados de las tareas). Como ejemplo se muestra este reporte generado en la figura \ref{figreporte}.
+\end{itemize}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{./imagenes/castor/reporte.jpg}
+  \caption[\small Reporte generado por CASTOR]
+  {\small Reporte generado por CASTOR: desempeño de los usuarios.}
+  \label{figreporte}
+\end{figure} 
+
+\subsection{Manuales}
+\label{seccionmanuales}
+
+La aplicación ofrece como parte de la documentación seis tipos de manuales:
+\begin{itemize}
+\item	Manual de Instalación y Configuración
+\item	Manual del Administrador
+\item	Manual del Líder de Proyectos
+\item	Manual del Tester
+\item	Manual del Desarrollador
+\item	Manual del Cliente
+\end{itemize}
+Cada uno de los cuales explica al usuario -de acuerdo a su rol- las funciones que debe desempeñar dentro del sistema y la manera en que éste se comporta antes las distintas situaciones posibles. Estos manuales están en versión electrónica (formato PDF) y son accesibles desde el icono de ayuda de la aplicación. También vienen incluidos en el CD que está asjunto al documento principal de este proyecto.

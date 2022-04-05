@@ -1,0 +1,147 @@
+\chapter{MÉTODOS Y HERRAMIENTAS}
+
+\section{Modelo de arquitectura MVC}
+
+La arquitectura MVC (Model View Controller) fue introducida como parte de la versión SmallTalk-80 del lenguaje de programación SmallTalk. Fue concebida con el objetivo de reducir el esfuerzo que es invertido durante la implementación de los sistemas múltiples y sincronizados con los mismos datos \cite{BUR1992}.\\
+
+Como su nombre indica, posee tres partes esenciales: el Modelo, la Vista y el Controlador. Cada una es una entidad independiente, lo que permite \cite{BUR1992} \cite{APA2003}:
+\begin{itemize}
+\item	Establecer una clara separación entre los componentes de la aplicación, lo que a su vez permite implementarlos por separado.
+\item	Hay un API bien definido; teóricamente, si se lo utiliza no existe ningún problema en hacer un reemplazo de cualquiera de las partes en cualquier momento.
+\item	La conexión entre el View y el Model es dinámica, es decir, en tiempo de ejecución.
+\end{itemize}
+
+\vspace*{0.3cm}
+{\bfseries Modelo}\\
+
+Encapsula la lógica del negocio de la aplicación. Es el objeto que representa los datos del sistema. Maneja la información y sus transformaciones. No posee ningún conocimiento del Controlador o de la Vista y ni siquiera hace referencia a ellos (sobre este punto se detallará más adelante) \cite{ANT1999} \cite{BUR1992} \cite{GOO2002}.\\
+
+Internamente se divide en dos grandes subsistemas: Internal State (estado interno del sistema, de los objetos) y Actions, estas últimas son las que pueden cambiar al primero \cite{APA2003}.\\
+
+Una analogía clara que permite entender estos subsistemas es la de los objetos y los verbos en la gramática. En este caso el Internal State es el estado de cada uno de los objetos del sistema y los Actions son los verbos que son capaces de cambiar el estado de estos objetos \cite{APA2003}.\\
+
+{\bfseries Vista}\\
+
+Es el objeto encargado de manejar las vistas de la aplicación. Genera una representación visual para el usuario de la información recibida desde el Modelo, con el que interactúa mediante una referencia directa \cite{APA2003} \cite{GOO2002}.\\
+
+{\bfseries Controlador}\\
+
+Es la parte de la aplicación que da sentido a las solicitudes del usuario. Todo el flujo de la aplicación está dirigido por él. Es el encargado de delegar cada solicitud a un manejador apropiado. Estos manejadores están unidos a la entidad Modelo \cite{APA2003}.\\
+
+Esta comunicación entre las capas del modelo capas se encuentra ilustrado en la figura \ref{figmvc}.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/mvc.jpg}
+  \caption[\small Arquitectura MVC]{Arquitectura MVC \cite{ANT1999}.}
+  \label{figmvc}
+\end{figure}
+
+\section{Metodología}
+
+Para el desarrollo de la ``Herramienta Web de apoyo al control de la calidad del software'', se utilizó la metodología RUP (Rational Unified Process).\\
+
+Características del RUP \cite{IBA2003}: 
+\begin{itemize}
+\item	Es una guía que indica cómo utilizar de manera efectiva el UML (Unified Modeling Language).
+\item	Es una metodología que envuelve una serie de prácticas utilizadas en el desarrollo moderno de software de una forma que es aplicable a una amplia gama de proyectos y organizaciones.
+\item	Provee a cada miembro del equipo de desarrollo (analistas, diseñadores, desarrolladores, testers, etc.) un fácil acceso a una base de conocimientos con guías y herramientas para todas las actividades críticas de desarrollo.
+\item	Crea y mantiene modelos que pueden ser aplicados en proyectos futuros en lugar de enfocarse en la producción de una gran cantidad de papeles de documentación.
+\end{itemize}
+
+RUP describe además la manera en que el equipo de desarrollo puede utilizar los procedimientos comerciales probados en el desarrollo de aplicaciones, conocidos como ``mejores prácticas'':
+\begin{itemize}
+\item	Administración de requerimientos.
+\item	Desarrollo iterativo.
+\item	Modelamiento visual.
+\item	Verificación de calidad.
+\item	Arquitectura de componentes.
+\item	Control de cambios.
+\end{itemize}
+
+Con estas características, RUP ofrece un incremento en la productividad en el  trabajo tanto individual como grupal \cite{IBA2003}.\\
+
+{\bfseries Fases en RUP}\\
+
+RUP consta de cuatro fases \cite{IBA2003} \cite{RAM2001}:\\\\
+
+{\bfseries 1. Inicio}\\
+
+Su propósito es el de establecer los casos de negocio (casos de uso) para el nuevo sistema y el alcance del proyecto.\\
+
+El resultado es una visión general de los requerimientos del proyecto y un caso de uso inicial que refleja la evaluación inicial de riesgos y la estimación de los recursos requeridos \cite{IBA2003}.\\
+
+{\bfseries 2. Elaboración}\\
+
+Los objetivos de esta etapa son: el análisis del dominio del problema, el establecimiento de una buena arquitectura, el tratamiento de los elementos de riesgo más altos y la elaboración de un plan donde se muestre cómo el proyecto será finalizado \cite{IBA2003}.\\
+
+Los resultados se muestran reflejados en: un modelo del dominio de casos de uso completado en un ochenta por ciento, una lista de requerimientos suplementarios que capturan los requerimientos no funcionales y otros que no están asociados con un caso de uso específico y una lista de riesgos \cite{IBA2003}.\\
+
+{\bfseries 3. Construcción}\\
+
+En esta fase tiene lugar la implementación del sistema.\\
+
+Su resultado es el diseño completo de la aplicación, el producto desarrollado, la documentación pertinente y una liberación ``beta'' del producto \cite{IBA2003}.\\
+
+{\bfseries 4. Transición}\\
+
+En esta fase se transfiere el producto al usuario (aplicación, manuales y documentación) y se hace una evaluación de los resultados midiendo el grado de satisfacción del usuario. Además, se realiza una evaluación interna en la empresa donde se determina si los gastos estimados resultaron siendo próximos o no a los gastos reales \cite{IBA2003}.\\
+
+La figura \ref{figfasesrup} muestra la distribución de trabajo de las fases de RUP con relación a las etapas del desarrollo de una aplicación.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/fasesrup.jpg}
+  \caption[\small Fases de RUP y etapas del desarrollo de una aplicación]
+  {\small Fases de RUP y etapas del desarrollo de una aplicación \cite{EVE2003}.}
+  \label{figfasesrup}
+\end{figure}
+
+{\bfseries Iteraciones}\\
+
+Cada fase de RUP puede ser descompuesta en iteraciones. Cada una de estas iteraciones constituye un ciclo completo de la fase, cuyo resultado puede mejorarse siendo sometido a una nueva iteración u otorgar un producto útil para su empleo en la siguiente fase \cite{IBA2003}.\\
+
+Las iteraciones también pueden ser utilizadas para dividir el sistema en módulos, teniendo como objetivo la obtención de un módulo completo al final de cada iteración \cite{RAM2001}.\\
+
+{\bfseries Subproductos}\\
+
+Los subproductos (o artefactos como se denominan en RUP) que se obtienen de cada fase son los siguientes \cite{RAM2001}:
+
+\begin{itemize}
+\item{\bfseries Fase: Inicio}
+	\begin{enumerate}
+	\item Alcance del Sistema
+	\item	Arquitectura inicial
+	\item	Lista inicial de riesgos
+	\item	Entorno de desarrollo configurado
+	\item	Plan inicial del proyecto
+	\item	Caso inicial del negocio
+	\end{enumerate}
+\item {\bfseries Fase: Elaboración}	
+	\begin{enumerate}
+	\item Contexto del sistema
+	\item Captura del 80\% de los requerimientos funcionales
+	\item Arquitectura de referencia
+	\item Lista de riesgos
+	\item Entorno de desarrollo adecuado
+	\item Caso del negocio completo
+	\end{enumerate}
+\item {\bfseries Fase: Construcción}	
+	\begin{enumerate}
+	\item Modelos completos
+	\item Arquitectura íntegra
+	\item Riesgos mitigados
+	\item Manual inicial del usuario
+	\item Prototipo operacional (beta)
+	\item Caso del negocio actualizado
+	\end{enumerate}
+\item {\bfseries Fase: Transición}
+	\begin{enumerate}
+	\item Prototipo operacional
+	\item Documentos legales
+	\item Descripción de la arquitectura completa y corregida
+	\item Manuales
+	\end{enumerate}
+\end{itemize}
+
+

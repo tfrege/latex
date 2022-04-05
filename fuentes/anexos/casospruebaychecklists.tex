@@ -1,0 +1,223 @@
+\chapter{CASOS DE PRUEBA Y LISTAS DE CONTROL}
+\label{anexocasospruebachecklists}
+
+Los siguientes son modelos de casos de prueba y extractos de listas de control basadas en las que William Lewis presenta en su libro {\it Software Testing and Continuous Quality Improvement.} \cite{LEW2000}.\\
+
+{\bfseries \large Caso de Prueba}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/anexos/casoprueba.jpg}
+  \caption[\small Modelo de Caso de Prueba]{\small Modelo de Caso de Prueba \cite{LEW2000}.}
+  \label{figcasoprueba}
+\end{figure}
+
+\clearpage
+
+{\bfseries \large Listas de Control}\\
+
+{\small Sí: La sentencia se cumple.\\}
+{\small No: La sentencia no se cumple.\\}
+{\small Om: La sentencia fue omitida.\\}
+{\small NP: La sentencia aún no fue probada.\\}
+
+	\begin{enumerate}
+	
+	\item {\bfseries Fase de requerimientos}
+
+\setlength{\arrayrulewidth}{1pt}
+\setlength{\doublerulesep}{0mm}
+
+\begin{longtable}{|p{4.5in}|c|c|c|c|}
+\hline
+{\footnotesize Defecto} & {\footnotesize Sí} & {\footnotesize No} &
+{\footnotesize Om} & {\footnotesize NP}\\ 
+\hline		
+\footnotesize 1. La lógica del negocio está siendo utilizada inadecuadamente. & & & & \\	 
+\footnotesize 2. El criterio para el performance está siendo mal utilizado.	 & & & & \\
+\footnotesize 3. La información del entorno es errónea, insuficiente o irrelevante.	 	 	 	  & & & & \\
+\footnotesize 4. El objetivo del sistema no ha sido bien planteado.	 	 	 	  & & & & \\
+\footnotesize 5. Los requerimientos son incompatibles.	 	 	 	  & & & & \\
+\footnotesize 6. Los requerimientos son incompletos.	 	 	 	  & & & & \\
+\footnotesize 7. Faltan algunos requerimientos.	 	 	 	  & & & & \\
+\footnotesize 8. Los requerimientos son erróneos.	 	 	 	  & & & & \\
+\footnotesize 9. La exactitud especificada no está conforme con la necesidad actual. & & & & \\
+\footnotesize 10. El entorno de los datos no está descrito de forma adecuada.	 	& & & & \\
+\footnotesize 11. La definición de interfaces externas es errónea.	 	 	 	  & & & & \\
+\footnotesize 12. El entrenamiento para el usuario no ha sido bien considerado.	 	 	 	 & & & & \\ 
+\footnotesize 13. El estado del sistema al ser inicializado no ha sido bien considerado.	 & & & & \\
+\footnotesize 14. Las funciones no han sido bien definidas.	  & & & & \\ 
+\footnotesize 15. Las necesidades del usuario no han sido bien planteadas.	 & & & & \\
+\footnotesize 16. Las métricas de calidad no han sido bien especificadas.	 & & & & \\	 	 
+\hline
+\caption{Criterios a considerar en el testeo de requerimientos}
+\end{longtable} 
+	
+	\item {\bfseries Fase de diseño lógico}
+	
+	
+\setlength{\arrayrulewidth}{1pt}
+\setlength{\doublerulesep}{0mm}
+
+\begin{longtable}{|p{4.5in}|c|c|c|c|}
+\hline
+{\footnotesize Defecto} & {\footnotesize Sí} & {\footnotesize No} &
+{\footnotesize Om} & {\footnotesize NP}\\ 
+\hline		
+\footnotesize 1. Los datos no han sido definidos apropiadamente. & & & & \\
+\footnotesize 2. La definición de la entidad está incompleta.	 & & & & \\
+\footnotesize 3. La cardinalidad de la entidad es incorrecta.	 & & & & \\
+\footnotesize 4. Los atributos de la entidad están incompletos.	& & & & \\
+\footnotesize 5. La normalización no es correcta.	& & & & \\
+\footnotesize 6. La clave principal no es correcta.	& & & & \\
+\footnotesize 7. La clave foránea no es correcta.	& & & & \\
+\footnotesize 8. La clave compuesta no es correcta.	 & & & & \\
+\footnotesize 9. El sub-tipo de la entidad es incorrecto.	& & & & \\
+\footnotesize 10. El proceso no ha sido bien definido. & & & & \\
+\footnotesize 11. Los ``procesos padre'' no están bien definidos / están incompletos. & & & & \\
+\footnotesize 12. Los ``procesos hijo'' no están bien definidos / están incompletos. & & & & \\
+\footnotesize 13. Las salidas/entradas no están bien definidas.	 & & & & \\
+\footnotesize 14. Los procesos elementales no están bien definidos.	& & & & \\
+\footnotesize 15. Existe el problema de exclusión mutua.	& & & & \\
+\footnotesize 16. La activación de eventos no está bien definida.	 & & & & \\
+\footnotesize 17. La creación de asociaciones entre entidades/procesos es incorrecta.	 & & & & \\
+\footnotesize 18. La lectura de asociaciones entre entidades/procesos es incorrecta. & & & & \\
+\footnotesize 19. La actualización de asociaciones entre entidades/procesos es incorrecta.& & & & \\
+\footnotesize 20. La eliminación de asociaciones entre entidades/procesos es incorrecta. & & & & \\
+\hline
+\caption{Criterios a considerar en el testeo del diseño lógico de la aplicación}\\ 
+\end{longtable}
+	
+	\item {\bfseries Fase de diseño físico}
+	
+\begin{longtable}{|p{4.5in}|c|c|c|c|}
+\hline
+{\footnotesize Defecto} & {\footnotesize Sí} & {\footnotesize No} &
+{\footnotesize Om} & {\footnotesize NP}\\ 
+\hline		
+\footnotesize 1. La lógica y/o secuencia es errónea.& & & & \\
+\footnotesize 2. El procesamiento es inexacto.& & & & \\
+\footnotesize 3. Una rutina no tiene requisitos de entrada/salida.& & & & \\
+\footnotesize 4. La rutina no acepta los datos con los rangos establecidos.& & & & \\
+\footnotesize 5. La validación está hecha en los datos de entrada.& & & & \\
+\footnotesize 6. Los procedimientos no son los adecuados.& & & & \\
+\footnotesize 7. Falta un procesamiento correcto.& & & & \\
+\footnotesize 8. Los valores son erróneos o ambiguos.& & & & \\
+\footnotesize 9. Los datos almacenados son inadecuados.& & & & \\
+\footnotesize 10. Faltan algunas variables.& & & & \\
+\footnotesize 11. Los requerimientos de diseño han sido malinterpretados / no están presentes.& & & & \\
+\footnotesize 12. La Base de Datos no es compatible con el entorno de los datos.& & & & \\
+\footnotesize 13. La descomposición modular refleja una alta dependencia intermodular.& & & & \\
+\footnotesize 14. Los algoritmos más importantes no han sido evaluados en función de su exactitud y velocidad.& & & & \\
+\footnotesize 15. La estructura de control no es extensible.& & & & \\
+\footnotesize 
+16. La estructura de control omite las prioridades de procesamiento.& & & & \\
+\footnotesize 17. Los protocolos de las interfaces son incorrectos.& & & & \\
+\footnotesize 18. La lógica utilizada para la implementación de los algoritmos es incorrecta.& & & & \\
+\footnotesize 19. Los datos no son formateados de la forma correcta.& & & & \\
+\footnotesize 20. No se han considerado los efectos del trunqueo de datos. & & & & \\
+\footnotesize 21. Los índices no son validados.& & & & \\
+\footnotesize 22. Se permiten ciclos infinitos.& & & & \\
+\footnotesize 23. La especificación de los módulos ha sido malinterpretada.& & & & \\
+\footnotesize 24. Las reglas de la Base de Datos han sido violadas.& & & & \\
+\footnotesize 25. La lógica está incompleta para todos los casos.& & & & \\
+\footnotesize 26. Los casos especiales son ignorados.& & & & \\
+\footnotesize 27. El manejo de errores es deficiente.& & & & \\
+\footnotesize 28. Las consideraciones de tiempo han sido ignoradas.& & & & \\
+\footnotesize 29. Los requerimientos han sido cambiados en los módulos.& & & & \\
+\footnotesize 30. Las especificaciones de las interfaces han sido malinterpretadas.& & & & \\
+\footnotesize 31. El sistema funciona bien pero no cumple con los requerimientos de performance.& & & & \\
+\footnotesize 32. El sistema no es lo suficientemente completo como para satisfacer la necesidad planteada.& & & & \\
+\footnotesize 33. El ``overflow'' de operaciones aritméticas no ha sido considerado apropiadamente.& & & & \\
+\footnotesize 34. Las acciones para las entradas dadas no son correctas.& & & & \\
+\footnotesize 35. La aproximación de los algoritmos no provee una exactitud adecuada.& & & & \\
+\footnotesize 36. Existen errores en el diseño detallado para resolver un problema en particular.& & & & \\
+\footnotesize 37. Existen casos particulares de entradas cuyo resultado luego de un procesamiento es una salida no considerada.& & & & \\
+\footnotesize 38. Existen algoritmos que pueden ser reemplazados por otros más eficientes.& & & & \\
+\hline
+\caption{Criterios a considerar en el testeo del diseño físico de la aplicación}
+\end{longtable}
+	
+	\item {\bfseries Fase de diseño de unidad de programa}
+	
+\begin{longtable}{|p{4.5in}|c|c|c|c|}
+\hline
+{\footnotesize Defecto} & {\footnotesize Sí} & {\footnotesize No} &
+{\footnotesize Om} & {\footnotesize NP}\\ 
+\hline		
+\footnotesize 1. ¿Las estructuras ``if-then-else'' son usadas correctamente?& & & & \\
+\footnotesize 2. ¿Los ciclos (``while'', ``for'') son utilizados correctamente?& & & & \\
+\footnotesize 3. ¿Existen ciclos infinitos?& & & & \\
+\footnotesize 4. ¿El programa es fácilmente legible?& & & & \\
+\footnotesize 5. ¿El programa es eficiente?& & & & \\
+\footnotesize 6. ¿Las estructuras ``case'' contemplan todos los casos?& & & & \\
+\footnotesize 7. ¿Existe trozos de ``código muerto''?& & & & \\
+\footnotesize 8. ¿Los algoritmos están bien escritos?& & & & \\
+\footnotesize 9. ¿Existen demasiadas anidaciones?& & & & \\
+\footnotesize 10. ¿Existen expresiones booleanas demasiado complejas?& & & & \\
+\hline
+\caption{Criterios a considerar en el testeo del diseño de unidad de programa}
+\end{longtable}
+	
+	\item {\bfseries Fase de implementación}
+	
+\begin{longtable}{|p{4.5in}|c|c|c|c|}
+\hline
+{\footnotesize Defecto} & {\footnotesize Sí} & {\footnotesize No} &
+{\footnotesize Om} & {\footnotesize NP}\\ 
+\hline		
+\footnotesize 1. La lógica para la toma de decisiones es inadecuada.& & & & \\
+\footnotesize 2. Los cálculos aritméticos son erróneos.& & & & \\
+\footnotesize 3. Las ramificaciones están mal.& & & & \\
+\footnotesize 4. Existen ciclos infinitos porque están mal definidos.& & & & \\
+\footnotesize 5. Las reglas del lenguaje de programación son violadas.& & & & \\
+\footnotesize 6. Los estándares de programación no son respetados.& & & & \\
+\footnotesize 7. Existen errores de typeo.& & & & \\
+\footnotesize 8. Existen errores en el formato de las entradas y salidas.& & & & \\
+\footnotesize 9. Existen errores en la invocación a otros programas.& & & & \\
+\footnotesize 10. Existen errores en los datos.& & & & \\
+\footnotesize 11. Existen subprogramas inconclusos.& & & & \\
+\footnotesize 12. El manejo de errores es incorrecto.& & & & \\
+\footnotesize 13. Existen errores en el procesamiento de datos para las salidas.& & & & \\
+\footnotesize 14. Existen errores en las interfaces.& & & & \\
+\footnotesize 15. Existen errores de sintaxis.& & & & \\
+\footnotesize 16. Existen errores de inicialización.& & & & \\
+\footnotesize 17. Existe confusión en el uso de los parámetros.& & & & \\
+\footnotesize 18. Los contadores en los ciclos no funcionan correctamente.& & & & \\
+\footnotesize 19. El resultado de las decisiones que se toman no es manejado correctamente.& & & & \\
+\footnotesize 20. Los nombres de las variables no son apropiados.& & & & \\
+\footnotesize 21. Las librerías a utilizar no están claramente definidas.& & & & \\
+\footnotesize 22. El tratamiento de caracteres especiales es incorrecto.& & & & \\
+\footnotesize 23. Existen errores de compilación.& & & & \\
+\footnotesize 24. Existen problemas de ``overflow''.& & & & \\
+\footnotesize 25. El software para interactuar con el hardware no funciona correctamente.& & & & \\
+\footnotesize 26. Hay problemas a la hora de modificar los registros de la Base de Datos.& & & & \\
+\hline
+\caption{Criterios a considerar en el testeo de la fase de implementación de la aplicación}
+\end{longtable}	
+
+	\item {\bfseries Fase de pruebas}
+
+\begin{longtable}{|p{4.5in}|c|c|c|c|}
+\hline
+{\footnotesize Defecto} & {\footnotesize Sí} & {\footnotesize No} &
+{\footnotesize Om} & {\footnotesize NP}\\ 
+\hline		
+\footnotesize 1. ¿Los códigos son validados correctamente?& & & & \\
+\footnotesize 2. ¿Los campos pueden ser actualizados sin problemas?& & & & \\
+\footnotesize 3. ¿El largo de los campos es el adecuado?& & & & \\
+\footnotesize 4. ¿La descripción de los campos es adecuada?& & & & \\
+\footnotesize 5. ¿Los campos son inicializados correctamente?& & & & \\
+\footnotesize 6. ¿Todas las referencias a un campo determinado son correctas?& & & & \\
+\footnotesize 7. ¿Las restricciones de cada campo son validadas correctamente?& & & & \\
+\footnotesize 8. ¿Existe un control de errores que verifique que las reglas establecidas sean respetadas?& & & & \\
+\footnotesize 9. Para valores numéricos, ¿se hace un control de valores positivos y negativos?& & & & \\
+\footnotesize 10. Para valores alfanuméricos, ¿el caso de ``vacío'' ha sido contemplado?& & & & \\
+\footnotesize 11. ¿Los propietarios de la información han testeado estos casos?& & & & \\
+\footnotesize 12. ¿Los propietarios de la información han otorgado el resultado de sus pruebas?& & & & \\
+\hline
+\caption{Criterios a considerar en el testeo de la aplicación en la fase de pruebas}
+\end{longtable}
+	
+	\end{enumerate}
+

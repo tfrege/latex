@@ -1,0 +1,119 @@
+\chapter{PRUEBAS}
+
+Las pruebas efectuadas al sistema se clasifican en: pruebas de verificación (``¿se está construyendo la herramienta de acuerdo a los requerimientos dados?'') y pruebas de validación (``¿se está construyendo lo que el usuario necesita?'').
+
+\section{Pruebas de verificación}
+
+\subsection{Pruebas de unidad}
+
+Las pruebas de unidad se realizan concentrando la atención en un módulo en particular. En ellas se verifica que cada módulo, de manera independiente, haga lo que debe hacer.\\
+
+Estas pruebas fueron efectuadas dividiendo la aplicación en las distintas entidades que la componen: proyectos, clientes, usuarios, casos de prueba, etc. y probando cada una de las funciones asociadas a estas entidades, como las de crear nuevo, modificar, eliminar, etc.\\
+
+Las entidades fueron divididas en dos grupos básicos: ``entidades principales'' (proyectos, subproyectos, clientes, casos de prueba, listas de control, usuarios e iteraciones) y ``entidades complementarias'' (prioridades, estados, entornos, ciclos, fases, etc.). Estas últimas deben su nombre a la dependencia que tienen dentro del sistema de las primeras. Es decir, por sí solas no tienen utilidad en el sistema pero sí complementando la funcionalidad de las entidades principales (por ejemplo, la entidad ``estado'' complementa a las entidades iteración, usuario, proyecto, etc.).\\
+
+Debido a esta dependencia, las entidades complementarias fueron las primeras en ser desarrolladas y luego las entidades principales.
+
+\subsection{Pruebas de integración}
+
+Las pruebas de integración sirven para verificar que no existan problemas en la interacción entre uno o más módulos, que las funciones de un módulo no anulen o interrumpan las funciones de otro y que las funciones compartidas se ejecuten correctamente.\\
+
+En este caso, las pruebas de integración fueron ejecutadas de forma ascendente uniendo primero las entidades complementarias entre sí (como en el caso de ciclos y fases) y luego éstas a las principales a medida que las últimas eran desarrolladas. Luego se unieron las entidades principales entre sí para poder armar el flujo de trabajo ({\it workflow}) de la aplicación.\\
+
+Se realizó una integración ascendente debido a lo que ya se explicó en el anterior apartado: para poder desarrollar las entidades principales se requería contar con las complementarias listas. De la misma forma, para poder armar el flujo de trabajo, se requería contar con las entidades principales ya implementadas.\\
+
+\subsection {Pruebas de Caja Blanca y Caja Negra}
+
+	{\bfseries Pruebas de Caja Blanca}
+	
+	En las pruebas de verificación de caja blanca, lo que interesa es comprobar que no existan sentencias en el código que nunca sean ejecutadas (trozos de ``código muerto'').	Este tipo de pruebas se efectuó con las entidades principales (las entidades secundarias tienen un menor volumen de código y no requirieron de este tipo de verificación).\\
+
+	{\bfseries Pruebas de Caja Negra}
+
+	En estas pruebas lo importante no es cómo se ejecuta, sino que se obtenga lo que se desea. Son pruebas ajenas al código involucrado durante la ejecución, lo único que interesa es que la función produzca el resultado esperado.\\
+	
+	Ambos tipos de pruebas se llevaron a cabo dentro de las pruebas de unidad y de integración.\\
+	
+	{\bfseries Resultados\\}
+	Los trozos de la aplicación que fueron más difíciles de verificar a causa de la cantidad de código involucrado fueron las iteraciones (incluida la ejecución de casos de prueba y listas de control) y el control de tareas de los usuarios. Este gran volumen de código se debe a la necesidad de extensos controles que deben ser ejecutados durante el uso de las iteraciones y las tareas. Estos controles, a su vez, son necesarios ya que en estas funciones se manipulan grandes cantidades de datos debido a que prácticamente todas las entidades, tanto principales como complementarias, se ven involucradas en la ejecución -por ejemplo- de un caso de prueba en una iteración de una fase del subproyecto de un proyecto.\\\\
+	Los errores que se presentaban en estas secciones debían ser rastreados y corregidos, cuidando que los cambios hechos no afectaran a las demás funcionalidades que las mismas líneas de código podían desempeñar. Sin embargo, el hecho de contar con la aplicación implementada en MVC facilitó las tareas de identificación de los puntos críticos del código que causaban problemas y la corrección inmediata de éstos.
+	
+\section{Pruebas de validación}
+
+Estas pruebas deben ser ejecutadas por los potenciales usuarios finales del sistema. Es decir, líderes de proyectos, testers y desarrolladores.\\
+
+\subsection{Pruebas Alfa}
+
+Las pruebas Alfa son ejecutadas por los usuarios y el equipo de desarrollo a fin de validar que el software adquirido alcanzó los objetivos planteados inicialmente.\\\\
+Estas pruebas fueron llevadas a cabo cuando el sistema fue concluido, validando que:
+\begin{itemize}
+\item Ofrezca soporte al control de la calidad del software durante todas las fases de un proyecto.
+\item Sea amigable en su uso.
+\item Permita la personalización de las herramientas ofrecidas (casos de prueba y checklists).
+\end{itemize}
+La herramienta obtenida cumple con los objetivos que se trazaron en un principio.
+
+\subsection{Pruebas Beta - Aceptación del Usuario}
+
+Las pruebas de validación Beta son ejecutadas por los usuarios finales del sistema, ajenas a todo lo que fue el desarrollo del producto.\\
+
+Para la ejecución de estas pruebas se recurrió a cinco empresas nacionales que están distribuidas en las tres ciudades principales del país: Cochabamba, La Paz y Santa Cruz:
+
+\begin{itemize}
+\item Intersoft (La Paz)
+\item Cybercia (Cochabamba)
+\item BZDesigners (Santa Cruz)
+\item E\&M Computadoras y Programas (Santa Cruz)
+\item Axess Web (Santa Cruz)
+\end{itemize}
+
+Cada una de estas empresas (representadas para las pruebas por una a seis personas) participó del ciclo de pruebas del sistema que consistió en la presentación del mismo mediante la ejecución de un caso de ejemplo. Posteriormente, cada empresa tuvo a su disposición la aplicación por un periodo de diez días.\\
+
+Entre las opiniones emitidas hacia la aplicación, se pueden mencionar:\\
+
+\begin{quote}
+{\it``Producto excelente que apoya el control de la calidad asegurando un proceso formal.''} {\small (Patricia Aguilar, Jefe de Sistemas Cybercia)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Herramienta de mucha utilidad para los procesos de desarrollo de software.''} {\small (Iván Montaño, Líder de Proyectos  Intersoft)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Herramienta muy útil que, debidamente utilizada, resulta de gran ayuda para testear QA en SW.''} {\small (Carlos Góngora, Líder de Proyectos Intersoft)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Bastante bueno, mejor que otras herramientas similares.''} {\small (Aldo Gutiérrez, desarrollador Intersoft)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Buen método de seguimiento para el control de calidad. Bastante amigable en su uso.''} {\small (Fernando Vargas, desarrollador Intersoft)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Presenta grandes ventajas como herramienta de control de calidad. Adicionalmente, su flexibilidad en la configuración de casos de prueba y listas de control hace que sea una herramienta muy completa.''} {\small (Octavio Alzérreca, Jefe de proyectos Intersoft)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Simplifica y ordena el proceso de control de calidad.''} {\small (Sinchy Díaz, desarrolladora Intersoft)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Excelente. Útil, práctico e independiente de la plataforma.''} {\small (Branko Zabala, Gerente General BZDesigners)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Bastante útil y necesaria para el desarrollo de software. Su flexibilidad permite a los usuarios definir sus propios parámetros de calidad.''} {\small (Pamela Pacheco, Jefe de Sistemas Axess Web)}\\
+\end{quote}
+
+\begin{quote}
+{\it``Herramienta que viene a llenar un gran vacío en el medio que en tiempo y materia económica tiene un costo elevado. 100\% de aprobación.''} {\small (Rubén Salazar, E\&M Computadoras y Programas)}\\
+\end{quote}
+
+
+%``Los bugs se esconden en las esquinas y se congregan en los límites'' Boris Beizer
+
+
+%http://www.itver.edu.mx/comunidad/material/ing-software/21
+

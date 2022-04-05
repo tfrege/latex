@@ -1,0 +1,467 @@
+\chapter{MARCO TEÓRICO}
+
+\section{Antecedentes} \label{marcointroduccion}
+
+Una característica del ser humano siempre ha sido la búsqueda de la perfección en todos los aspectos de la vida, el interés por un buen desempeño en su labor y la necesidad de asumir responsabilidades sobre el trabajo efectuado. Este rasgo originó con el paso del tiempo el concepto de lo que hoy conocemos como Calidad.\\
+
+Walter A. Shewhart, doctor en Física que trabajó como ingeniero para la Wester Electric Corporation, en 1924 introduce formalmente el uso de las normas de calidad en el control de procesos con las llamadas {\it cartas de control}, que eran utilizadas para detectar defectos en las líneas de producción antes de que éstos se generen \cite{GON1998}.\\
+
+A mediados del siglo XX, fueron los japoneses quienes dieron un verdadero énfasis a todo lo referente a la calidad. En 1950 la Unión de Científicos e Ingenieros Japoneses llevó a cabo un seminario donde el Dr. W. E. Deming desarrolló el tema: ``Cómo mejorar la calidad mediante el ciclo de planear, hacer, verificar y actuar''\cite{CER2000}, teoría que ha evolucionado y será explicada en el apartado \ref{plandocheckact}.\\
+
+En 1954, el Dr. J. M. Juran introdujo en Japón la idea de que la calidad de un producto o servicio depende directamente del grado de conciencia que tenga el personal involucrado en el mismo, lo que marcó una transición en las actividades de control de calidad y dio origen a un ambiente en el que se reconoció el Control de Calidad como un instrumento de gerencia \cite{CER2000}.\\
+
+{\sloppy
+Hacia fines de los años 70 e inicio de los 80, tuvo lugar la {\it crisis del software} debido a la falta de eficiencia de los procesos que eran utilizados durante el desarrollo de programas.
+Fue entonces que el Departamento de Defensa de los Estados Unidos encomendó al SEI (Software Engineering Institute) de la Universidad Carnegie Mellon de Pittsburg la ela- boración de un modelo que tenía como propósito guiar a las organizaciones de desarrollo de software durante la ejecución de sus proyectos a fin de emplear sus recursos de la mejor manera posible. De esta manera, en 1986, surgió el CMM© (Capability Madurity Model), acerca del cual se tratará en el apartado \ref{mtcmm} \cite{SAL2000}\cite{BAC1994}.}
+
+\section{Situación actual}
+
+En muchos países -incluyendo Bolivia- el desarrollo de software no termina de salir de su fase artesanal; aun existen empresas que delegan trabajos a personas individuales, quienes no aplican metodologías de desarrollo formales y mucho menos técnicas de control de calidad \cite{BUA2000}.\\
+
+La industria del software padece de la denominada prisa patológica, fruto de malas estimaciones y planificaciones, lo que deriva en el sacrificio de actividades importantes que forman parte del proceso de desarrollo del producto de software \cite{BUA2000}.\\
+
+En una organización inmadura \cite{BUA2000} si hay plazos, se sacrifican funcionalidad y calidad del producto para satisfacer el plan (``dejar de lado lo importante para hacer lo urgente'') y cuando los proyectos se salen del plan, las revisiones y pruebas se recortan o inclusive se eliminan.\\
+
+Todo lo anterior puede asociarse con \cite{IBA2003}:
+\begin{itemize}
+\item	Ausencia de especificaciones completas, coherentes y precisas por parte del cliente y de los desarrolladores.
+\item	Carencia de la aplicación sistemática de métodos y normas de ingeniería del software durante todo el proceso de desarrollo.
+\item	Ausencia de entornos integrados de trabajo.
+\item	Falta de uso de técnicas actuales y automatizadas para la gestión de proyectos.
+\item	Carencia de procesos utilizados durante el desarrollo del software que estén bien definidos y asociados adecuadamente a las herramientas utilizadas.
+\end{itemize}
+
+Estas anomalías, denominadas en su conjunto ``caos del software'', ocasionan que \cite{COR2001} \cite{BUA2000}:
+\begin{itemize}
+\item	Más del 30 por ciento de los proyectos se cancelen antes de ser finalizados.
+\item	Alrededor de un 84 por ciento de los proyectos no se concreten en el tiempo y costos estimados.
+\item	El 90 por ciento de los proyectos no alcancen sus objetivos.
+\end{itemize}
+
+Además de esto, el concepto de calidad utilizado en muchas organizaciones es errado. La mayoría de las empresas creen saber y practicar lo que es calidad implementando un limitado número de actividades relacionadas con ella pero sin establecer un control formal y sin asumir políticas específicas que establezcan una verdadera estrategia de control de calidad, la que es necesaria para garantizar el éxito del producto.\\
+
+Ahora bien, implementar políticas de control de calidad en una empresa tiene como objetivo garantizar que el producto cumpla con los requisitos que le fueron asignados, pero no así que éste vaya a estar libre de errores. De hecho, muchos expertos opinan que el software libre de defectos no existe.\\
+
+Esta última afirmación es evidente incluso en las grandes compañías de software donde los productos son comercializados cuando los mismos desarrolladores están concientes de que poseen fallas; esto ocurre comúnmente cuando el costo y tiempo invertidos en corregir estos errores no se justifican frente a las utilidades que se perciben si el producto es lanzado en el tiempo previsto aun teniendo algunos defectos. Estas anomalías pueden, por ejemplo, tratarse de detalles que no afecten a la funcionalidad en sí o de errores que ocurren dadas condiciones muy especiales y por lo tanto son poco probables (una vez cada mil casos por ejemplo).
+
+\section{Definiciones}
+
+\subsection{Calidad del software}
+
+Existen muchas definiciones para este término, tres de las más precisas y ampliamente utilizadas son:
+
+\begin{quote}
+{\it``Conjunto de propiedades y de características de un producto o servicio, que le confieren aptitud para satisfacer necesidades explícitas e/o implícitas.''} (ISO 8402) \cite{BUA2000}.
+\end{quote}
+
+\begin{quote}
+{\it``La calidad del software es el grado en que un sistema, componente o proceso cumple los requerimientos especificados y las necesidades o expectativas del cliente o usuario''} (IEEE, Std. 610-1990) \cite{BUA2000}.
+\end{quote}
+
+\begin{quote}
+{\it``Concordancia del software producido con los requerimientos explícitamente establecidos, con los estándares de desarrollo prefijados y con los requerimientos implícitos no establecidos formalmente''} \cite{PRE2002}.
+\end{quote}
+
+En base a estas definiciones se resaltan los siguientes puntos \cite{PRE2002}:
+\begin{itemize}
+\item	Los requisitos establecidos para el producto de software son la base de la calidad; es decir, la falta de concordancia entre los requisitos se traduce en falta de calidad.
+\item	Los estándares existentes definen un conjunto de criterios de desarrollo que puedan guiar al equipo para aplicar la ingeniería del software. Por lo tanto, estos criterios también son necesarios para obtener un producto de calidad.
+\item	Los requisitos implícitos deben cumplirse tanto como los explícitos pues en la mayoría de los casos son los más comprometidos con la calidad del producto (ej.: mantenibilidad).
+\end{itemize}
+
+\subsection{Control de calidad}
+
+El control de calidad es una serie de actividades que incluyen inspecciones, revisiones y pruebas durante el ciclo de desarrollo para asegurar que cada producto cumpla con los requisitos que le fueron asignados \cite{PRE2002}.\\
+
+Esta tarea incluye un ``bucle de retroalimentación'' conocido como {\it feedback}, cuyo objetivo es que, junto con la medición, se pueda conseguir afinar el proceso \cite{PRE2002}.
+
+\subsection{Garantía de calidad}
+
+Consiste en la auditoría y las funciones de información de la gestión con el  objetivo de poder proporcionar los datos necesarios sobre la calidad del producto \cite{PRE2002}.
+
+\section{Factores para determinar la calidad de un producto de software}
+
+Son muchos los criterios a considerar al momento de calificar la calidad de un producto de software. Básicamente éstos se clasifican en dos: internos y externos \cite{CUE1999} \cite{GOM2001}.
+
+Los factores internos son aquellos que conciernen sobretodo a los desarrolladores. Se contemplan aspectos como la claridad y la eficiencia del código.\\
+
+Los factores externos son percibidos por los usuarios. En esta categoría se encuentran criterios comoe velocidad, facilidad de uso, etc.\\
+
+Cabe recalcar que los factores externos son más importantes que los internos a la hora de calificar la calidad de un producto. Por ejemplo,  siempre es mejor (tiene mayor aceptación) un software rápido aunque su código no sea claro \cite{GOM2001}.\\
+
+{\bfseries Factores de calidad externos}\\
+
+{\bfseries Exactitud}\\
+Medida en que los productos de software pueden realizar tareas específicas, tal como lo define su especificación \cite{GOM2001}.\\
+
+{\bfseries Robustez}\\
+Capacidad de los sistemas de software para reaccionar apropiadamente a condiciones anormales \cite{GOM2001}.\\
+
+Mientras más robusto sea el software, mejor tolerancia a fallas y tratamiento de errores ofrecerá, lo que contribuye a una mayor confianza en el producto por parte de los usuarios.\\
+
+{\bfseries Seguridad}\\
+Capacidad del software para responder adecuadamente a posibles accesos no autorizados y cambios importantes que afecten negativamente a la información que maneja o a las funciones que desempeña.\\
+
+{\bfseries Facilidad de uso}\\
+La facilidad de uso es la simplicidad con la que la gente de varios trasfondos y cualidades pueden aprender a utilizar productos de software y aplicarlos para resolver problemas. Esto también incluye la facilidad de instalación, operación y monitoreo \cite{GOM2001}.\\
+
+{\bfseries Confiabilidad}\\
+Los cuatro términos mencionados anteriormente (exactitud, robustez, seguridad y facilidad de uso) son los que conforman un quinto concepto: la confiabilidad, es decir, la comodidad y seguridad que siente el usuario al utilizar el sistema. Mientras más resultados precisos arroje, mejor manipulación de errores provea, mejores controles de seguridad ofrezca y su uso sea más intuitivo, el usuario se sentirá más confiado de utilizarlo. Este es, sin duda, el concepto más importante en lo que a certificación de calidad por parte del usuario concierne.\\
+
+{\bfseries Extensibilidad}\\
+Capacidad de adaptación del sistema hacia cambios de especificación (cambios en los requerimientos que impliquen modificaciones a la funcionalidad general del sistema, a su arquitectura, etc.) \cite{GOM2001}.\\
+
+{\bfseries Reutilización}\\
+Capacidad de los elementos de software para servir en la construcción de muchas aplicaciones diferentes \cite{GOM2001}.\\
+
+{\bfseries Compatibilidad}
+\begin{quote}
+{\it ``Facilidad para combinar un elemento de software con otro''} \cite{GOM2001}.
+\end{quote}
+\vspace{0.3cm}
+
+{\bfseries Eficiencia}\\
+Capacidad del software para utilizar la mínima cantidad de recursos de hardware y software \cite{GOM2001}.\\
+
+{\bfseries Portabilidad}
+\begin{quote}
+{\it ``Facilidad de transportar productos de software a varios ambientes de hardware y software''} \cite{GOM2001}.
+\end{quote}
+\vspace{0.3cm}
+
+{\bfseries Funcionalidad}
+\begin{quote}
+Cantidad de tareas que un sistema puede desempeñar y/o servicios que puede proveer \cite{GOM2001}.
+\end{quote}
+\vspace{0.3cm}
+
+{\bfseries Puntualidad}\\
+Capacidad del equipo de desarrollo de entregar el producto cuando sus usuarios lo esperan \cite{GOM2001}.\\
+
+{\bfseries Reparabilidad}\\
+Facilidad con la que un desarrollador puede resolver los defectos de un sistema. Mientras más fácil sea esta tarea, mejor valoración por parte de los desarrolladores recibirá el software.\\
+
+Algunos de estos factores externos son también denominados requisitos implícitos del producto de software, como es el caso de la eficiencia, la facilidad de uso, etc.
+
+\section{Marcos de Trabajo} \label{marcostrabajo}
+
+\begin{quote}
+{\it ``Los Marcos de Trabajo (MT) corresponden a estructuras escritas de una idea y/o conjunto de metas para facilitar a una organización la implementación de las mismas''} \cite{BED1998}.
+\end{quote}
+
+En el caso de la ingeniería del software, estos MT se clasifican según su propósito en \cite{BED1998}:
+\begin{itemize}
+\item	Estándares y guías.
+\item	Modelos de mejoramiento de procesos.
+\item	Pautas de selección para la contratación de terceros.
+\item	Premios de calidad.
+\item	Modelos de ciclos de vida.
+\item	Modelos de Ingeniería de Sistemas.
+\end{itemize}
+
+El propósito de los MT es el de proporcionar el soporte necesario para garantizar una mejora de los procesos de software, determinar las capacidades de cada uno de ellos y la madurez general de la organización.\\
+
+Los principales MT en el área de ingeniería del software son mostrados en la figura \ref{figmarcostrabajo} \cite{BED1998}.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/marcostrabajo.jpg}
+  \caption[\small Principales Marcos de Trabajo en el área de ingeniería del software.]
+ {\small Principales Marcos de Trabajo en el área de ingeniería del software \cite{BED1998}.}
+  \label{figmarcostrabajo}
+\end{figure}
+
+A continuación se describen los más importantes.\\
+
+\subsection{CMM©} \label{mtcmm}
+
+Como se indicó en el apartado \ref{marcointroduccion}, el Capability Madurity Model (Modelo de Capacidad de Madurez) surgió a raíz de la crisis del software sufrida a principios de los años 80 y como encargo del Departamento de Defensa de los Estados Unidos al SEI de la Universidad Carnegie Mellon.\\
+
+El principal autor del modelo es Watts Humphrey, quien trabajó en la elaboración del CMM basado en trabajos previos de Phil Crosby \cite{BAC1994}.\\
+
+Este modelo se basa en dos conceptos importantes: el proceso maduro y el nivel de madurez.\\
+
+Un proceso se considera maduro si \cite{SAL2000}:
+\begin{itemize}
+\item	Está definido: es claro y detallado.
+\item	Está documentado.
+\item	El personal ha sido entrenado en el proceso.
+\item	Es mantenido: es revisado regularmente.
+\item	Está controlado: cualquier cambio es revisado y comunicado a todo el personal.
+\item	Se verifica: es claro si el proceso está envuelto en todos los proyectos actuales o no.
+\item	Se valida: el proceso es coherente con los requerimientos y estándares.
+\item	Se mide en términos de beneficio, utilización y rendimiento.
+\item	Es mejorable.
+\end{itemize}
+
+La figura \ref{figmaduracionproceso} muestra la manera en que un proceso alcanza la madurez deseada por una empresa.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/maduracionproceso.jpg}
+  \caption[\small Maduración de un proceso]
+  {\small Maduración de un proceso \cite{BED1998}.}
+  \label{figmaduracionproceso}
+\end{figure}
+
+El nivel de madurez está definido como:
+
+\begin{quote}
+{\it ``La capacidad de los procesos de ingeniería del software y de administración de proyectos usados en una organización de desarrollo de software''} \cite{SAL2000}. 
+\end{quote}
+
+La capacidad de los procesos en conjunto está determinada por la madurez de cada uno de ellos.\\
+
+A su vez, el CMM© envuelve toda una familia de sub-modelos, cada uno de los cuales se enfoca en un área específica de la empresa. De esta manera se tienen \cite{SAL2000}:
+\begin{itemize}
+\item	SW-CMM (Software CMM): Aplicado específicamente al ámbito del software.
+\item	SE-CMM: (Systems Engineering CMM): Que cubre el ámbito de la Ingeniería de Sistemas propiamente dicha.
+\item	P-CMM (Personal CMM): Se enfoca en los recursos humanos de la organización.
+\item	SA-CMM (Software Acquisition CMM): El cual cubre las prácticas de adquisición de productos de software. Aunque suene irónico, es la actividad inevitable de las empresas de desarrollo de software; todas en determinado momento adquieren productos hechos por otras empresas a fin de poder desarrollar los propios.
+\item	IPD-CMM (Integrated Product Development CMM): Aplicado al ámbito de la integración del producto.
+\end{itemize}
+
+El CMM© clasifica a las empresas involucradas en el desarrollo de software en cinco niveles de acuerdo a los criterios que maneja (la madurez de sus procesos y la calidad de los resultados que se obtienen de esos procesos). Entonces se tiene:\\
+
+{\bfseries - Nivel 1: Inicial (Inmadurez) }\\
+
+También conocido como el ``Nivel del Caos''. Aquí se encuentran todas las empresas que no han logrado implementar prácticas básicas de Ingeniería del software y donde el personal coincide en que los proyectos no se pueden planear y los requerimientos se salen de control. Por lo general, la conclusión de un proyecto se logra a coste de muchas horas extra de trabajo y con una inversión injustificada \cite{SAL2000}.\\
+
+{\bfseries - Nivel 2: Repetible (El proyecto planificado)}\\
+
+Este nivel se caracteriza por la presencia en las empresas de prácticas mínimas de Ingeniería del software y donde la experiencia adquirida en proyectos anteriores es bien aprovechada por el personal. En este punto, no necesariamente todos los procesos tienen el mismo nivel de madurez \cite{SAL2000}.\\
+
+El mayor beneficio de este nivel es la planificación realista de los proyectos, la cual en general no expresa el deseo de la gerencia, factor que en el nivel 1 es el principal determinante para las malas estimaciones \cite{SAL2000}.\\
+
+{\bfseries - Nivel 3: El proceso definido (El proceso generalizado en todos los proyectos)}\\
+
+Para llegar a este nivel, la empresa tiene bien definido un conjunto de procesos y herramientas comunes a todos los proyectos. Cada proceso está debidamente documentado y el personal está entrenado en el manejo del mismo. El nivel de definición de cada proceso es detallado y completo. La dependencia en individuos ``irreemplazables'' es baja, al contrario que en los dos anteriores niveles\cite{SAL2000}.\\
+
+Una característica notoria del nivel 3 es la satisfacción del personal. Por lo general en las empresas del nivel 1 y algunas del 2 las quejas, acusaciones y frustración en el personal son características siempre presentes debido a los fracasos que acarrea la falta de aplicación de prácticas formales de ingeniería del software y administración de proyectos.\\
+
+Llegar a este nivel es considerado para muchos un lujo.\\
+
+{\bfseries - Nivel 4: El proceso gestionado}\\
+
+En este nivel, tanto el proceso como el producto son cuidadosamente controlados mediante métricas precisas. Sin embargo, contar con un conjunto de métricas no significa necesariamente que la empresa pueda ser calificada en este nivel \cite{SAL2000}.\\
+
+La ventaja con la que cuentan las empresas del nivel 4 es la capacidad que tienen de poder medir su productividad y calidad; la capacidad de rendimiento de un proceso es previsible.\\
+
+{\bfseries - Nivel 5: Mejoramiento permanente}\\
+
+Este nivel, denominado también ``utópico'' por algunos expertos, se basa en la realimentación cuantitativa e implementación de tecnologías innovadoras en la empresa. La organización entera se enfoca en el mejoramiento continuo de sus procesos\cite{SAL2000}.\\
+
+El último es considerado el nivel ideal pero prácticamente inalcanzable debido al nivel de madurez que se debe alcanzar. Tan sólo una veintena de empresas en todo el mundo han conseguido calificar en este nivel.\\
+
+La figura \ref{fignivelescmm} muestra a manera de esquema los niveles de madurez de CMM.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/nivelescmm.jpg}
+  \caption[\small Niveles de madurez según el CMM]
+  {\small Niveles de madurez según el CMM \cite{PIC2003}.}
+  \label{fignivelescmm}
+\end{figure}
+ 
+La figura \ref{figempresascmm} muestra la relación entre las empresas de software certificadas y los niveles del CMM©. Se destaca en el gráfico que la cantidad de empresas disminuye de forma considerable a medida que se sube de nivel, lo cual demuestra el enorme esfuerzo que se requiere para poder obtener una certificación aceptable (a partir del nivel 3). El detalle de las empresas certificadas por este modelo se encuentra en el Anexo \ref{anexocertificaciones}.\\
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/empresascmm.jpg}
+  \caption[\small Nivel de madurez de las organizaciones en todo el mundo según el CMM©]
+  {\small Nivel de madurez de las organizaciones en todo el mundo según el CMM© (a septiembre de 2003) \cite{SEI2003}.}
+  \label{figempresascmm}
+\end{figure}
+
+\clearpage
+{\bfseries Desventajas}\\
+
+Este modelo ayudó a sacar a las empresas de desarrollo de software de la mencionada crisis en la que se vieron inmersas a inicios de los años 80 y planteó una nueva concepción del desarrollo de software al introducir el concepto de que la calidad de un producto depende del nivel de madurez de los procesos que estén involucrados en su desarrollo. Sin embargo, es un modelo muy inflexible, existen empresas que no califican en ningún nivel y otras que pueden perder su certificación o bajar de nivel si alguno de sus procesos desmejora.\\
+
+Además de esta inflexibilidad, CMM© es criticado por algunos expertos, como James Bach de la Satisfice Inc. quien en su artículo ``The Immaturity of CMM'' (La Inmadurez del CMM) asegura que este modelo posee entre otras, las siguientes falencias \cite{BAC1994}:
+
+\begin{itemize}
+\item	No posee bases teóricas formales, sino que simplemente está basado en la ``extensa experiencia de la gente''. De ser así, entonces se plantea la incógnita de porqué otros modelos fundados sobre las mismas bases no son considerados como alternativas válidas.
+\item	El modelo posee un vago soporte empírico. Incluso Mark Paul del SEI reconoce que al modelo le falta un serio estudio de validación formal.
+\item	CMM© valora cualquier proceso, pero ignora a la gente.
+\item	CMM© proporciona muy poca información referente a la dinámica de los procesos, es decir, la manera en que estos trabajan y evolucionan.
+\item	El modelo desplaza las metas que se enfocan en mejorar los procesos por la única finalidad de alcanzar un nivel más alto de madurez. A esto se le ha denominado el ``nivel de envidia''. Es decir, las empresas se ciegan en busca de un ascenso de nivel perdiendo por completo el verdadero sentido de aplicar el CMM©: la mejora de sus procesos. El mismo SEI ha reconocido esta falencia y ha manifestado su deseo de corregirla.
+\end{itemize}
+
+Dadas estas debilidades del modelo y puesto que en general las empresas nacionales no están preparadas para una certificación tan severa, no es recomendable considerar (por lo menos ahora) el CMM© como un modelo base para el inicio de implementación de técnicas formales de control de calidad en las empresas locales.\\
+
+\subsection{ISO}
+
+Esta organización certifica a las empresas mediante sus estándares 8402, 9000, 9001, 9002, 9003 y 9004, que han sido desarrollados desde 1979. Estos estándares imponen una serie de normas y directrices que deben ser seguidas por las empresas para conseguir la certificación \cite{BUA2000} \cite{GON1998}:\\
+
+El primero (ISO-8420) se refiere solamente a la terminología utilizada en los demás estándares \cite{BUA2000}.\\
+
+ISO-9000 establece las normas referentes a la gestión y garantía de la calidad así como también algunas guías útiles para la aplicación de ISO-9001; es una guía básica de normas de control de calidad \cite{TEC2003}.\\
+
+En este estándar, ISO trata a las empresas como redes de procesos interconectados. Éstos deben ser identificados en áreas específicas definidas en los estándares y ser documentados y practicados como lo indica la especificación \cite{PRE2002}.\\
+
+ISO-9001 es el estándar que se aplica a la Ingeniería del Software y que otorga la garantía de calidad total. Este estándar está asociado a un conjunto de directrices para ayudar a las empresas en la interpretación y uso correcto del estándar. Estas directrices están especificadas en los estándares ISO-9000-3 \cite{PRE2002}.\\
+
+ISO-9002 a ISO-9003 establecen las normas y guías que conforman en modelo de calidad total, como ya se indicó líneas arriba \cite{BUA2000} \cite{TEC2003}.\\
+
+ISO-9004 contiene elementos de gestión del sistema de calidad, reglas generales y directrices para los elementos ya procesados y la mejora de la calidad \cite{BUA2000}.\\
+
+Básicamente estas normas establecen la misma secuencia descrita en el apartado \ref{marcostrabajo} (un conjunto de actividades para cada fase del desarrollo del producto).\\
+
+La lista de empresas certificadas por ISO se encuentra en el Anexo \ref{anexocertificaciones}.\\
+
+\subsection{SPICE}
+
+Análogo al CMM, el Software Process Improvement and Capability dEtermination es un  modelo enfocado en la optimización (maduración) de los procesos que son utilizados en el desarrollo de software.\\
+
+SPICE, en calidad de proyecto, fue aprobado por la ISO/IEC JTC1 en 1993 y tiene la finalidad de convertirse en un estándar de calidad llamado ISO/IEC 15504. Es un modelo de referencia para los procesos y sus capacidades, basado en la experiencias de empresas de software de distinta escala \cite{BED1997}.\\
+
+Entre los documentos de guía que ofrece, se encuentran \cite{BED1997}:
+\begin{itemize}
+\item	Un marco de referencia para determinar las fortalezas y debilidades de cada proceso.
+\item	Un marco de referencia para la mejora de los procesos de software y la cuantificación de la misma.
+\item	Un marco de referencia para determinar los riesgos a los que se ve expuesto una empresa que planea desarrollar un nuevo producto de software.
+\end{itemize}
+
+La arquitectura del modelo SPICE organiza todas las actividades en \cite{BED1997}:
+\begin{itemize}
+\item	Prácticas base o actividades esenciales para cada proceso.
+\item	Prácticas genéricas: las que son aplicables a cualquier proceso.
+\end{itemize}
+
+A su vez, el modelo agrupa a los procesos en cinco categorías distintas \cite{BED1997}:
+\begin{itemize}
+\item	Procesos Cliente - Proveedor: aquellos que tienen un impacto directo en el cliente y en la transición del producto del desarrollador al cliente.
+\item	Procesos de Ingeniería: procesos relacionados con la Ingeniería del Software (planificación, desarrollo, documentación, mantenimiento, etc.).
+\item	Procesos de Proyecto: aquellos involucrados en la elaboración del producto, como la administración de los recursos.
+\item	Procesos de Soporte: se refiere a los procesos orientados a brindar soporte al desempeño de otros procesos del proyecto.
+\item	Procesos de la Organización: propios a la organización. Son los procesos que determinan las metas de negocio de una empresa.
+\end{itemize}
+
+La figura \ref{figprocesosspice} ilustra la interrelación que existe entre las cinco categorías mencionadas.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/procesosspice.jpg}
+  \caption[\small Interrelación de las categorías de procesos según SPICE]
+  {\small Interrelación de las categorías de procesos según SPICE \cite{BED1997}.}
+  \label{figprocesosspice}
+\end{figure}
+
+Dependiendo de la madurez de los procesos de estas cinco categorías, una empresa puede ubicarse en uno de los seis niveles de SPICE \cite{BED1997}:\\
+
+{\bfseries -	Nivel 0: No realizado}\\
+
+En este nivel se clasifican las empresas que no han conseguido la implementación satisfactoria de sus procesos.\\
+
+{\bfseries -	Nivel 1: Realizado informalmente}\\
+
+Las empresas de este nivel ejecutan las prácticas base de sus procesos pero no necesariamente de manera planificada y sistemática. Es decir, la ejecución de estas prácticas depende directamente del esfuerzo y conocimiento del personal.\\
+
+{\bfseries -	Nivel 2: Planificado y seguido}\\
+
+A diferencia del Nivel 1, las prácticas base de las empresas de este nivel son planificadas y sistemáticas, lo que contribuye a una mejora progresiva del proceso que concluirá en la madurez del mismo.\\
+
+{\bfseries -	Nivel 3: Bien definido}\\
+
+En este nivel se clasifican las empresas cuyos procesos cuentan con un grado aceptable de madurez, es decir, son procesos definidos y documentados.\\
+
+{\bfseries -	Nivel 4: Cuantitativamente controlado}\\
+
+En este nivel, los procesos además de estar definidos y documentados, son medibles en términos de los resultados que producen al ser utilizados en un proyecto.\\
+
+{\bfseries -	Nivel 5: Mejoramiento continuo}\\
+
+Las empresas de este nivel cuentan con procesos maduros cuyo mejoramiento permanente se basa en la retroalimentación y en la implantación de nuevas tecnologías.\\
+
+La figura \ref{fignivelesspice} miestra el esquema de los seis niveles SPICE.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/nivelesspice.jpg}
+  \caption[\small Niveles de madurez según SPICE]
+  {\small Niveles de madurez según SPICE \cite{PIC2003}.}
+  \label{fignivelesspice}
+\end{figure}
+
+\subsection{IEEE}
+
+El Institute of Electrical and Electronics Engineers certifica a las empresas que cumplen con los requisitos que plantea, tal como lo hace el ISO y el CMM©. Estos requisitos se encuentran documentados en los siguientes estándares:
+\begin{itemize}
+\item	IEEE 828-1998: estándar para la configuración de planes de administración del software, que establece los requisitos mínimos con los que debe contar el Plan de Configuración y Administración del Software \cite{TEC2003}.
+\item	IEEE 1012-1998: un estándar para la verificación y validación del software, que consiste en la determinación de qué actividades involucradas en el desarrollo del mismo cumplen con los requisitos mínimos necesarios para ejecutarlas correctamente y si el producto final satisface las necesidades del usuario \cite{TEC2003}.
+\end{itemize}
+
+Para complementar esta sección, se incluyen los siguientes apartados (que no corresponden a los MT):
+
+\subsection[Teoría del ``Planear, hacer, revisar y actuar'']
+{Teoría del ``Planear, hacer, revisar y actuar'' (Plan, do, check, act)} \label{plandocheckact}
+
+Esta teoría se basa en los cuatro puntos mencionados:
+\begin{itemize}
+\item	Planear: consiste en la etapa de planificación de los casos de prueba.
+\item	Hacer: en esta fase se elaboran los casos de prueba.
+\item	Revisar: es una evaluación previa de los casos diseñados antes de su ejecución.
+\item	Actuar: consiste en la ejecución de los planes de testeo planificados anteriormente.
+\end{itemize}
+
+Estas tareas son realizadas en un ciclo permanente. Una vez terminada la fase de ``actuar'', se procede nuevamente a la de planear. Estas actividades son realizadas a lo largo de todo el proceso de desarrollo del software \cite{LEW2000}.
+
+\subsection{Otros}
+
+Como las propuestas presentadas en este apartado, existen otros modelos y estándares menos conocidos pero útiles y que son aplicados en algunas empresas, como es el caso del Modelo McCall \cite{CER2000}.\\
+
+No existe un modelo perfecto, ninguno se acomoda al cien por ciento a las necesidades de una empresa y mucho menos garantiza ser la solución a sus problemas de calidad. Cada modelo plantea un objetivo ideal y común, que debe ser moldeado de acuerdo a los problemas que se presenten en la organización.
+
+\begin{quote}
+{\it ``Todos los modelos son erróneos; algunos modelos son útiles''}
+George Box. \cite{GAR2001}.
+\end{quote}
+
+\section{El costo de la calidad} \label{costocalidad}
+
+La implementación de metodologías de control de calidad en una empresa acarrea su propio costo, que por lo general es elevado. Sin embargo, al ser prácticas que pretenden mejorar el rendimiento de los recursos invertidos, este costo resulta ser mucho menor al que la empresa asume cuando se trata de reparar fallas graves detectadas en las últimas fases del desarrollo o, aun peor, las reportadas por los clientes.\\
+
+Estos costos están asociados con la prevención, la evaluación y la corrección de fallas.\\
+
+Los costos de prevención involucran:
+\begin{itemize}
+\item	Planificación de la calidad.
+\item	Revisiones técnicas.
+\item	Equipo de pruebas.
+\item	Formación (capacitación).
+\end{itemize}
+
+Los costos de evaluación son los resultantes de las inspecciones en los procesos, el mantenimiento de equipos y las pruebas.\\
+
+Finalmente, los costos de fallos son aquellos que no existirían si el producto final careciera de defectos. Estos costos pueden ser internos si los defectos son detectados antes de la entrega del producto y externos si son reportados por los clientes una vez que el producto ha sido entregado.\\
+
+Los costos internos incluyen los costos de revisión y reparación.\\
+
+En el caso de los fallos externos los costos se elevan puesto que implican además de las reparaciones, los costos de la devolución y sustitución de los productos.\\
+
+Los costos de fallos se elevan a medida que el proyecto llega a sus últimas fases. Estudios realizados en base a experiencias de empresas como IBM demuestran este hecho \cite{PRE2002}.\\
+
+{\bfseries Impacto de los defectos del software sobre el costo}\\
+
+Una serie de estudios realizados por empresas como Nippon Electric y Mitre Corp. demostró que entre el 50 y 65 por ciento del total de errores se producen durante la etapa del diseño y que las actividades de revisión formales son efectivas en un 75 por ciento a la hora de detectar estos errores, lo que reduce sustancialmente el costo en los pasos siguientes \cite{PRE2002}.\\
+
+La figura \ref{figcostocalidad} muestra el resultado de estos estudios (incluido el realizado a IBM), demostrando las proporciones del costo de arrastrar un error hasta las últimas fases.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/costocalidad.jpg}
+  \caption[\small Costo relativo de corregir un error]
+  {\small Costo relativo de corregir un error \cite{PRE2002}.}
+  \label{figcostocalidad}
+\end{figure}
+ 
+\section{Los beneficios de la calidad}
+
+Al tiempo que la implementación de métodos de control de calidad ayuda a mitigar (o en el mejor de los casos a eliminar por completo) los problemas descritos en apartados anteriores, la presencia de procesos maduros y prácticas de calidad formales en una empresa proporciona, entre otros, los siguientes beneficios \cite{ASQ2003}:
+\begin{itemize}
+\item	En los empleados: la satisfacción de efectuar un buen trabajo, la mejora de la comunicación interna, una mejor organización del personal, la reducción e incluso eliminación de la necesidad de realizar esfuerzos extra para terminar un proyecto.
+\item	En la empresa: el uso eficiente de los recursos, la reducción de costos, la garantía de realizar buenas estimaciones, la seguridad de obtener resultados positivos al finalizar un proyecto.
+\item	En los clientes: la confianza de que el producto adquirido satisface sus necesidades.
+\item	En la sociedad: el crecimiento de la industria del software, lo que permite abrir el mercado y atraer a clientes tanto nacionales como internacionales y la reducción de la dependencia por el software externo.
+\end{itemize}

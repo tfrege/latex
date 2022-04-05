@@ -1,0 +1,221 @@
+\chapter{ASEGURAMIENTO DE LA CALIDAD DEL SOFTWARE}
+
+El Aseguramiento de la Calidad del Software (Software Quality Assurance, SQA) es el conjunto de actividades planificadas y sistemáticas necesarias para aportar la confianza de que el producto de software cumplirá con los requisitos dados de calidad. Es diseñado antes del desarrollo del proyecto y está presente en:
+\begin{itemize}
+\item	Métodos y herramientas (de análisis, diseño, implementación y pruebas).
+\item	Inspecciones técnicas formales en todos los pasos del proceso de desarrollo del producto.
+\item	Estrategias de prueba.
+\item	Control de la documentación del software y de los cambios realizados en el mismo.
+\item	Procedimientos que permiten ajustarse a los estándares de calidad.
+\item	Métricas.
+\item	Informes realizados por las personas involucradas en el desarrollo (analistas, desarrolladores, testers, etc.).
+\end{itemize}
+
+Las actividades de las que el SQA está conformado son básicamente:
+\begin{itemize}
+\item	Verificación y validación: la verificación es la actividad encargada de evaluar si el producto cumple con el desarrollo planificado (``se está construyendo adecuadamente'') mientras que la validación comprueba si el software que se está construyendo es el correcto para las necesidades planteadas (``se está construyendo el adecuado''). Ambas tareas van de la mano y se aplican  en cada fase del desarrollo \cite{LEW2000} \cite{GER2003}.
+\item	Gestión de la configuración del software.
+\end{itemize}
+
+\section{Actividades del SQA}
+
+SQA abarca una amplia gama de actividades asociadas tanto a los desarrolladores como al propio equipo de calidad de la empresa.\\
+
+El equipo de desarrolladores es responsable de aplicar métodos planificados y técnicas de revisión formales durante su trabajo. El equipo de SQA intenta ayudar al primero en la obtención de un software de alta calidad mediante la aplicación de técnicas de SQA como \cite{PRE2002}:
+\begin{itemize}
+\item	Establecimiento de un plan de SQA para cada proyecto, el mismo que es revisado por todo el personal involucrado. Rige todas las actividades de ambos equipos. El plan define criterios como:
+	\begin{itemize}
+	\item	Las evaluaciones a realizar.
+	\item	Los estándares a aplicar.
+	\item	Los procedimientos a seguir para la documentación de los errores.
+	\item	El {\it feedback} del proyecto.
+\end{itemize}
+\item	Participación en el desarrollo de la descripción del proceso de software en el proyecto.
+\item	Revisión de las actividades de ingeniería del software para verificar que se ajusten al proceso de software definido.
+\item	Asegurar que las desviaciones del trabajo y los productos se documenten y manejen de acuerdo con un procedimiento establecido.
+\item	Registrar lo que no se ajuste a los requisitos e informar a los supervisores.
+\end{itemize}
+
+{\bfseries Revisiones Técnicas Formales}\\
+
+Una Revisión Técnica Formal (RTF) es una actividad de SQA que es llevada a cabo por los ingenieros del software y que pretende alcanzar los siguientes objetivos:
+\begin{itemize}
+\item	Descubrir errores durante el desarrollo.
+\item	Verificar que el software cumpla con sus requisitos.
+\item	Verificar que el software cumpla con los estándares establecidos.
+\item	Hacer que los proyectos sean manejables.
+\item	Conseguir un desarrollo uniforme del proyecto.
+\end{itemize}
+
+Además de esto, una RTF permite promover la seguridad y continuidad permitiendo que todas las personas involucradas se familiaricen con todas las partes del software (ya que puede darse el caso en que una o más personas ignoren algunas) \cite{PRE2002}.\\
+
+Una RTF viene acompañada de las reuniones de revisión, donde tanto desarrolladores como ingenieros de calidad se concentran en la revisión de una etapa completa del desarrollo del producto o, si la complejidad lo amerita, en la etapa de desarrollo de un determinado módulo. Por ejemplo, una reunión puede estar destinada a la revisión del diseño de un solo módulo del sistema \cite{PRE2002}.\\
+
+Es en estas reuniones (denominadas también por algunos ``War Meetings''\footnote{Extraído de la charla de Dr. Pavisic: ``Tópicos de ingeniería del software'' que tuvo lugar en mayo de 2003 en la Universidad Católica Boliviana, Regional Cochabamba.}) donde los ingenieros de calidad y los desarrolladores deciden qué errores se corrigen y cuáles se omiten momentáneamente, puesto que existen errores cuya severidad no amerita la inversión de tiempo que requiere su reparación y mucho menos la postergación de otras tareas más importantes para  concentrar al personal en resolverlo. Si bien el objetivo de estas reuniones es reducir al máximo la cantidad de errores que se encuentren, también debe haber un balance porque de todas formas siempre existirán defectos y la tarea de eliminarlos puede convertirse en algo eterno y a la larga perjudicial para la empresa.\\
+
+Es necesario que todo el personal involucrado esté consciente de que el software perfecto no existe y que lo que se busca es que el producto final tenga la menor cantidad de defectos posible sin invertir más recursos de los destinados al proyecto.
+
+\section{SQA en las distintas fases del desarrollo}
+
+Como se dijo anteriormente, el control de calidad es una tarea que se realiza a lo largo de todo el proceso de desarrollo del producto de software. Es así que para cada fase de este proceso se tienen algunas consideraciones.\\
+
+{\bfseries Herramientas}\\
+
+Para un efectivo control de calidad durante todas las fases del desarrollo, existen herramientas bastante recomendables. Algunas de ellas se describen a continuación:\\
+
+\begin{itemize}
+
+\item	{\bfseries Inspecciones}\\\\
+Esta es una técnica utilizada para evaluar permanentemente el avance de la documentación, el cumplimiento de los requerimientos y el apremio de la solución \cite{LEW2000}.
+
+\item {\bfseries Casos de Prueba}\\\\
+Son una herramienta bastante efectiva y común. Cada caso consta de especificaciones que el tester debe seguir para realizar una prueba específica sobre una funcionalidad determinada del sistema. Una vez hecha la prueba, se determina si el caso pasó o falló. De ocurrir lo último, se registra el defecto y se comunica el resultado al desarrollador para que éste haga las correcciones debidas.\\
+
+Un modelo de caso de prueba se presenta en el Anexo \ref{anexocasospruebachecklists}.
+
+\item {\bfseries Listas de Control}\\\\
+Más conocidas como {\it Checklists}, constan de una serie de preguntas que tienen como objetivo asegurar que tanto los requerimientos como la metodología se estén cumpliendo.\\
+
+Cada defecto que sea detectado mediante estas listas debe ser documentado \cite{LEW2000}.\\
+
+Tanto para la elaboración del checklist como para la documentación de los defectos, se propone la utilización de herramientas como la que se muestran en el Anexo \ref{anexocasospruebachecklists}, que combinan ambos reportes en uno solo.
+
+\item {\bfseries 	Matriz de seguimiento de requisitos}\\\\
+Una matriz de seguimiento de requisitos es un documento que sirve para hacer un control de los requerimientos del software desde la etapa de análisis hasta la de implementación. Es utilizada para verificar que ningún requisito se haya ``perdido'' en el camino, que no existan características innecesarias y que la documentación esté completa \cite{LEW2000}.
+
+\item {\bfseries Plan de Testeo}\\\\
+Este documento, basado en el de especificación de requerimientos, se elabora durante todas las fases para verificar que el sistema cumple con los criterios de aceptación del usuario \cite{LEW2000}.\\
+
+Un modelo de este documento es presentado en el Anexo \ref{anexoespecificacionrequerimientos}.
+\end{itemize}
+
+
+{\bfseries a)	Fase de requerimientos}\\
+
+El control de calidad debe comenzar desde las fases más tempranas del desarrollo, no sólo durante la tradicional fase de pruebas donde pueden aparecer errores cuyo costo (en recursos humanos, tiempo y dinero) es elevado y puede evitarse si tales errores son detectados en fases previas.\\
+
+Ésta es quizá la fase más importante en términos de calidad ya que durante las demás fases del desarrollo se busca que los requerimientos se cumplan; por lo tanto, malos requerimientos derivarán en un mal producto.\\
+
+Los requerimientos pobres incluyen \cite{LEW2000}:
+\begin{itemize}
+\item	Funciones parcialmente definidas.
+\item	Omisión del performance.
+\item	Requerimientos ambiguos, contradictorios o redundantes.
+\item Interfaces no documentadas.
+\item	Requerimientos demasiado restrictivos (inflexibles).
+\end{itemize}
+
+Las secciones más importantes en una especificación son \cite{LEW2000}:
+\begin{itemize}
+\item	Funcionalidad: el conjunto de tareas que el sistema debe ser capaz de realizar.
+\item	Descripción de los datos.
+\item	Descripción de las interfaces entre la función y las entidades externas.
+\end{itemize}
+
+Un modelo del documento de especificación de requerimientos se presenta en el Anexo \ref{anexoespecificacionrequerimientos}.\\
+
+
+{\bfseries Plan de testeo - Prueba de aceptación}\\
+
+Para la ejecución de esta prueba, se realiza un testeo de caja negra\footnote{Conjunto de pruebas donde lo único que interesa es verificar la funcionalidad y no así la manera en que el programa ejecuta las tareas.} y, por lo general, es el usuario final quien participa activamente de ella. Naturalmente, se espera que para hacer este tipo de testeo el producto esté implementado o por lo menos una parte de él, lo que implica que el equipo de desarrollo se encuentre trabajando en las últimas fases. aun así es importante comenzar la construcción de esta prueba desde la fase de requerimientos y que el usuario evalúe si sus requerimientos se están cumpliendo o no \cite{LEW2000}.\\
+
+Una herramienta que facilita la ejecución de esta prueba es la Matriz de Testeo de Especificaciones, que se muestra a manera de ejemplo en la figura \ref{figmatriztesteo}. Además, esta matriz presenta beneficios adicionales como \cite{LEW2000}:
+\begin{itemize}
+\item	Permite establecer una correlación entre las pruebas y la documentación y los requisitos.
+\item	Facilita el mantenimiento de los documentos de revisión.
+\item	Es una herramienta que permite el seguimiento del desarrollo durante todas las etapas del mismo, incluyendo la implantación.
+\end{itemize}
+ 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/matriztesteo.jpg}
+  \caption[\small Matriz de testeo de especificaciones]
+  {\small Matriz de testeo de especificaciones \cite{LEW2000}.}
+  \label{figmatriztesteo}
+\end{figure}
+
+{\bfseries b)	Fase de Diseño}\\
+	
+Ésta es quizá la etapa que se encuentra más comprometida con la calidad del producto porque su resultado será la base para la implementación. Prácticamente todo diagrama, esquema o documento resultante de esta fase será convertido en código por los programadores, por lo que se debe hacer todo lo posible para que éstos carezcan de errores.\\
+
+Se sabe que del 50 al 65 por ciento de los errores que se detectan en los productos de software provienen de su diseño, por lo que dedicar un énfasis especial a esta etapa puede garantizar una reducción (más adelante) del esfuerzo que se emplea para corregir los defectos que aparecerán \cite{PRE2002}.\\
+
+En el apartado \ref{costocalidad} se explica además porqué a nivel económico es importante evitar el acarreo de los defectos que aparecen en las fases tempranas.\\
+
+Esta fase se divide en tres: el diseño lógico, el diseño físico y el diseño de unidad de la aplicación.\\
+
+{\bfseries b.1)	Evaluación de la fase de Diseño Lógico}\\
+
+Esta fase especifica lo dicho en los requerimientos funcionales, los requisitos que tienen que ver directamente con la lógica del negocio.\\
+
+El diseño lógico de una aplicación establece un marco de trabajo (framework) detallado para la construcción del sistema. Los tres conceptos más importantes de este framework son el modelo de datos, el modelo del proceso y el enlace entre ambos \cite{LEW2000}.\\
+
+El modelo de datos es una representación de la información (el tipo de cada uno de los datos involucrados) necesaria para la aplicación. Permite definir tanto las entidades como las relaciones presentes en la aplicación \cite{LEW2000}.\\
+
+El modelo del proceso es una descomposición del negocio, es decir,  es el desglose detallado de las actividades involucradas, desde su nivel más abstracto hasta el más elemental.\\	
+
+El enlace entre ambos modelos se realiza mediante una representación gráfica de toda la lógica del negocio. Una de las técnicas para esta representación es la Matriz CRUD (para el detalle de cómo funciona consultar el Anexo D). Esta técnica puede ser además utilizada con fines de testeo, utilizando su lógica para formular una tabla como la que se muestra en la figura \ref{figmatrizcrud}.\\
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{./imagenes/matrizcrud.jpg}
+  \caption[\small Matriz CRUD para el testeo]
+  {\small Matriz CRUD para el testeo \cite{LEW2000}.}
+  \label{figmatrizcrud}
+\end{figure}
+
+{\bfseries Plan de testeo - Prueba del sistema}\\
+
+En esta sección se prosigue con la elaboración del plan de prueba de aceptación que se inició en la fase anterior.\\
+
+En esta fase se verifica que la lógica de la aplicación responda a los requisitos dados.\\
+
+Para facilitar su ejecución, se pueden utilizar herramientas como la propuesta para la fase de requerimientos (figura \ref{figmatriztesteo}) \cite{LEW2000}.\\
+
+
+{\bfseries b.2)	Evaluación de la fase de Diseño Físico}\\
+
+Esta fase especifica la manera en que los requerimientos pueden ser automatizados, es decir, en esta etapa se diseña la arquitectura del sistema.\\
+
+Mientras que el diseño lógico es funcional, el diseño físico es estructural y depende directamente del primero; por lo tanto, para esta fase, se asume que el diseño lógico es correcto. Algunas técnicas utilizadas para su representación son los denominados Charts y los Diagramas de Flujo de Datos (consultar Anexo D para su detalle). Estos esquemas proveen mecanismos para la especificación de los algoritmos a utilizar en algunos módulos del sistema. Es muy probable la presencia de inconsistencias en esta fase, sobretodo en la especificación del flujo de la información entre los módulos \cite{LEW2000}.\\
+
+{\bfseries Plan de testeo - Prueba de integración}\\
+
+El testeo en esta etapa se realiza mediante revisiones técnicas estáticas, las cuales verifican que la arquitectura respete las convenciones establecidas, que el flujo de datos entre módulos no tenga inconsistencias y que la descomposición tanto de la información como de los procesos carezca de errores \cite{LEW2000}.\\
+
+{\bfseries b.3)	Evaluación de la fase de Diseño de la Unidad del Programa}\\
+
+Esta fase corresponde al diseño detallado de la aplicación en base a los dos diseños anteriores y es donde los algoritmos y estructuras de datos son elegidos. Además, especifica el flujo de control que hará que el diseño sea fácilmente traducible a un lenguaje de programación específico \cite{LEW2000}.\\
+
+{\bfseries Plan de testeo - Prueba de Unidad}\\
+
+El testeo en esta etapa es estratégico ya que es el último que se hace al diseño antes de proceder a la implementación. Si existen errores que no son corregidos, al ser traducidos a código causarán defectos importantes (incluso de grandes proporciones) que tarde o temprano ocasionarán problemas al equipo de desarrollo y tiempos extra de implementación para su corrección \cite{LEW2000}.\\
+
+{\bfseries c)	Fase de Implementación}\\
+
+Ésta es la fase donde el resultado del diseño se traduce en código de un determinado lenguaje de programación; por lo tanto, depende enteramente de las decisiones que hayan sido tomadas previamente.\\
+
+La traducción a un lenguaje de programación es casi mecánica si el diseño es bueno. El desafío entonces para los programadores es garantizar que el código producido sea robusto y fácilmente mantenible a corto y largo plazo.\\
+
+\clearpage
+{\bfseries Plan de testeo - Conclusión}\\
+
+El control de calidad en esta etapa se realiza mediante revisiones técnicas.\\
+Todo lo efectuado en el plan de testeo durante las fases previas se completa en ésta. Para esto, en cada fase se debe elaborar un conjunto de casos de prueba que serán verificados cuando se termine la fase de implementación \cite{LEW2000}.\\
+
+{\bfseries d)	Fase de pruebas}\\
+
+En esta sección se realizan todas las pruebas posibles al sistema. No solo se verifica que éste cumpla con los requerimientos dados explícitamente sino también con los implícitos como la mantenibilidad, seguridad, exactitud, etc.\\
+
+
+\section{SQA y la herramienta desarrollada}
+
+Para el presente proyecto, se desarrolló una herramienta que, respondiendo a la teoría de SQA:
+\begin{itemize}
+\item Permite la aplicación de técnicas de control de calidad a través de todo el proceso de desarrollo de software. Es decir, la ejecución de pruebas en todas las fases del desarrollo.
+\item Permite la ejecución de algunas herramientas del SQA ya mencionadas: casos de prueba y listas de control.
+\item	Permite la elaboración de estrategias de prueba.
+\item Permite el control de la documentación del software y de los cambios realizados en el mismo (de manera básica).
+\item	Permite la definición de procedimientos básicos que a la larga contribuyan en el ajuste a los estándares de calidad.
+\item	Permite la aplicación de métricas (expresadas en los casos de prueba y checklists) durante el control de calidad de los productos.
+\end{itemize}

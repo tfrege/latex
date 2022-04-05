@@ -1,0 +1,265 @@
+% Estilo de Trabajo de Título de Ingeniería de Sistemas
+% Universidad Católica Boliviana
+% Autora: Telma Frege Issa
+% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ucb-format}[14/03/2004 Estilo para Tesis para la UCB-CBA]
+%--------------------------------------------------------------
+\RequirePackage{tocloft}
+\RequirePackage[nottoc]{tocbibind}
+% -----------------------------------------------
+% ELEMENTOS PARA PAQUETE 'fancyhdr'
+% -----------------------------------------------
+
+\fancyhead{}
+\fancyfoot{}
+
+\rhead{\thepage}
+\lhead{\itshape \leftmark}
+\fancyfoot{}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\@chapapp\ \thechapter.\ #1}{}}
+% ----------------------------------------------
+% DEFINICIONES PARA LA PORTADA
+% ----------------------------------------------
+
+\DeclareOption*{\PackageWarning{ucb-format}{%
+Opcion '\CurrentOption' desconocida.}}
+
+\ExecuteOptions{} % sin parametros, osea sin portada
+\ProcessOptions
+
+%----------------- PORTADA ---------------------------%
+% Comandos para utilizar en la creación de la portada %
+%-----------------------------------------------------%
+\newlength{\anchol}
+\settowidth{\anchol}{TRABAJO PARA OPTAR AL TITULO PROFESIONAL}
+
+\long\def\titulo#1{\def\@titulo{#1}}
+\long\def\carrera#1{\def\@carrera{#1}}
+\long\def\grado#1{\def\@grado{#1}}
+\long\def\modalidad#1{\def\@modalidad{#1}}
+\long\def\autor[#1]#2#3{\def\@numautor{#1} \def\@autora{#2} \def\@autorb{#3}}
+\long\def\pie#1{\def\@fecha{#1}}
+
+\gdef\@logoucb{%
+%\begin{center}
+\begin{figure}[!h]
+ \centering  \includegraphics[width=4cm]{escudo.jpg}
+ \end{figure}
+%\end{center}
+\vspace*{-0.1cm}}%----------------------------------------------
+\gdef\@optartrabajo{%
+\begin{flushright}  
+  \bfseries{\small{\@modalidad de \@grado en \@carrera}}
+\end{flushright}}
+
+\gdef\@unautor{%
+{ { \large {\@autora} }\\
+\vspace*{2.0cm}
+\small \@fecha}}
+%-----------------------------------------------
+\gdef\@dosautores{%
+{\bfseries{\large{\@autora} ~~ -- ~ \large{\@autorb}}\\
+\vspace*{2.0cm}
+\small \@fecha}}
+
+%-----------------------------------------------
+% Aqui comienza la creación de la portada
+%-----------------------------------------------
+\newcommand{\caratula}{%
+\thispagestyle{empty}  
+  \begin{center}
+  \bfseries{\large{UNIVERSIDAD CATÓLICA BOLIVIANA SAN PABLO}}\\
+  \scshape{\large{\bfseries{Unidad Académica Cochabamba}}}\\
+  \scshape{\large{\bfseries{\@carrera}}}
+  \end{center}%  
+  \vspace*{1.7cm}%%% Necesario para un correcto centrado vertical  
+  \begin{center}
+	\@logoucb
+	\vspace*{1.2cm}%%% Necesario para un correcto centrado vertical
+   {\bfseries \large \bfseries \@titulo\\}
+  \end{center}
+  \vfill
+  \vspace*{1.3cm}%%% Necesario para un correcto centrado vertical
+% ------
+  \@optartrabajo
+%--- autores ---
+  \vspace*{1.7cm}
+  \ifnum \@numautor > \@ne 
+  \begin{center}
+    \@dosautores
+  \end{center}
+  \else
+  \begin{center}
+    \@unautor
+  \end{center}
+  \fi}%
+%%%%---- Fin ucb-format.sty ---------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\captionformat}{
+	\renewcommand{\baselinestretch}{1}
+	\normalsize
+}
+
+%%
+%% Definición de \maketribunal para imprimir
+%% la lista de miembros del tribunal.
+%%
+
+%-----------------------------------------------
+% Aqui comienza la creación de la portada
+%-----------------------------------------------
+\long\def\jefecarrera#1{\def\@jefecarrera{#1}}
+\long\def\profesorguia#1{\def\@profesorguia{#1}}
+\long\def\profesorrelator#1{\def\@profesorrelator{#1}}
+\long\def\rectorregional#1{\def\@rectorregional{#1}}
+
+\newcommand{\tribunal}{
+\thispagestyle{empty}  
+\renewcommand{\baselinestretch}{1}
+  \begin{center}		
+		\vspace{2cm}
+		\bfseries{ \normalsize{TRIBUNAL EXAMINADOR } }\\
+  	\vspace{7cm}
+
+		\renewcommand{\baselinestretch}{1}
+		\normalsize
+		\footnotesize{ \hspace{0.5cm} \dotfill  \hspace{1.5cm}  \dotfill \hspace{0.5cm} } \\
+  	\footnotesize{ \hspace{0.5cm} \@profesorguia  \hspace{4cm}  \@profesorrelator \hspace{0.5cm} } \\
+		\footnotesize{ \hspace{0.5cm} Profesor Guía  \hspace{5.7cm} Profesor Relator \hspace{0.5cm} } \\
+  
+	  \vspace{7cm}
+		\footnotesize{ \hspace{0.5cm} \dotfill  \hspace{1.5cm}  \dotfill \hspace{0.5cm} } \\
+  	\footnotesize{ \hspace{0.5cm} \@jefecarrera  \hspace{4cm}  \@rectorregional \hspace{0.5cm} } \\
+		\footnotesize{ \hspace{0.5cm} Jefe de Carrera \hspace{5.7cm} Rector Regional \hspace{0.5cm} } \\
+  \end{center}
+}
+
+\newcommand{\anexos}{
+	\appendix
+}
+
+
+\renewcommand{\labelenumi}{%
+ \theenumi.-
+} 
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{%
+ \theenumi.\theenumii.-
+}
+
+\renewcommand{\theenumiii}{\arabic{enumiii}}
+\renewcommand{\labelenumiii}{%
+ \theenumi.\theenumii.\theenumiii.-
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%% Redefinición del estilo en que se presenta el título de cada
+%% capítulo.
+%%
+\renewcommand{\@makechapterhead}[1]{{
+	%\thispagestyle{empty}
+	%\renewcommand{\baselinestretch}{2}
+	\normalsize
+	\vspace*{0.3cm}
+  \MakeUppercase{\noindent \normalsize \bfseries\@chapapp{} \thechapter}\par
+  \vspace*{0.7cm}
+  \centerline{\MakeUppercase{\noindent \normalsize \bfseries #1}}\par                
+  \vspace*{1cm}
+ 	%\renewcommand{\baselinestretch}{\defbaselinestretch}
+}}
+
+%%
+%% Redefinición del estilo en que se presenta el título de cada
+%% capítulo que no ingresa en la tabla de contenidos. (opción *)
+%%
+\renewcommand{\@makeschapterhead}[1]{{
+	%\thispagestyle{empty}
+	%\renewcommand{\baselinestretch}{2}
+	\normalsize
+	\vspace*{0.3cm}
+  \centerline{\MakeUppercase{\noindent \normalsize \bfseries #1}}\par                
+  \vspace*{1cm}
+ 	%\renewcommand{\baselinestretch}{\defbaselinestretch}
+}}
+
+%%
+%% Definición formato para títulos de secciones que
+%% ocupen más de una línea.
+%%
+\newcommand{\@sectiondef}[1]{
+	%\renewcommand{\baselinestretch}{1}
+	\vspace*{0.7cm}
+	\normalsize \bfseries #1
+	\vspace*{0.3cm}
+	%\renewcommand{\baselinestretch}{\defbaselinestretch}
+}
+
+\newcommand{\@subsectiondef}[1]{
+	%\renewcommand{\baselinestretch}{1}
+	\vspace*{0.3cm}
+	\normalsize \itshape \bfseries #1
+	\vspace*{0.3cm}
+	%\renewcommand{\baselinestretch}{\defbaselinestretch}
+}
+
+\newcommand{\@subsubsectiondef}[1]{
+	%\renewcommand{\baselinestretch}{1}
+	\vspace*{0.3cm}
+	\normalsize \itshape #1
+	\vspace*{0.3cm}
+	%\renewcommand{\baselinestretch}{\defbaselinestretch}
+}
+
+%%
+%% Redefinición formato para secciones
+%%
+\renewcommand{\section}{
+	\@startsection{section}{1}{\z@}
+	{.1ex plus.2ex minus.1ex}
+	{.1ex plus.2ex minus.1ex}	
+	{\@sectiondef}	
+}
+
+%%
+%% Redefinición formato para subsecciones
+%%
+\renewcommand{\subsection}{
+	\@startsection{subsection}{2}{\z@}
+	{.1ex plus.2ex minus.1ex}
+	{.1ex plus.2ex minus.1ex}
+	{\@subsectiondef}
+}
+
+%%
+%% Redefinición formato para subsubsecciones
+%%
+\renewcommand{\subsubsection}{
+	\@startsection{subsubsection}{3}{\z@}
+	{.1ex plus.2ex minus.1ex}
+	{.1ex plus.2ex minus.1ex}
+	{\@subsubsectiondef}
+}
+
+\addto\captionsspanish{\renewcommand{\contentsname}{ÍNDICE}}
+\addto\captionsspanish{\renewcommand{\listfigurename}{ÍNDICE DE FIGURAS}}
+\addto\captionsspanish{\renewcommand{\listtablename}{ÍNDICE DE TABLAS}}
+\addto\captionsspanish{\renewcommand{\bibname}{BIBLIOGRAFÍA}}
+\addto\captionsspanish{\renewcommand{\appendixname}{ANEXO}}
+
+\renewcommand{\cfttoctitlefont}{\bfseries \normalsize}
+\renewcommand{\cftloftitlefont}{\bfseries \normalsize}
+\renewcommand{\cftlottitlefont}{\bfseries \normalsize}
+
+\renewcommand{\cftchapfont}{\bfseries \normalsize}
+\renewcommand{\cftsecfont}{\bfseries \normalsize}
+\renewcommand{\cftsubsecfont}{\bfseries \itshape \normalsize}
+\renewcommand{\cftsubsubsecfont}{\itshape \normalsize}
+
+\renewcommand{\cftmarktoc}{\centering \normalsize}
+\renewcommand{\cftmarklof}{\centering \normalsize}
+\renewcommand{\cftmarklot}{\centering \normalsize}
